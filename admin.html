@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<script src="config.js"></script>
+</head><body>
+<meta name="robots" content="noindex, nofollow">
+<title>植物有解 侘寂版後台</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500&family=Noto+Sans+TC:wght@300;400;500&family=Jost:wght@300;400&display=swap">
+<style>
+/* Layout: 侘寂版訂單後台——亞麻底、細線卡片、狀態用小圓點與低彩度色，手機單欄可操作 */
+:root{
+  --linen:#EFEBE5; --card:#F6F3EE; --oat:#E6DCCB; --stone:#D3CABD; --ink:#2A2521; --ink-2:#6D645B; --rule:#CBC2B5; --seal:#C23B22;
+  /* 訂單狀態（低彩度） */
+  --s-pend:#A9603F; --s-paid:#B08A3E; --s-ship:#4E5B66; --s-done:#5E7258; --s-cancel:#A39A90;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --f:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif; --latin:"Jost","Helvetica Neue",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--linen);color:var(--ink);font-family:var(--f);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom,0px)}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:1.5px solid var(--ink);outline-offset:3px}
+.wrap{max-width:880px;margin:0 auto;padding-inline:16px}
+.num{font-family:var(--latin);font-weight:400;font-variant-numeric:tabular-nums}
+
+header{position:sticky;top:0;z-index:10;background:var(--linen);border-bottom:1px solid var(--rule);padding-top:env(safe-area-inset-top,0px)}
+.bar{display:flex;justify-content:space-between;align-items:center;height:60px;gap:10px}
+.logo{display:flex;align-items:center;gap:10px}
+.seal{display:inline-grid;place-items:center;width:22px;height:22px;background:var(--seal);color:var(--linen);font-family:var(--serif);font-size:9px;line-height:1.05;text-align:center;border-radius:2px}
+.logo b{font-family:var(--serif);font-weight:500;font-size:18px;letter-spacing:.2em}
+.logo small{font-family:var(--latin);font-size:11px;letter-spacing:.28em;color:var(--ink-2)}
+.hbtns{display:flex;gap:8px}
+.hbtn{background:var(--ink);color:var(--linen);border:1px solid var(--ink);border-radius:999px;padding:6px 16px;font-size:13px;letter-spacing:.1em;min-height:38px}
+.hbtn.ghost{background:transparent;color:var(--ink)}
+
+.demo{background:var(--oat);color:var(--ink);padding:12px 16px;font-size:13px;margin-top:16px;border-left:2px solid var(--ink-2)}
+.err-bar{background:var(--card);color:var(--seal);border:1px solid var(--seal);padding:10px 14px;font-size:14px;margin-top:16px}
+
+/* login */
+.login{max-width:400px;margin:12vh auto 0;padding:40px 28px;background:var(--card);border:1px solid var(--rule);display:grid;gap:18px}
+.login h1{margin:0;font-family:var(--serif);font-weight:500;font-size:22px;letter-spacing:.12em}
+.login p{margin:0;color:var(--ink-2);font-size:13px}
+label{display:grid;gap:4px;font-size:12px;letter-spacing:.1em;color:var(--ink-2)}
+input,select,textarea{font:inherit;font-size:16px;padding:8px 0;border:none;border-bottom:1px solid var(--ink-2);border-radius:0;background:transparent;color:var(--ink);width:100%;min-height:44px}
+input:focus,textarea:focus{outline:none;border-bottom-color:var(--ink)}
+textarea{resize:vertical;min-height:56px}
+.check{display:flex;align-items:center;gap:8px;font-size:13px;letter-spacing:0}
+.check input{width:18px;min-height:18px;height:18px}
+.primary{background:var(--ink);color:var(--linen);border:1px solid var(--ink);border-radius:999px;padding:10px 22px;font-size:14px;letter-spacing:.14em;min-height:46px}
+.primary:hover{background:transparent;color:var(--ink)}
+.primary:disabled{opacity:.6}
+.ghost{border:1px solid var(--ink);border-radius:999px;background:none;padding:8px 16px;font-size:13px;letter-spacing:.08em;min-height:42px;white-space:nowrap}
+.msg{color:var(--seal);font-size:13px;min-height:1.2em;margin:0}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:20px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
+.stat{padding:16px 12px;min-width:0;border-left:1px solid var(--rule)}
+.stat:first-child{border-left:none;padding-left:0}
+.stat b{display:block;font-family:var(--latin);font-weight:300;font-size:clamp(20px,4.6vw,30px);line-height:1.2;overflow-wrap:anywhere}
+.stat span{font-size:12px;color:var(--ink-2);letter-spacing:.08em}
+
+.tools{display:grid;gap:12px;margin-bottom:14px}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}
+.tab{border:1px solid var(--rule);border-radius:999px;background:none;padding:4px 14px;font-size:13px;letter-spacing:.06em;white-space:nowrap;min-height:36px}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--linen);border-color:var(--ink)}
+.tab .c{font-family:var(--latin);margin-left:6px;opacity:.7}
+.trow{display:flex;gap:10px;align-items:end}
+.trow input{flex:1;min-width:0}
+.sync{font-size:12px;color:var(--ink-2);margin:-2px 0 0}
+
+.list{display:grid;gap:10px;margin-bottom:48px}
+.order{background:var(--card);border:1px solid var(--rule)}
+.order[data-s="已取消"]{opacity:.6}
+.osum{display:grid;grid-template-columns:1fr auto;gap:2px 12px;width:100%;text-align:left;background:none;border:none;padding:14px 16px}
+.osum .nm{font-family:var(--serif);font-size:16px;letter-spacing:.06em}
+.osum .no{font-size:12px;color:var(--ink-2);font-family:var(--latin)}
+.osum .it{font-size:13px;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.osum .amt{text-align:right;font-size:17px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;letter-spacing:.08em;justify-self:end;color:var(--ink)}
+.pill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--s-pend)}
+.pill[data-s="已付款"]::before{background:var(--s-paid)}
+.pill[data-s="已出貨"]::before{background:var(--s-ship)}
+.pill[data-s="已完成"]::before{background:var(--s-done)}
+.pill[data-s="已取消"]::before{background:var(--s-cancel)}
+.odet{padding:4px 16px 18px;border-top:1px solid var(--rule)}
+dl{display:grid;grid-template-columns:5em 1fr;gap:6px 12px;margin:14px 0;font-size:14px}
+dt{color:var(--ink-2)}
+dd{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;min-width:0}
+.sbtns{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}
+.sbtn{border:1px solid var(--rule);border-radius:999px;background:none;padding:5px 14px;font-size:13px;min-height:38px}
+.sbtn[aria-pressed="true"]{background:var(--ink);color:var(--linen);border-color:var(--ink)}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fields .full{grid-column:1/-1}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.empty{text-align:center;color:var(--ink-2);padding:48px 12px;background:var(--card);border:1px solid var(--rule)}
+.empty b{display:block;color:var(--ink);font-family:var(--serif);font-weight:500;font-size:16px;margin-bottom:4px}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--linen);padding:10px 22px;border-radius:999px;font-size:13px;letter-spacing:.08em;z-index:50;max-width:calc(100% - 32px)}
+@media (max-width:600px){
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat:nth-child(3){border-left:none;padding-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--rule)}
+  .fields{grid-template-columns:1fr}
+  .logo small{display:none}
+}
+</style>
+
+<header>
+  <div class="wrap bar">
+    <span class="logo"><span class="seal" aria-hidden="true">植物<br>有解</span><b>植物有解</b><small>ORDERS</small></span>
+    <div class="hbtns" id="hbtns" hidden>
+      <button class="hbtn" type="button" id="refresh">重新整理</button>
+      <button class="hbtn ghost" type="button" id="logout">登出</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <form class="login" id="login" hidden>
+    <h1>登入訂單後台</h1>
+    <p>輸入 Apps Script 執行 setup 後顯示的後台密碼。</p>
+    <label for="key">後台密碼<input id="key" type="password" autocomplete="current-password"></label>
+    <label class="check" for="remember"><input id="remember" type="checkbox" checked>在這台裝置記住我</label>
+    <p class="msg" id="loginMsg"></p>
+    <button class="primary" type="submit" id="loginBtn">登入</button>
+  </form>
+
+  <section id="app" hidden>
+    <div class="demo" id="demo" hidden>示範模式：下面是範例訂單，不是真的。把 config.js 的 endpoint 換成你的 Apps Script 網址後，就會顯示真實訂單。</div>
+    <div class="err-bar" id="errBar" hidden></div>
+
+    <div class="stats">
+      <div class="stat"><b class="num" id="sPend">0</b><span>待付款</span></div>
+      <div class="stat"><b class="num" id="sShip">0</b><span>待出貨（已付款）</span></div>
+      <div class="stat"><b class="num" id="sMonth">NT$0</b><span>本月已收款</span></div>
+      <div class="stat"><b class="num" id="sAll">0</b><span>全部訂單</span></div>
+    </div>
+
+    <div class="tools">
+      <div class="tabs" id="tabs" role="group" aria-label="依狀態篩選"></div>
+      <div class="trow">
+        <input id="q" type="search" placeholder="搜尋姓名、手機、訂單編號、末五碼" aria-label="搜尋訂單">
+        <button class="ghost" type="button" id="csv">匯出 CSV</button>
+      </div>
+      <p class="sync" id="sync"></p>
+    </div>
+
+    <div class="list" id="list"></div>
+  </section>
+</main>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const CFG=window.PA_CONFIG||{};
+const STATUSES=["待付款","已付款","已出貨","已完成","已取消"];
+const DEMO=!CFG.endpoint||/PASTE_/.test(CFG.endpoint);
+const $=id=>document.getElementById(id);
+const fmt=n=>"NT$"+(Number(n)||0).toLocaleString("en-US");
+const esc=t=>String(t??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let key="", orders=[], filter="全部", openNo=null, lastSync=0;
+
+function toast(t){const e=$("toast");e.textContent=t;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>e.hidden=true,2000)}
+async function copy(t){try{await navigator.clipboard.writeText(t);return true}catch(e){const a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();let ok=false;try{ok=document.execCommand("copy")}catch(_){}a.remove();return ok}}
+const store={get(k){try{return localStorage.getItem(k)||sessionStorage.getItem(k)||""}catch(e){return""}},
+  set(k,v,keep){try{(keep?localStorage:sessionStorage).setItem(k,v)}catch(e){}},
+  del(k){try{localStorage.removeItem(k);sessionStorage.removeItem(k)}catch(e){}}};
+
+async function api(body){
+  const r=await fetch(CFG.endpoint,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({...body,key})});
+  const j=await r.json();
+  if(!j.ok) throw new Error(j.error||"error");
+  return j;
+}
+
+/* ---------- 登入 ---------- */
+function showLogin(msg){$("app").hidden=true;$("hbtns").hidden=true;$("login").hidden=false;$("loginMsg").textContent=msg||"";$("key").focus()}
+function showApp(){$("login").hidden=true;$("app").hidden=false;$("hbtns").hidden=false}
+$("login").addEventListener("submit",async e=>{
+  e.preventDefault();
+  key=$("key").value.trim(); if(!key){$("loginMsg").textContent="請輸入密碼";return}
+  $("loginBtn").disabled=true;$("loginMsg").textContent="";
+  try{await load();store.set("pa-admin-key",key,$("remember").checked);showApp();render()}
+  catch(err){showLogin(err.message==="unauthorized"?"密碼不對，請再確認一次。":"連不上訂單系統，請檢查 config.js 的網址。")}
+  $("loginBtn").disabled=false;
+});
+$("logout").onclick=()=>{store.del("pa-admin-key");key="";orders=[];showLogin("已登出")};
+$("refresh").onclick=async()=>{$("refresh").disabled=true;try{await load();render();toast("已更新")}catch(e){bar("更新失敗："+e.message)}$("refresh").disabled=false};
+function bar(t){$("errBar").textContent=t;$("errBar").hidden=!t}
+
+async function load(){
+  if(DEMO){orders=demoOrders();lastSync=Date.now();return}
+  const j=await api({action:"list"});orders=j.orders;lastSync=Date.now();bar("");
+}
+
+/* ---------- 篩選 ---------- */
+function buildTabs(){
+  const box=$("tabs");box.innerHTML="";
+  ["全部",...STATUSES].forEach(s=>{
+    const n=s==="全部"?orders.length:orders.filter(o=>o.status===s).length;
+    const b=document.createElement("button");b.type="button";b.className="tab";b.setAttribute("aria-pressed",filter===s);
+    b.innerHTML=`${s}<span class="c">${n}</span>`;b.onclick=()=>{filter=s;render()};box.appendChild(b);
+  });
+}
+$("q").oninput=()=>render();
+
+/* ---------- 回覆訊息 ---------- */
+function reply(o){
+  const b=CFG.bank||{};
+  if(o.status==="待付款") return `${o.name} 您好，謝謝你在植物有解訂購！\n訂單編號：${o.no}\n${o.items}\n商品金額：${fmt(o.total)}\n\n請於 ${CFG.payDays||3} 天內轉帳至：\n${b.name||""}（${b.code||""}）\n帳號 ${b.account||""}\n戶名 ${b.holder||""}\n\n轉帳後回傳末五碼，小艾確認後就出貨。`;
+  if(o.status==="已付款") return `${o.name} 您好，已收到你的款項（末五碼 ${o.last5||"—"}），訂單 ${o.no} 會盡快出貨，謝謝！`;
+  if(o.status==="已出貨") return `${o.name} 您好，訂單 ${o.no} 已出貨（${o.ship}）${o.tracking?`\n物流單號：${o.tracking}`:""}\n收到後有任何使用問題，都可以直接問小艾。`;
+  if(o.status==="已取消") return `${o.name} 您好，訂單 ${o.no} 已取消。如果還需要，隨時再跟小艾說。`;
+  return `${o.name} 您好，謝謝你選擇植物有解。身體有問，植物有解。`;
+}
+
+/* ---------- 畫面 ---------- */
+function render(){
+  $("demo").hidden=!DEMO;
+  const now=new Date(), m0=new Date(now.getFullYear(),now.getMonth(),1).getTime();
+  $("sPend").textContent=orders.filter(o=>o.status==="待付款").length;
+  $("sShip").textContent=orders.filter(o=>o.status==="已付款").length;
+  $("sMonth").textContent=fmt(orders.filter(o=>o.createdAt>=m0&&["已付款","已出貨","已完成"].includes(o.status)).reduce((s,o)=>s+o.total,0));
+  $("sAll").textContent=orders.length;
+  $("sync").textContent=lastSync?`最後更新 ${new Date(lastSync).toLocaleTimeString("zh-TW",{hour:"2-digit",minute:"2-digit"})}`:"";
+  buildTabs();
+  const q=$("q").value.trim();
+  const list=orders.filter(o=>(filter==="全部"||o.status===filter)&&(!q||[o.name,o.phone,o.no,o.items,o.last5].join(" ").includes(q)));
+  const box=$("list");
+  if(!list.length){box.innerHTML=orders.length?'<div class="empty"><b>這個分類沒有訂單</b>換個狀態或關鍵字看看。</div>':'<div class="empty"><b>還沒有訂單</b>顧客在網站送出訂單後，按「重新整理」就會出現在這裡。</div>';return}
+  box.innerHTML=list.map(o=>{const d=new Date(o.createdAt);const open=openNo===o.no;return `
+  <article class="order" data-s="${esc(o.status)}" data-no="${esc(o.no)}">
+    <button type="button" class="osum" aria-expanded="${open}">
+      <span class="nm">${esc(o.name)}</span><span class="pill" data-s="${esc(o.status)}">${esc(o.status)}</span>
+      <span class="no">${esc(o.no)}　${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}</span><span class="amt num">${fmt(o.total)}</span>
+      <span class="it">${esc((o.items||"").replace(/\n/g,"、"))}</span>
+    </button>
+    <div class="odet" ${open?"":"hidden"}>
+      <dl><dt>商品</dt><dd>${esc(o.items)}</dd><dt>手機</dt><dd>${esc(o.phone)}</dd><dt>寄送</dt><dd>${esc(o.ship)}</dd><dt>地址門市</dt><dd>${esc(o.addr)}</dd><dt>顧客備註</dt><dd>${esc(o.note||"—")}</dd></dl>
+      <div class="sbtns" role="group" aria-label="訂單狀態">${STATUSES.map(s=>`<button type="button" class="sbtn" data-status="${s}" aria-pressed="${o.status===s}">${s}</button>`).join("")}</div>
+      <div class="fields">
+        <label>匯款末五碼<input class="f-last5" inputmode="numeric" maxlength="10" value="${esc(o.last5)}"></label>
+        <label>物流單號<input class="f-track" value="${esc(o.tracking)}"></label>
+        <label class="full">內部備註（顧客看不到）<textarea class="f-memo">${esc(o.memo)}</textarea></label>
+      </div>
+      <div class="acts">
+        <button type="button" class="primary a-copy">複製「${o.status}」回覆訊息</button>
+        <button type="button" class="ghost a-save">儲存末五碼／單號／備註</button>
+      </div>
+    </div>
+  </article>`}).join("");
+}
+
+$("list").addEventListener("click",async e=>{
+  const card=e.target.closest(".order");if(!card)return;
+  const o=orders.find(x=>x.no===card.dataset.no);if(!o)return;
+  if(e.target.closest(".osum")){openNo=openNo===o.no?null:o.no;render();return}
+  const sb=e.target.closest("[data-status]");
+  if(sb){const s=sb.dataset.status;if(s===o.status)return;await save(o,{status:s},`已改為「${s}」`);return}
+  if(e.target.closest(".a-save")){
+    const ch={last5:card.querySelector(".f-last5").value.trim(),tracking:card.querySelector(".f-track").value.trim(),memo:card.querySelector(".f-memo").value.trim()};
+    if(ch.last5===(o.last5||"")&&ch.tracking===(o.tracking||"")&&ch.memo===(o.memo||""))return toast("沒有變更");
+    await save(o,ch,"已儲存");return}
+  if(e.target.closest(".a-copy")){toast(await copy(reply(o))?"已複製，貼到 LINE 傳給顧客":"複製失敗，請手動選取")}
+});
+
+async function save(o,ch,okMsg){
+  const prev={...o};Object.assign(o,ch);render();
+  if(DEMO){toast(okMsg+"（示範）");return}
+  try{await api({action:"update",no:o.no,...ch});toast(okMsg)}
+  catch(err){Object.assign(o,prev);render();toast(err.message==="unauthorized"?"登入已失效，請重新登入":"沒有存到："+err.message)}
+}
+
+/* ---------- 匯出 ---------- */
+$("csv").onclick=()=>{
+  const head=["訂單編號","建立時間","狀態","姓名","手機","寄送方式","地址/門市","商品明細","商品金額","顧客備註","匯款末五碼","物流單號","內部備註"];
+  const q=v=>`"${String(v??"").replace(/"/g,'""')}"`;
+  const rows=orders.map(o=>[o.no,new Date(o.createdAt).toLocaleString("zh-TW"),o.status,o.name,o.phone,o.ship,o.addr,o.items,o.total,o.note,o.last5,o.tracking,o.memo].map(q).join(","));
+  const blob=new Blob(["﻿"+[head.map(q).join(","),...rows].join("\n")],{type:"text/csv"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`植物有解訂單_${new Date().toISOString().slice(0,10)}.csv`;
+  document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),2000);
+};
+
+/* ---------- 示範資料 ---------- */
+function demoOrders(){
+  const t=Date.now(),h=3600e3;
+  return [
+    {no:"PA20261008-003",createdAt:t-1*h,status:"待付款",name:"範例・王小姐",phone:"0912000111",ship:"7-11 店到店",addr:"［範例］7-11 某某門市",items:"一日三瓶 三入組 × 1（NT$8,200）",total:8200,note:"想送媽媽",last5:"",tracking:"",memo:""},
+    {no:"PA20261008-002",createdAt:t-5*h,status:"已付款",name:"範例・陳先生",phone:"0922000222",ship:"宅配到府",addr:"［範例］台北市某區某路 1 號",items:"漢方夜安香精華按摩油 × 2（NT$5,800）",total:5800,note:"",last5:"12345",tracking:"",memo:"週五寄出"},
+    {no:"PA20261007-001",createdAt:t-28*h,status:"已出貨",name:"範例・林小姐",phone:"0933000333",ship:"全家店到店",addr:"［範例］全家某某店",items:"漢方穀合香精華按摩油 × 1（NT$2,700）\n漢方元息香精華按摩油 × 1（NT$2,600）",total:5300,note:"",last5:"67890",tracking:"［範例單號］",memo:""}
+  ];
+}
+
+/* ---------- 啟動 ---------- */
+(async()=>{
+  if(DEMO){await load();showApp();render();return}
+  key=store.get("pa-admin-key");
+  if(!key){showLogin();return}
+  try{await load();showApp();render()}
+  catch(err){showLogin(err.message==="unauthorized"?"請重新登入":"連不上訂單系統，請稍後再試。")}
+})();
+</script>
+
+
+</body></html>

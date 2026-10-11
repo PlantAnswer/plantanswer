@@ -1,0 +1,1231 @@
+<!doctype html>
+<html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<script src="config.js"></script>
+<meta name="description" content="植物有解｜真元草本漢方精油。身體有問，植物有解。">
+</head><body>
+<title>植物有解 侘寂版</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500&family=Jost:wght@200;300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap">
+<style>
+/* Layout: 侘寂・Aesop 式選品頁——大面積留白、洞石與燕麥色塊、宋體標題配細長拉丁字，唯一的紅是一枚小印章 */
+:root{
+  --linen:#EFEBE5;   /* 頁底：洗過的亞麻 */
+  --oat:#E6DCCB;     /* 燕麥 */
+  --stone:#D3CABD;   /* 洞石 */
+  --mist:#E4E0DA;    /* 灰霧 */
+  --umber:#7A6450;   /* 木褐，用於細節 */
+  --ink:#2A2521;     /* 墨 */
+  --ink-2:#6D645B;   /* 淡墨 */
+  --rule:#CBC2B5;    /* 細線 */
+  --seal:#C23B22;    /* 印泥朱，只出現在印章 */
+  --brass:#A3875A;   /* 舊黃銅：細線、數字、框 */
+  --night:#1E1A17;   /* 夜 */
+  --display:"Cormorant Garamond","Cormorant","Didot",Georgia,serif;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --latin:"Jost","Futura","Helvetica Neue",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--linen);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{margin:0;font-family:var(--serif);font-weight:500;line-height:1.4;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:1.5px solid var(--ink);outline-offset:4px}
+.eyebrow{font-family:var(--latin);font-weight:400;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-2)}
+.latin-title{font-family:var(--display);font-style:italic;font-weight:300;letter-spacing:.005em;line-height:1}
+.num{font-family:var(--latin);font-weight:400;font-variant-numeric:tabular-nums}
+.link{font-size:15px;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px;letter-spacing:.06em}
+.link:hover{color:var(--umber)}
+
+/* seal mark */
+.seal{display:inline-grid;place-items:center;width:22px;height:22px;background:var(--seal);color:var(--linen);font-family:var(--serif);font-size:9px;line-height:1.05;text-align:center;border-radius:2px;flex-shrink:0;letter-spacing:0}
+
+/* bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--linen);border-bottom:1px solid var(--rule)}
+.bar .wrap{height:72px;display:flex;align-items:center;gap:clamp(14px,3vw,40px)}
+.bar .userbtn{margin-left:auto}
+.bar .cartbtn{white-space:nowrap;display:inline-flex;align-items:center;gap:4px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand b{font-family:var(--serif);font-weight:500;font-size:20px;letter-spacing:.24em;white-space:nowrap}
+.brand small{font-family:var(--latin);font-size:11px;letter-spacing:.3em;color:var(--ink-2)}
+.bar nav{display:flex;gap:clamp(14px,2.6vw,32px);font-size:14px;letter-spacing:.14em;white-space:nowrap}
+.bar nav{gap:8px}
+.bar nav a{display:inline-flex;align-items:center;min-height:38px;padding:0 16px;border:1px solid var(--ink);border-radius:999px;font-weight:500;transition:background .3s,color .3s}
+.bar nav a{text-decoration:none}
+.bar nav a:hover{color:var(--umber)}
+.cartbtn{background:none;border:none;font-size:14px;letter-spacing:.14em;min-height:44px;padding:0}
+
+/* buttons */
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:56px;padding:14px 36px;border-radius:999px;background:var(--ink);color:var(--linen);border:1px solid var(--ink);font-size:14px;letter-spacing:.24em;text-decoration:none;transition:background .3s,color .3s}
+.pill:hover{background:transparent;color:var(--ink);border-color:var(--brass)}
+.pill .en{font-family:var(--latin);letter-spacing:.3em}
+.pill.line{background:transparent;color:var(--ink)}
+.pill.line:hover{background:var(--ink);color:var(--linen)}
+.pill.block{width:100%}
+
+/* hero：直排宋體標題＋慢慢推近的產品照 */
+.hero{max-width:1180px;margin:0 auto;padding:clamp(28px,5vw,64px) 20px 0;display:grid;grid-template-columns:auto minmax(0,400px) minmax(0,1fr);gap:clamp(18px,4.5vw,64px);align-items:start}
+.vt{writing-mode:vertical-rl;font-family:var(--serif);font-weight:500;font-size:clamp(34px,6.4vw,88px);letter-spacing:.32em;line-height:1.55;margin:0;display:flex;flex-direction:column;align-items:start}
+.vt span{display:block}
+.vt span:nth-child(2){padding-inline-start:1.4em}
+.vt i{font-style:normal;display:inline-block;animation:ink 1.6s cubic-bezier(.2,.6,.2,1) both}
+.vt .seal{writing-mode:horizontal-tb;width:clamp(30px,3.4vw,46px);height:clamp(30px,3.4vw,46px);font-size:clamp(11px,1.2vw,15px);margin-block-start:.6em;animation:stamp .5s 1.9s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes ink{from{opacity:.12;filter:blur(8px);transform:translateY(-.15em)}to{opacity:1;filter:none;transform:none}}
+@keyframes stamp{from{transform:scale(1.6) rotate(-8deg);opacity:.2}to{transform:none;opacity:1}}
+.hero figure{display:contents}
+.hero .ph{overflow:hidden;background:var(--stone);position:relative}
+.hero .ph::after,.frame .ph::after{content:"";position:absolute;inset:14px;border:1px solid rgba(239,235,229,.7);pointer-events:none}
+.frame .ph::after{display:none}
+.hero img{display:block;width:100%;height:auto;animation:push 6s cubic-bezier(.2,.5,.2,1) both;will-change:transform}
+.hero .ph .par{transform:translateY(var(--py,0px))}
+@keyframes push{from{transform:scale(1.12)}to{transform:scale(1)}}
+.hero figcaption{display:grid;gap:22px;align-content:end;align-self:end;padding-block:0 8px;min-width:0}
+.hero .lede{max-width:28em;color:var(--ink-2);font-size:15px}
+
+/* moments strip */
+.moments{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.moments a{display:grid;gap:8px;justify-items:center;text-align:center;text-decoration:none;padding:34px 12px}
+.moments a:nth-child(1){background:var(--mist)}
+.moments a:nth-child(2){background:var(--oat)}
+.moments a:nth-child(3){background:var(--stone)}
+.moments b{font-family:var(--serif);font-weight:500;font-size:clamp(17px,2vw,21px);letter-spacing:.1em}
+.moments b span{font-family:var(--latin);font-weight:300;margin-left:6px;transition:margin .3s}
+.moments a:hover b span{margin-left:12px}
+.moments small{color:var(--ink-2);font-size:13px;letter-spacing:.06em}
+.moments .t{font-family:var(--latin);font-weight:200;font-size:clamp(28px,4vw,44px);line-height:1;letter-spacing:.02em}
+
+/* intro */
+.intro{padding-block:clamp(72px,10vw,128px)}
+.intro .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end}
+.intro h2{font-size:clamp(26px,3.2vw,38px);letter-spacing:.06em}
+.intro p{color:var(--ink-2);max-width:30em}
+
+/* 三味：主要萃取 */
+.herbs{padding-block:0 clamp(80px,11vw,140px)}
+.herbs .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--brass);border-bottom:1px solid var(--rule)}
+.herb{display:grid;justify-items:center;text-align:center;gap:14px;padding:clamp(36px,5vw,64px) 16px;min-width:0}
+.herb + .herb{border-left:1px solid var(--rule)}
+.herb .glyph{width:clamp(84px,10vw,128px);aspect-ratio:1;border:1px solid var(--brass);border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:clamp(40px,5vw,60px);position:relative}
+.herb .glyph::after{content:"";position:absolute;inset:6px;border:1px solid var(--rule);border-radius:50%}
+.herb b{font-family:var(--serif);font-weight:500;font-size:17px;letter-spacing:.14em}
+.herb .latin-title{font-size:22px;color:var(--brass)}
+.herb small{color:var(--ink-2);font-size:13px;line-height:1.8;max-width:16em}
+
+/* product */
+.prod{border-top:1px solid var(--rule)}
+.prod .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,88px);padding-block:clamp(56px,8vw,104px);align-items:start}
+.prod.flip figure{order:2}
+.prod figure{margin:0;min-width:0;width:100%;max-width:380px;justify-self:center;padding-top:clamp(8px,3vw,40px);position:sticky;top:calc(88px + env(safe-area-inset-top,0px))}
+.prod figure img{display:block;width:100%;height:auto;-webkit-mask-image:radial-gradient(ellipse 72% 70% at 50% 52%,#000 45%,transparent 100%);mask-image:radial-gradient(ellipse 72% 70% at 50% 52%,#000 45%,transparent 100%)}
+.prod figcaption{display:flex;justify-content:space-between;gap:12px;margin-top:12px;font-size:12px;color:var(--ink-2);letter-spacing:.14em}
+.prod figcaption .num{letter-spacing:.2em}
+.copy{min-width:0;display:grid;gap:22px}
+.copy .latin-title{font-size:clamp(40px,5.4vw,64px)}
+.copy h2{font-size:clamp(22px,2.4vw,28px);letter-spacing:.06em}
+.copy h3{font-size:18px;font-weight:400;color:var(--ink-2);letter-spacing:.04em;line-height:1.7}
+.copy .body{display:grid;gap:14px;max-width:34em}
+.specs{margin:0;border-top:1px solid var(--brass)}
+.specs div{display:grid;grid-template-columns:6.5em 1fr;gap:16px;padding-block:14px;border-bottom:1px solid var(--rule);font-size:15px}
+.specs dt{color:var(--ink-2);letter-spacing:.08em}
+.specs dd{margin:0;min-width:0}
+.note{font-size:13px;color:var(--ink-2)}
+.price{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.price .now{font-family:var(--display);font-weight:300;font-size:40px;line-height:1;letter-spacing:.02em}
+.price s{font-family:var(--latin);font-weight:300;color:var(--ink-2);font-size:16px}
+.price .off{font-size:12px;letter-spacing:.14em;color:var(--brass);border:1px solid var(--brass);padding:1px 8px;border-radius:999px}
+.ask{text-align:center;font-size:14px;color:var(--ink-2)}
+
+/* set */
+.set{background:var(--oat)}
+.set .wrap{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,80px);padding-block:clamp(64px,9vw,112px);align-items:center}
+.set figure{margin:0;min-width:0;width:100%;max-width:420px;justify-self:center}
+.set img{display:block;width:100%;height:auto}
+.set .copy .latin-title{font-size:clamp(38px,5vw,60px)}
+
+/* quote */
+.voice{padding-block:clamp(80px,11vw,140px)}
+.voice .wrap{max-width:860px;display:grid;gap:28px}
+.voice blockquote{margin:0;font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);line-height:2;letter-spacing:.04em}
+.voice .sig{display:flex;align-items:center;gap:12px;color:var(--ink-2);font-size:14px;letter-spacing:.12em}
+
+/* info + faq */
+.info{border-top:1px solid var(--rule);padding-block:72px}
+.info .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px}
+.info h3{font-size:17px;letter-spacing:.12em;margin-bottom:16px}
+.info ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;color:var(--ink-2);font-size:14px;line-height:1.8}
+.info li{padding-left:18px;position:relative}
+.info li::before{content:"";position:absolute;left:0;top:.85em;width:8px;height:1px;background:var(--ink-2)}
+.faq{padding-block:24px 112px}
+.faq .wrap{display:grid;grid-template-columns:1fr 2fr;gap:48px}
+.faq h2{font-size:clamp(24px,2.8vw,32px);letter-spacing:.08em}
+details{border-bottom:1px solid var(--rule)}
+details:first-of-type{border-top:1px solid var(--rule)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:20px;font-family:var(--serif);font-size:17px;letter-spacing:.04em;min-height:44px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--latin);font-weight:300;font-size:22px;line-height:1;transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding-bottom:22px;color:var(--ink-2);font-size:15px;max-width:40em}
+
+footer{background:var(--ink);color:var(--linen)}
+footer .wrap{padding-block:72px 32px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+footer a{text-decoration:none}
+footer a:hover{text-decoration:underline;text-underline-offset:5px}
+footer .brand b{font-size:24px}
+footer .slogan{font-family:var(--serif);letter-spacing:.24em;margin-top:18px;color:var(--stone)}
+footer h4{margin:0 0 10px;font-family:var(--latin);font-weight:400;font-size:12px;letter-spacing:.3em;color:var(--stone)}
+footer p{font-size:14px;line-height:2}
+.copybtn{background:none;border:1px solid var(--stone);color:var(--linen);border-radius:999px;font-size:12px;padding:1px 12px;margin-left:8px;letter-spacing:.1em}
+.legal{grid-column:1/-1;border-top:1px solid #4A423B;padding-top:22px;font-size:12px;color:var(--stone);line-height:1.9}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(42,37,33,.36);z-index:40}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--linen);z-index:50;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);border-left:1px solid var(--rule)}
+.drawer header{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--rule)}
+.drawer header h2{font-size:19px;letter-spacing:.16em}
+.x{background:none;border:none;font-family:var(--latin);font-weight:300;font-size:30px;line-height:1;width:44px;height:44px}
+.dbody{flex:1;overflow:auto;padding:20px 24px;display:grid;gap:18px;align-content:start}
+.ln{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;padding-bottom:18px;border-bottom:1px solid var(--rule)}
+.ln img{width:64px;height:80px;object-fit:cover;display:block;background:var(--stone)}
+.ln .nm{font-family:var(--serif);letter-spacing:.06em}
+.ln .pr{font-size:13px;color:var(--ink-2)}
+.qty{display:flex;align-items:center;border:1px solid var(--rule);border-radius:999px}
+.qty button{background:none;border:none;width:36px;height:36px;font-size:16px}
+.qty span{min-width:20px;text-align:center}
+.empty{color:var(--ink-2);text-align:center;padding:56px 0;font-family:var(--serif)}
+.dfoot{border-top:1px solid var(--ink);padding:18px 24px;display:grid;gap:14px}
+.total{display:flex;justify-content:space-between;align-items:baseline;letter-spacing:.1em}
+.total .num{font-size:26px;font-weight:300}
+.save{font-size:12px;color:var(--ink-2)}
+form{display:grid;gap:16px}
+label{display:grid;gap:6px;font-size:13px;letter-spacing:.1em;color:var(--ink-2)}
+input,select,textarea{font:inherit;font-size:16px;color:var(--ink);background:transparent;border:none;border-bottom:1px solid var(--ink-2);border-radius:0;padding:8px 0;width:100%;min-height:44px}
+input:focus,select:focus,textarea:focus{outline:none;border-bottom-color:var(--ink)}
+textarea{min-height:64px;resize:vertical}
+.err{color:var(--seal);font-size:14px}
+.done{display:grid;gap:16px}
+.done pre{white-space:pre-wrap;background:var(--oat);padding:16px;font-family:var(--sans);font-size:14px;margin:0;line-height:1.8}
+.toast{position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--linen);padding:12px 24px;border-radius:999px;z-index:60;font-size:14px;letter-spacing:.1em;max-width:calc(100% - 32px)}
+
+/* 一天的光線：早晨灰霧、午後燕麥、睡前轉暗 */
+.prod.day{background:var(--mist)}
+.prod.meal{background:linear-gradient(var(--mist),var(--oat) 26%)}
+.prod.night{--linen:#1E1A17;--ink:#EDE7DE;--ink-2:#ADA398;--rule:#3C352F;--umber:#C9A982;--stone:#3A332D;--brass:#C4A574;background:radial-gradient(60% 50% at 70% 62%,rgba(196,165,116,.13),transparent 70%),linear-gradient(var(--oat),#6F6256 9%,var(--night) 24%);color:var(--ink)}
+.prod.night .wrap{padding-top:clamp(120px,16vw,200px)}
+#prods + .set{background:linear-gradient(var(--night),var(--oat) 30%)}
+#prods + .set .wrap{padding-top:clamp(140px,18vw,220px)}
+.prod{border-top:none}
+.clock{color:var(--brass);font-family:var(--display);font-weight:300;font-size:clamp(72px,11vw,148px);line-height:.85;letter-spacing:-.01em;margin-bottom:6px}
+.frame{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(12px,2vw,22px);align-items:start}
+.frame .ph{overflow:hidden;position:relative}
+.frame img{transform:scale(1.07);transition:transform 1.8s cubic-bezier(.2,.6,.2,1)}
+.prod.in .frame img{transform:none}
+.vlabel{writing-mode:vertical-rl;display:flex;gap:10px;align-items:center;padding-block-start:4px}
+.vlabel b{font-family:var(--serif);font-weight:500;font-size:clamp(18px,2vw,24px);letter-spacing:.42em}
+.vlabel small{font-size:11px;letter-spacing:.32em;color:var(--ink-2)}
+.vlabel .seal{writing-mode:horizontal-tb}
+/* 紙紋 */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:70;opacity:.07;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .25 0 0 0 0 .2 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* 單方精油：藥櫃抽屜式格狀 */
+.apo{padding-block:clamp(40px,6vw,72px) clamp(80px,11vw,140px)}
+.apo .back{display:inline-block;margin-bottom:clamp(28px,4vw,48px);font-size:14px}
+.apo-teaser{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.apo-teaser a{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px 48px;align-items:center;padding-block:clamp(36px,5vw,56px);text-decoration:none}
+.apo-teaser .latin-title{display:block;font-size:clamp(34px,4.4vw,52px);color:var(--brass);margin-top:4px}
+.apo-teaser .tx{display:grid;gap:6px;min-width:0}
+.apo-teaser b{font-family:var(--serif);font-weight:500;font-size:clamp(19px,2.2vw,24px);letter-spacing:.12em}
+.apo-teaser small{color:var(--ink-2);font-size:14px}
+.apo-teaser .go{font-family:var(--latin);font-weight:200;font-size:40px;transition:transform .4s}
+.apo-teaser a:hover .go{transform:translateX(10px)}
+.bar nav a[aria-current="page"]{background:var(--ink);color:var(--linen)}
+.bar nav a:not([aria-current]){color:var(--ink);background:transparent}
+.bar nav a:not([aria-current]):hover{background:var(--oat)}
+.apo .head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 48px;align-items:end;margin-bottom:clamp(32px,4vw,52px)}
+.apo .head .latin-title{font-size:clamp(40px,5.4vw,64px);color:var(--brass)}
+.apo .head h2{font-size:clamp(24px,2.8vw,32px);letter-spacing:.1em;margin-top:6px}
+.apo .head p.sub{color:var(--ink-2);max-width:32em;margin-top:14px;font-size:15px}
+.apo .ctrl{display:flex;gap:20px;align-items:end;flex-wrap:wrap}
+.apo .ctrl label{min-width:0}
+.apo .ctrl input{width:12em}
+.apo .ctrl select{width:9em}
+.drawers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--brass);border-left:1px solid var(--rule)}
+.dw{display:grid;grid-template-rows:auto 1fr auto;gap:14px;padding:clamp(18px,2.4vw,28px);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);min-width:0;transition:background .4s}
+.dw:hover{background:var(--card,#F6F3EE)}
+.dw .top{position:relative;display:grid;place-items:center;background:#EDE7DC;margin:calc(-1*clamp(18px,2.4vw,28px)) calc(-1*clamp(18px,2.4vw,28px)) 4px;padding:clamp(18px,2.6vw,30px) 12px 10px;overflow:hidden}
+.dw .top img{display:block;width:72%;max-width:190px;height:auto;-webkit-mask-image:radial-gradient(ellipse 70% 72% at 50% 50%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 70% 72% at 50% 50%,#000 55%,transparent 100%);transition:transform 1.2s cubic-bezier(.2,.6,.2,1)}
+.dw:hover .top img{transform:scale(1.04)}
+.dw .top .no{position:absolute;top:10px;left:14px}
+.dw .no{font-family:var(--display);font-style:italic;color:var(--ink-2);font-size:15px}
+.dw .glyph{width:52px;aspect-ratio:1;border:1px solid var(--brass);border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:24px;position:relative;flex-shrink:0}
+.dw .glyph::after{content:"";position:absolute;inset:4px;border:1px solid var(--rule);border-radius:50%}
+.dw h3{font-size:clamp(18px,1.8vw,21px);letter-spacing:.14em}
+.dw .la{font-family:var(--display);font-style:italic;font-size:16px;color:var(--ink-2);line-height:1.3;overflow-wrap:anywhere}
+.dw .ml{font-size:11px;letter-spacing:.24em;color:var(--ink-2);margin-top:6px;font-family:var(--latin)}
+.dw .foot{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:12px;border-top:1px solid var(--rule)}
+.dw .pr{font-family:var(--display);font-size:22px;letter-spacing:.02em}
+.dw .add{background:none;border:1px solid var(--ink);border-radius:999px;font-size:12px;letter-spacing:.14em;padding:4px 14px;min-height:36px;transition:background .3s,color .3s}
+.dw .add:hover{background:var(--ink);color:var(--linen)}
+.apo .none{grid-column:1/-1;text-align:center;padding:48px 12px;color:var(--ink-2);font-family:var(--serif);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.apo .fine{margin-top:20px;font-size:12px;color:var(--ink-2);letter-spacing:.06em}
+.ln .gl{width:64px;height:80px;display:grid;place-items:center;background:var(--oat);font-family:var(--serif);font-size:24px}
+@media (max-width:1000px){.drawers{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+@media (max-width:860px){
+  .apo .head{grid-template-columns:1fr}
+  .apo-teaser a{grid-template-columns:minmax(0,1fr) auto}
+  .apo-teaser a > span:first-child{grid-column:1/-1}
+  .drawers{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dw .glyph{width:42px;font-size:19px}
+  .dw .foot{flex-direction:column;align-items:stretch}
+  .apo .ctrl{display:grid;grid-template-columns:1fr auto}
+  .apo .ctrl input,.apo .ctrl select{width:100%}
+  .bar nav{font-size:13px;letter-spacing:.06em}
+  .brand{gap:7px}
+  .brand b{font-size:17px;letter-spacing:.12em}
+  .bar .wrap{height:60px}
+  .brand small{display:none}
+  .hero{padding-top:24px}
+  .hero{grid-template-columns:auto minmax(0,1fr)}
+  .hero figcaption{grid-column:1/-1;gap:12px;padding-top:8px}
+  .herbs .wrap{grid-template-columns:1fr}
+  .herb + .herb{border-left:none;border-top:1px solid var(--rule)}
+  .herb{grid-template-columns:auto 1fr;justify-items:start;text-align:left;align-items:center;column-gap:20px;padding-inline:0}
+  .herb .glyph{grid-row:span 3;width:76px;font-size:34px}
+  .intro .wrap,.prod .wrap,.set .wrap,.info .wrap,.faq .wrap{grid-template-columns:1fr}
+  .prod.flip figure{order:0}
+  .prod figure{position:static}
+  .prod figure{max-width:280px;padding-top:0}
+  .moments a{padding:24px 6px}
+  .moments small{display:none}
+  footer .wrap{grid-template-columns:1fr}
+  .pill{letter-spacing:.16em;padding-inline:24px}
+}
+/* 測驗：找到你的那一味 */
+.finder{margin-bottom:clamp(48px,7vw,88px);background:var(--oat);border-top:1px solid var(--brass);padding:clamp(28px,5vw,56px) clamp(20px,5vw,64px)}
+.fi-intro{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 48px;align-items:center}
+.fi-intro .latin-title{font-size:clamp(34px,4.4vw,52px);color:var(--brass)}
+.fi-intro h2{font-size:clamp(24px,3vw,34px);letter-spacing:.12em;margin-top:6px}
+.fi-intro p.sub{color:var(--ink-2);margin-top:12px;max-width:30em;font-size:15px}
+.fi-big{writing-mode:vertical-rl;font-family:var(--serif);font-size:clamp(56px,8vw,96px);line-height:1;color:var(--ink);opacity:.14;letter-spacing:.1em;user-select:none}
+.fi-q{display:grid;gap:22px}
+.fi-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.fi-step{font-family:var(--display);font-style:italic;font-size:22px;color:var(--brass)}
+.fi-bar{height:1px;background:var(--rule);position:relative}
+.fi-bar i{position:absolute;left:0;top:-1px;height:3px;background:var(--brass);transition:width .5s}
+.fi-q h3{font-size:clamp(21px,2.6vw,28px);letter-spacing:.08em}
+.fi-q .hint{font-size:13px;color:var(--ink-2);letter-spacing:.06em}
+.fi-opts{display:flex;flex-wrap:wrap;gap:10px}
+.fi-opt{border:1px solid var(--ink-2);background:var(--linen);border-radius:999px;padding:10px 20px;min-height:46px;font-size:15px;letter-spacing:.06em;transition:background .25s,color .25s,border-color .25s}
+.fi-opt:hover{border-color:var(--ink)}
+.fi-opt[aria-pressed="true"]{background:var(--ink);color:var(--linen);border-color:var(--ink)}
+.fi-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.fi-nav .pill{min-height:48px;padding:10px 28px}
+.fi-nav .pill:disabled{opacity:.35;pointer-events:none}
+.fi-back{background:none;border:none;font-size:14px;letter-spacing:.08em;text-decoration:underline;text-underline-offset:6px;min-height:44px;padding:0;color:var(--ink-2)}
+.fi-res{display:grid;gap:26px}
+.fi-res .rh{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap}
+.fi-res .rh h3{font-size:clamp(22px,2.8vw,30px);letter-spacing:.1em}
+.fi-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.fc{background:var(--linen);display:grid;grid-template-rows:auto auto 1fr auto;gap:12px;padding:18px;min-width:0;position:relative}
+.fc .rank{position:absolute;top:12px;left:16px;font-family:var(--display);font-style:italic;font-size:15px;color:var(--brass)}
+.fc img{display:block;width:58%;max-width:150px;margin:0 auto;height:auto;-webkit-mask-image:radial-gradient(ellipse 70% 72% at 50% 50%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 70% 72% at 50% 50%,#000 55%,transparent 100%)}
+.fc h4{margin:0;font-family:var(--serif);font-weight:500;font-size:20px;letter-spacing:.12em}
+.fc .la{font-family:var(--display);font-style:italic;color:var(--ink-2);font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-size:12px;letter-spacing:.06em;border:1px solid var(--brass);color:var(--umber);border-radius:999px;padding:1px 10px}
+.fc p{font-size:14px;color:var(--ink-2);line-height:1.8}
+.fc .cta{display:flex;justify-content:space-between;align-items:center;gap:8px;padding-top:12px;border-top:1px solid var(--rule)}
+.fc .cta .pr{font-family:var(--display);font-size:22px}
+.fc .cta div{display:flex;gap:6px}
+.sm{border:1px solid var(--ink);border-radius:999px;background:none;font-size:12px;letter-spacing:.1em;padding:4px 12px;min-height:36px}
+.sm.fill{background:var(--ink);color:var(--linen)}
+.fi-blend{background:var(--linen);padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:15px}
+.fi-blend a{font-family:var(--serif);letter-spacing:.08em}
+.fi-fine{font-size:12px;color:var(--ink-2);line-height:1.8}
+/* 單方介紹視窗 */
+.dlg{position:fixed;inset:0;z-index:55;display:grid;place-items:center;padding:16px;padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+.dlg .bg{position:absolute;inset:0;background:rgba(42,37,33,.42)}
+.dlg .box{position:relative;background:var(--linen);width:min(760px,100%);max-height:100%;overflow:auto;display:grid;grid-template-columns:240px minmax(0,1fr);border-top:1px solid var(--brass)}
+.dlg .ph{background:#EDE7DC;display:grid;place-items:center;padding:28px 16px}
+.dlg .ph img{width:100%;max-width:200px;height:auto;-webkit-mask-image:radial-gradient(ellipse 70% 72% at 50% 50%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 70% 72% at 50% 50%,#000 55%,transparent 100%)}
+.dlg .tx{padding:28px clamp(20px,3vw,36px);display:grid;gap:16px;align-content:start;min-width:0}
+.dlg .x{position:absolute;top:6px;right:8px;z-index:1}
+.dlg h3{font-size:26px;letter-spacing:.14em}
+.dlg .la{font-family:var(--display);font-style:italic;color:var(--ink-2);font-size:18px;margin-top:2px}
+.qa{margin:0;display:grid;gap:14px}
+.qa dt{font-family:var(--serif);font-size:15px;letter-spacing:.06em;display:flex;gap:8px}
+.qa dt::before{content:"問";color:var(--brass)}
+.qa dd{margin:4px 0 0;font-size:14px;color:var(--ink-2);line-height:1.85;padding-left:1.6em}
+.qa dd.warn{color:var(--ink)}
+.dlg .cta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--rule)}
+.dlg .cta .pr{font-family:var(--display);font-size:28px}
+.dw .open{background:none;border:none;padding:0;text-align:left;display:block;width:100%;cursor:pointer}
+.dw .open.top{display:grid;width:auto;color:inherit}
+.dw .more{font-size:12px;letter-spacing:.12em;color:var(--umber);text-decoration:underline;text-underline-offset:5px;margin-top:8px;display:inline-block;width:auto;min-height:32px}
+.finder{scroll-margin-top:calc(84px + env(safe-area-inset-top,0px))}
+
+.sfaq{margin-top:clamp(64px,9vw,112px);display:grid;grid-template-columns:1fr 2fr;gap:48px}
+.sfaq h2{font-size:clamp(24px,2.8vw,32px);letter-spacing:.08em}
+.dilute{width:100%;border-collapse:collapse;font-size:14px;margin:4px 0 18px;max-width:30em}
+.dilute th,.dilute td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule)}
+.dilute th{font-weight:400;color:var(--ink-2);font-size:12px;letter-spacing:.1em}
+@media (max-width:860px){
+  .fi-intro{grid-template-columns:1fr}
+  .fi-big{display:none}
+  .fi-cards{grid-template-columns:1fr}
+  .fc{grid-template-columns:96px minmax(0,1fr);grid-template-rows:none;column-gap:16px;align-items:start}
+  .fc img{width:100%;grid-row:span 3}
+  .fc .cta{grid-column:1/-1}
+  .fc .rank{top:8px;left:10px}
+  .dlg .box{grid-template-columns:1fr}
+  .dlg .ph{padding:20px}
+  .dlg .ph img{max-width:140px}
+  .sfaq{grid-template-columns:1fr;gap:20px}
+}
+
+/* ===== 服務頁：芳療課程、企業送禮、運送 ===== */
+.svc{padding-block:clamp(40px,6vw,72px) clamp(80px,11vw,140px)}
+.svc .head .latin-title{font-size:clamp(40px,5.4vw,64px);color:var(--brass)}
+.svc .head h2{font-size:clamp(24px,2.8vw,32px);letter-spacing:.1em;margin-top:6px}
+.svc .head p.sub{color:var(--ink-2);max-width:32em;margin-top:14px;font-size:15px}
+.svc-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--brass);border-left:1px solid var(--rule);margin-top:clamp(28px,4vw,44px)}
+.svc-nav a{display:grid;gap:6px;padding:20px 18px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);text-decoration:none;min-width:0;transition:background .3s}
+.svc-nav a:hover{background:var(--oat)}
+.svc-nav b{font-family:var(--serif);font-weight:500;font-size:17px;letter-spacing:.12em}
+.svc-nav small{font-size:13px;color:var(--ink-2);line-height:1.7}
+.svc-nav .latin-title{font-size:18px;color:var(--brass)}
+.blk{padding-top:clamp(64px,9vw,112px);scroll-margin-top:calc(72px + env(safe-area-inset-top,0px))}
+.blk > .bh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:24px 64px;align-items:end;padding-bottom:22px;border-bottom:1px solid var(--brass);margin-bottom:clamp(28px,4vw,44px)}
+.blk .bh .latin-title{font-size:clamp(32px,4vw,48px);color:var(--brass)}
+.blk .bh h3{font-size:clamp(22px,2.6vw,30px);letter-spacing:.12em;margin-top:4px}
+.blk .bh p{color:var(--ink-2);font-size:15px;max-width:34em}
+.engr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
+.studio{background:var(--oat);padding:clamp(24px,4vw,44px);display:grid;gap:18px;justify-items:center}
+.studio svg{width:min(180px,46vw);height:auto;display:block}
+.studio label{width:100%;max-width:320px}
+.studio .cnt{font-size:12px;color:var(--ink-2);justify-self:end;max-width:320px;width:100%;text-align:right;margin-top:-10px}
+.rules{margin:0;padding:0;list-style:none;display:grid;gap:0;border-top:1px solid var(--ink)}
+.rules li{display:grid;grid-template-columns:6.5em 1fr;gap:16px;padding-block:14px;border-bottom:1px solid var(--rule);font-size:15px}
+.rules li b{font-weight:400;color:var(--ink-2);letter-spacing:.08em}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:clamp(32px,4vw,48px);counter-reset:st}
+.steps div{border-top:1px solid var(--rule);padding-top:16px;display:grid;gap:6px;counter-increment:st}
+.steps div::before{content:counter(st,decimal-leading-zero);font-family:var(--display);font-style:italic;font-size:28px;color:var(--brass);line-height:1}
+.steps b{font-family:var(--serif);font-weight:500;letter-spacing:.1em}
+.steps small{font-size:14px;color:var(--ink-2);line-height:1.8}
+.efaq{margin-top:clamp(40px,5vw,64px)}
+.gifts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.gifts div{background:var(--oat);padding:22px 20px;display:grid;gap:8px;align-content:start}
+.gifts b{font-family:var(--serif);font-weight:500;letter-spacing:.1em;font-size:17px}
+.gifts span{font-size:12px;letter-spacing:.14em;color:var(--umber)}
+.gifts small{font-size:14px;color:var(--ink-2);line-height:1.8}
+.book{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(28px,5vw,72px);align-items:start}
+.book .svcs{display:grid;gap:0;border-top:1px solid var(--ink)}
+.book .svcs div{padding-block:16px;border-bottom:1px solid var(--rule);display:grid;gap:4px}
+.book .svcs b{font-family:var(--serif);font-weight:500;letter-spacing:.1em;font-size:17px}
+.book .svcs small{font-size:14px;color:var(--ink-2);line-height:1.8}
+.bform{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;background:var(--oat);padding:clamp(22px,3.5vw,40px)}
+.bform .full{grid-column:1/-1}
+.bform .seg{display:flex;flex-wrap:wrap;gap:8px;border:none;padding:0;margin:0}
+.bform .seg legend{font-size:13px;letter-spacing:.1em;color:var(--ink-2);margin-bottom:8px;padding:0}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{display:inline-flex;align-items:center;min-height:42px;padding:0 16px;border:1px solid var(--ink-2);border-radius:999px;background:var(--linen);color:var(--ink);font-size:14px;letter-spacing:.04em;cursor:pointer}
+.seg input:checked + label{background:var(--ink);color:var(--linen);border-color:var(--ink)}
+.seg input:focus-visible + label{outline:1.5px solid var(--ink);outline-offset:3px}
+.bdone{display:grid;gap:14px}
+.bdone pre{white-space:pre-wrap;background:var(--linen);padding:16px;font-family:var(--sans);font-size:14px;margin:0;line-height:1.8}
+.corp{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;background:var(--ink);color:var(--linen);padding:clamp(28px,4vw,48px)}
+.corp p{color:var(--stone);margin-top:10px;max-width:36em;font-size:15px}
+.corp h3{font-size:clamp(20px,2.4vw,26px);letter-spacing:.12em}
+.corp .pill{background:var(--linen);color:var(--ink);border-color:var(--linen)}
+.ship{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+.ship h4{margin:0 0 12px;font-family:var(--serif);font-weight:500;font-size:17px;letter-spacing:.12em}
+.ship ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;color:var(--ink-2);font-size:14px;line-height:1.8}
+.ship li{padding-left:18px;position:relative}
+.ship li::before{content:"";position:absolute;left:0;top:.85em;width:8px;height:1px;background:var(--ink-2)}
+/* 首頁服務帶 */
+.svc-strip{border-top:1px solid var(--rule)}
+.svc-strip .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.svc-strip a{display:grid;gap:6px;padding:clamp(28px,4vw,44px) 18px;text-decoration:none;border-right:1px solid var(--rule)}
+.svc-strip a:last-child{border-right:none}
+.svc-strip a:hover b{color:var(--umber)}
+.svc-strip b{font-family:var(--serif);font-weight:500;letter-spacing:.12em;font-size:16px}
+.svc-strip small{font-size:13px;color:var(--ink-2)}
+.engr-note{font-size:13px;color:var(--ink-2);letter-spacing:.04em}
+.engr-note a{color:var(--umber);margin-left:6px}
+/* 購物車：運費 */
+.ln .eg{grid-column:2/-1;font-size:13px;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}
+.ln .eg .tag{font-family:var(--latin);letter-spacing:.18em;border:1px solid var(--brass);color:var(--umber);padding:1px 10px;border-radius:999px}
+.ln .eg button{background:none;border:none;padding:0;min-height:32px;text-decoration:underline;text-underline-offset:4px;color:var(--umber);font-size:13px}
+.ln .eged{grid-column:1/-1;display:grid;grid-template-columns:72px minmax(0,1fr);gap:14px;align-items:center;background:var(--oat);padding:12px}
+.ln .eged svg{width:72px;height:auto}
+.ln .eged .row{display:flex;gap:8px;margin-top:8px}
+.ln .eged small{font-size:12px;color:var(--ink-2);display:block;margin-top:6px;line-height:1.6}
+.total.sub{font-size:14px;color:var(--ink-2)}
+.total.sub .num{font-size:16px}
+.nudge{font-size:13px;background:var(--oat);padding:10px 12px;line-height:1.7}
+fieldset.opt{border:none;border-top:1px solid var(--rule);padding:14px 0 0;margin:6px 0 0;display:grid;gap:10px}
+fieldset.opt legend{font-family:var(--serif);font-size:15px;letter-spacing:.1em;color:var(--ink);padding:0 8px 0 0}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:14px;letter-spacing:.02em;color:var(--ink)}
+.chk input{width:18px;height:18px;min-height:18px;margin-top:3px;flex-shrink:0;accent-color:var(--ink)}
+.chk small{display:block;color:var(--ink-2);font-size:12px}
+@media (max-width:860px){
+  .svc-nav{grid-template-columns:1fr}
+  .blk > .bh,.engr,.book{grid-template-columns:1fr}
+  .steps,.ship{grid-template-columns:1fr}
+  .gifts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bform{grid-template-columns:1fr}
+  .corp{grid-template-columns:1fr}
+  .svc-strip .wrap{grid-template-columns:1fr}
+  .svc-strip a{border-right:none;border-bottom:1px solid var(--rule);padding-block:22px}
+  .svc-strip a:last-child{border-bottom:none}
+  footer .wrap{grid-template-columns:1fr 1fr}
+  footer .wrap > div:first-child{grid-column:1/-1}
+}
+
+@media (max-width:420px){.cartbtn{font-size:13px;letter-spacing:.02em}.bar nav{gap:6px}.bar nav a{padding:0 9px;min-height:34px;font-size:12.5px;letter-spacing:0}.brand b{font-size:16px;letter-spacing:.02em}.bar .wrap{gap:10px}}
+/* ===== 會員與訂單查詢 ===== */
+.userbtn{display:inline-flex;align-items:center;gap:6px;min-height:44px;text-decoration:none;font-size:14px;letter-spacing:.14em;white-space:nowrap}
+.userbtn svg,.cartbtn .bag{width:22px;height:22px;display:block;flex-shrink:0}
+.cartbtn .bag{display:none}
+.userbtn[aria-current="page"]{color:var(--umber)}
+.acct{padding-block:clamp(40px,6vw,72px) clamp(80px,11vw,140px)}
+.acct .head .latin-title{font-size:clamp(40px,5.4vw,64px);color:var(--brass)}
+.acct .head h2{font-size:clamp(24px,2.8vw,32px);letter-spacing:.1em;margin-top:6px}
+.acct .head p.sub{color:var(--ink-2);max-width:34em;margin-top:14px;font-size:15px}
+.demo-bar{margin:clamp(20px,3vw,32px) 0 0;font-size:13px;background:var(--oat);border-left:2px solid var(--brass);padding:10px 14px;color:var(--ink-2);line-height:1.8}
+.auth{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);margin-top:clamp(28px,4vw,48px);align-items:start}
+.panel{border-top:1px solid var(--brass);padding-top:22px;display:grid;gap:18px;min-width:0}
+.panel h3{font-size:20px;letter-spacing:.14em}
+.panel form{display:grid;gap:16px}
+.panel .pill{justify-self:start}
+.panel .note{font-size:13px;color:var(--ink-2);line-height:1.8}
+.panel .linkbtn{background:none;border:none;padding:0;min-height:36px;text-decoration:underline;text-underline-offset:5px;color:var(--umber);font-size:14px;justify-self:start}
+.perks{margin:0;padding:0;list-style:none;display:grid;gap:10px;font-size:14px;color:var(--ink-2)}
+.perks li{padding-left:18px;position:relative}
+.perks li::before{content:"";position:absolute;left:0;top:.85em;width:8px;height:1px;background:var(--brass)}
+.hello{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-top:clamp(28px,4vw,44px);padding-bottom:18px;border-bottom:1px solid var(--brass)}
+.hello h3{font-size:clamp(22px,2.6vw,28px);letter-spacing:.12em}
+.hello small{display:block;color:var(--ink-2);font-size:13px;margin-top:4px;font-family:var(--latin);letter-spacing:.1em}
+.mtabs{display:flex;gap:8px;margin:22px 0 26px;flex-wrap:wrap}
+.mtabs button{border:1px solid var(--ink);border-radius:999px;background:none;padding:0 18px;min-height:40px;font-size:14px;letter-spacing:.08em}
+.mtabs button[aria-pressed="true"]{background:var(--ink);color:var(--linen)}
+.olist{display:grid;gap:14px}
+.ocard{background:var(--card,#F6F3EE);border:1px solid var(--rule);padding:clamp(16px,2.6vw,26px);display:grid;gap:16px;min-width:0}
+.ocard .oh{display:flex;justify-content:space-between;align-items:baseline;gap:10px 16px;flex-wrap:wrap}
+.ocard .ono{font-family:var(--latin);letter-spacing:.14em;font-size:15px}
+.ocard .odate{font-size:13px;color:var(--ink-2)}
+.ocard .amt{font-family:var(--display);font-size:24px}
+.st{display:inline-flex;align-items:center;gap:6px;font-size:13px;letter-spacing:.08em}
+.st::before{content:"";width:8px;height:8px;border-radius:50%;background:#A9603F}
+.st[data-s="已付款"]::before{background:#B08A3E}.st[data-s="已出貨"]::before{background:#4E5B66}.st[data-s="已完成"]::before{background:#5E7258}.st[data-s="已取消"]::before{background:#A39A90}
+.tl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0;padding:0;list-style:none;position:relative}
+.tl li{display:grid;justify-items:center;gap:8px;font-size:12px;letter-spacing:.06em;color:var(--ink-2);text-align:center;position:relative}
+.tl li::before{content:"";width:11px;height:11px;border-radius:50%;border:1px solid var(--ink-2);background:var(--linen);position:relative;z-index:1}
+.tl li::after{content:"";position:absolute;top:5px;left:50%;width:100%;height:1px;background:var(--rule)}
+.tl li:last-child::after{display:none}
+.tl li.on{color:var(--ink)}
+.tl li.on::before{background:var(--ink);border-color:var(--ink)}
+.tl li.on.prev::after{background:var(--ink)}
+.oitems{margin:0;padding:0;list-style:none;font-size:14px;display:grid;gap:4px;white-space:pre-wrap}
+.ometa{display:grid;grid-template-columns:6em minmax(0,1fr);gap:6px 12px;font-size:14px;margin:0}
+.ometa dt{color:var(--ink-2)}
+.ometa dd{margin:0;overflow-wrap:anywhere}
+.payhint{background:var(--oat);padding:12px 14px;font-size:13px;line-height:1.8}
+.track{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,4vw,56px);margin-top:clamp(28px,4vw,48px);align-items:start}
+.empty-o{text-align:center;padding:40px 12px;color:var(--ink-2);background:var(--card,#F6F3EE);border:1px solid var(--rule);font-family:var(--serif)}
+.prof{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px;max-width:640px}
+.prof .full{grid-column:1/-1}
+.ok{color:#5E7258;font-size:14px}
+@media (max-width:860px){
+  .auth,.track{grid-template-columns:1fr}
+  .prof{grid-template-columns:1fr}
+}
+@media (max-width:420px){
+  .userbtn .ut,.cartbtn .ct{display:none}
+  .cartbtn .bag{display:block}
+  .userbtn{gap:0}
+}
+
+.prod figure img{width:auto!important;max-width:100%;max-height:min(70vh,560px);margin-inline:auto}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.frame img{transform:none}}
+</style>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="植物有解 首頁"><span class="seal" aria-hidden="true">植物<br>有解</span><b>植物有解</b><small>PLANT ANSWER</small></a>
+    <nav class="tabs" aria-label="商品分類"><a href="#top" data-tab="blend">複方精油</a><a href="#singles" data-tab="single">單方精油</a></nav>
+    <a class="userbtn" href="#account" id="userBtn" aria-label="會員"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 20c1.2-3.8 4-5.6 7.5-5.6s6.3 1.8 7.5 5.6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><span class="ut" id="userTxt">會員</span></a>
+    <button class="cartbtn" id="openCart" type="button" aria-label="購物車"><span class="ct">購物車</span><svg class="bag" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.2"/></svg> <span class="num" id="cartN">0</span></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <h1 class="vt" aria-label="身體有問，植物有解。"><span aria-hidden="true"><i style="animation-delay:0.15s">身</i><i style="animation-delay:0.26s">體</i><i style="animation-delay:0.37s">有</i><i style="animation-delay:0.48s">問</i></span><span aria-hidden="true"><i style="animation-delay:0.59s">植</i><i style="animation-delay:0.70s">物</i><i style="animation-delay:0.81s">有</i><i style="animation-delay:0.92s">解</i><em class="seal" style="font-style:normal">植物<br>有解</em></span></h1>
+    <figure>
+      <div class="ph"><div class="par"><img src="img/trio.jpg" alt="真元草本漢方精華按摩油三瓶與禮盒，放在茶盤上，背景有菊花、茶壺與「禪」字擺件"></div></div>
+      <figcaption><p class="eyebrow">Ask the plant</p><p class="lede">一天裡，總有幾個需要停下來的時刻。真元草本以漢方入香，為早晨、午後與睡前，各調了一瓶。</p><a class="link" href="#yuanxi">從你的時刻開始 →</a></figcaption>
+    </figure>
+  </section>
+
+  <nav class="moments" aria-label="依時刻選擇">
+    <a href="#yuanxi"><span class="t">08:00</span><span class="eyebrow">Morning</span><b>元息香<span>→</span></b><small>還沒醒透的早晨</small></a>
+    <a href="#guhe"><span class="t">12:30</span><span class="eyebrow">After lunch</span><b>穀合香<span>→</span></b><small>午飯後的悶與沉</small></a>
+    <a href="#yean"><span class="t">22:00</span><span class="eyebrow">Night</span><b>夜安香<span>→</span></b><small>躺下後的念頭</small></a>
+  </nav>
+
+  <section class="intro">
+    <div class="wrap">
+      <h2>一瓶油，一個停下來的理由。</h2>
+      <p>芳療師與中藥師共同調配，以妝品級精製芝麻油為基底，裝進 10ml 滾珠瓶。抹在身上，雙手攏在鼻前，深深吸一口氣。這就是全部的步驟。</p>
+    </div>
+  </section>
+
+  <section class="herbs" aria-label="主要萃取">
+    <div class="wrap">
+      <div class="herb"><span class="glyph" aria-hidden="true">蔘</span><b>吉林高山野蔘根鬚</b><span class="latin-title">Wild Ginseng</span><small>九年以上，長白山寒地慢慢長成。氣味沉、厚，帶土地的甜。</small></div>
+      <div class="herb"><span class="glyph" aria-hidden="true">陳</span><b>新會陳皮</b><span class="latin-title">Aged Tangerine Peel</span><small>陳放多年，柑香越久越圓、越暖，帶淡淡木質調。</small></div>
+      <div class="herb"><span class="glyph" aria-hidden="true">味</span><b>五味子</b><span class="latin-title">Schisandra</span><small>酸、苦、甘、辛、鹹五味俱全，香氣微酸微甘，像一盞調暗的燈。</small></div>
+    </div>
+  </section>
+
+  <div id="prods"></div>
+
+  <section class="set" id="set">
+    <div class="wrap">
+      <figure><img src="img/trio.jpg" alt="三入組產品照" loading="lazy"></figure>
+      <div class="copy">
+        <p class="eyebrow">The full day</p>
+        <p class="latin-title">Daily Rhythm Trio</p>
+        <h2>漢方精華按摩油三入組</h2>
+        <h3>元息香＋穀合香＋夜安香，10ml 各一。從早上第一口氣，到夜裡最後一個念頭。</h3>
+        <p class="body" style="color:var(--ink-2)">適合第一次認識真元草本的你，也適合送給那個總說「我沒事」的人。</p>
+        <div class="price"><span class="now">NT$8,200</span><s>NT$10,800</s><span class="off">7.6 折</span></div>
+        <button class="pill block" type="button" data-add="set"><span class="en">ADD TO CART</span>／ 加入購物車</button>
+        <p class="ask">有問題嗎？LINE 搜尋 <span class="num">@688kumet</span></p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="voice" id="xiaoai">
+    <div class="wrap">
+      <p class="eyebrow">A note from 小艾</p>
+      <blockquote>做個案調理這些年，我最常聽到的不是哪裡痛，而是「說不上來，就是卡卡的」。這三瓶油不是藥，它們做的事很小：讓你停下來，把手放在身上，好好吸一口氣。</blockquote>
+      <p class="sig"><span class="seal" aria-hidden="true">小<br>艾</span>小艾，植物有解・芳療師</p>
+    </div>
+  </section>
+
+  <section class="info">
+    <div class="wrap">
+      <div><h3>配方</h3><ul>
+        <li>資深芳療師與中藥師共同調配，配方專利申請中</li>
+        <li>符合衛福部化粧品規範</li>
+        <li>妝品級精製芝麻油基底，沒有料理麻油味</li>
+        <li>滾珠瓶，每瓶 10ml，隨身好帶</li></ul></div>
+      <div><h3>保存</h3><ul>
+        <li>未開封可保存 3 年</li>
+        <li>開封後建議 6 個月內用完</li>
+        <li>放陰涼乾燥處，避開日照與高溫，用完蓋緊</li>
+        <li>天然萃取，偶有沉澱或批次香氣差異屬正常</li></ul></div>
+      <div><h3>使用前</h3><ul>
+        <li>僅供外用按摩，請勿口服</li>
+        <li>第一次使用，先在手臂內側小範圍試擦</li>
+        <li>孕期、哺乳期、嬰幼兒、敏弱肌與高血壓者，請先詢問醫師或芳療師</li>
+        <li>傷口與發炎部位請避開</li></ul></div>
+    </div>
+  </section>
+
+  <section class="svc-strip" aria-label="服務">
+    <div class="wrap">
+      <a href="#book"><span class="eyebrow">Courses</span><b>諮詢芳療課程</b><small>調香體驗、線上課程</small></a>
+      <a href="#corporate"><span class="eyebrow">Corporate</span><b>企業送禮</b><small>大量訂購、客製祝福卡</small></a>
+      <a href="#shipping"><span class="eyebrow">Delivery</span><b>滿 NT$3,000 免運</b><small>付款確認後 2–3 個工作天出貨</small></a>
+    </div>
+  </section>
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <h2>常被問到的事</h2>
+      <div>
+        <details><summary>三瓶要怎麼挑？</summary><p>看你最常卡住的時刻。白天沒精神、愛爬山運動，選元息香；吃完飯常覺得肚子悶，選穀合香；累了卻靜不下來，選夜安香。三個都有，就帶三入組。</p></details>
+        <details><summary>芝麻油基底會有麻油味嗎？</summary><p>不會。用的是妝品級精製芝麻油，經過脫色脫臭，擦起來溫潤滑順，聞到的是草本香。</p></details>
+        <details><summary>夜安香擦了會想睡嗎？</summary><p>不會。它不含任何西藥成分，做的是幫你把緊繃放下來。白天心浮氣躁時，在手腕抹一點聞一聞也可以。</p></details>
+        <details><summary>不懂穴位也能用嗎？</summary><p>可以。照每瓶建議的部位塗抹、按摩、深呼吸就好，穴位按壓是加分項目。</p></details>
+        <details><summary>爬山時可以拿元息香代替高山症藥物嗎？</summary><p>不行。元息香是外用保養品，沒有醫療效果。在高山若出現劇烈頭痛、噁心嘔吐，請依登山安全原則下撤並就醫。</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main id="singles" hidden>
+  <section class="apo">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="eyebrow">Single herbal oils</p>
+          <p class="latin-title">The Apothecary</p>
+          <h2>漢方單方精油</h2>
+          <p class="sub">嚴選天然草本植物，以 CO₂ 超臨界萃取，保留植物純粹的氣味。每瓶 10ml，可單獨使用，也可依個人狀況調配。</p>
+        </div>
+        <div class="ctrl">
+          <label for="sq">找一味<input id="sq" type="search" placeholder="例如：當歸、陳皮" autocomplete="off"></label>
+          <label for="ss">排序<select id="ss"><option value="cat">目錄順序</option><option value="lo">價格低到高</option><option value="hi">價格高到低</option></select></label>
+        </div>
+      </div>
+      <section class="finder" id="finder" aria-live="polite"></section>
+      <div class="drawers" id="drawers"></div>
+      <p class="fine">以上為建議售價。單方精油濃度較高，請稀釋後使用；調配方式可透過 LINE 詢問小艾。</p>
+      <div class="sfaq" id="sfaq">
+        <h2>單方精油常見問題</h2>
+        <div>
+          <details><summary>單方和複方有什麼不同？</summary><p>單方是一種植物的萃取，香氣單純，可以依自己的狀況挑選、自由調配。複方（元息香、穀合香、夜安香）是芳療師與中藥師已經調好比例的配方，加在芝麻油基底裡，打開就能直接擦。第一次接觸漢方精油，建議先從複方開始。</p></details>
+          <details><summary>單方精油可以直接擦在皮膚上嗎？</summary><p>不行。單方精油濃度很高，一定要先稀釋在基底油（例如荷荷芭油、甜杏仁油、芝麻油）裡再使用。可以參考下面的比例：</p>
+            <table class="dilute"><thead><tr><th>用在哪裡</th><th>濃度</th><th>10ml 基底油加幾滴</th></tr></thead><tbody><tr><td>臉部、敏感肌</td><td>約 1%</td><td>2 滴</td></tr><tr><td>身體按摩</td><td>2–3%</td><td>4–6 滴</td></tr><tr><td>局部短期（肩頸、腰背）</td><td>約 5%</td><td>10 滴</td></tr></tbody></table></details>
+          <details><summary>可以把幾種單方混在一起嗎？</summary><p>可以，一次 2–3 種最容易掌握。總滴數照上面的比例計算即可，例如身體按摩用 10ml 基底油，陳皮 2 滴＋茯苓 2 滴。不確定怎麼搭，可以把測驗結果傳給小艾，幫你看看。</p></details>
+          <details><summary>什麼是 CO₂ 超臨界萃取？</summary><p>用低溫、高壓的二氧化碳把植物裡的香氣分子帶出來，萃取完二氧化碳會完全揮發，不留溶劑。因為溫度低，比較能保留植物原本的氣味，也能萃取出根、皮、種子這類不容易蒸餾的漢方材料。</p></details>
+          <details><summary>孕期、哺乳期或小朋友可以用嗎？</summary><p>當歸、益母草、川芎、紅花、三七、艾草等傳統上「活血」的植物，孕期請避免。孕期、哺乳期、嬰幼兒、高血壓或正在服藥的人，使用任何精油前都請先詢問醫師或芳療師。測驗裡回答「懷孕、哺乳或備孕」時，會自動排除這些精油。</p></details>
+          <details><summary>漢方精油跟中藥一樣嗎？</summary><p>不一樣。漢方精油是外用的香氛保養品，請勿口服。頁面上的「漢方印象」說的是這味藥材在傳統裡的角色，幫助你認識它，不代表精油有同樣的療效，也不能取代就醫。</p></details>
+          <details><summary>單方精油怎麼保存？</summary><p>蓋緊瓶蓋，放在陰涼、避光的地方，避開浴室的濕氣和高溫。開封後建議一年內用完；柑橘類（如陳皮）氧化得比較快，建議半年內用完。</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main id="services" hidden>
+  <section class="svc">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Services</p>
+        <p class="latin-title">At your service</p>
+        <h2>植物有解的服務</h2>
+        <p class="sub">想認識植物、學會照顧自己，或替公司準備一份禮物，都可以找小艾聊聊。</p>
+      </div>
+      <nav class="svc-nav" aria-label="服務項目">
+        <a href="#book"><span class="latin-title">Courses</span><b>諮詢芳療課程</b><small>調香體驗、線上課程</small></a>
+        <a href="#corporate"><span class="latin-title">Corporate</span><b>企業送禮</b><small>大量訂購、客製卡片</small></a>
+        <a href="#shipping"><span class="latin-title">Delivery</span><b>運送與退換</b><small>運費、出貨、鑑賞期</small></a>
+      </nav>
+
+      <section class="blk" id="book">
+        <div class="bh"><div><p class="latin-title">Courses</p><h3>諮詢芳療課程</h3></div><p>想上芳療課程，或想先了解課程內容，填好下面的表單，把內容傳到 LINE，小艾會回覆課程時間、地點與費用。</p></div>
+        <div class="book">
+          <div class="svcs">
+            <div><b>調香體驗</b><small>小艾帶著你聞、選、調，親手調出一瓶屬於自己的漢方按摩油，帶回家使用。</small></div>
+            <div><b>線上課程</b><small>用視訊上課，在家就能跟著小艾認識植物、學會挑選與使用精油。</small></div>
+            <p class="fine">課程內容為芳香保養知識與建議，不能取代醫療診斷。</p>
+          </div>
+          <div id="bookBox">
+            <form class="bform" id="bf" novalidate>
+              <fieldset class="seg full"><legend>想諮詢的課程</legend>
+                <input type="radio" name="bs" id="bs2" value="調香體驗" checked><label for="bs2">調香體驗</label>
+                <input type="radio" name="bs" id="bs3" value="線上課程"><label for="bs3">線上課程</label>
+              </fieldset>
+              <label for="bd">希望日期<input id="bd" type="date"></label>
+              <label for="bt">時段<select id="bt"><option>上午（10:00–12:00）</option><option>下午（14:00–17:00）</option><option>晚上（19:00–21:00）</option><option>都可以</option></select></label>
+              <label for="bn">姓名<input id="bn" autocomplete="name"></label>
+              <label for="bp">手機<input id="bp" inputmode="tel" autocomplete="tel" placeholder="09xxxxxxxx"></label>
+              <label class="full" for="bm">最近想聊的事（選填）<textarea id="bm" placeholder="例如：最近睡不好、下午很容易累"></textarea></label>
+              <p class="err full" id="bErr" hidden></p>
+              <button class="pill full" type="submit">產生諮詢訊息</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="blk" id="corporate">
+        <div class="corp">
+          <div><p class="eyebrow" style="color:var(--stone)">Corporate gifts</p><h3>企業送禮與大量訂購</h3><p>年節、員工關懷或客戶答謝，10 份以上可以搭配客製祝福卡與統一包裝。告訴小艾預算、份數與送達日期，我們幫你安排。</p></div>
+          <button class="pill" type="button" data-copyline>複製 LINE ID　<span class="num">@688kumet</span></button>
+        </div>
+      </section>
+
+      <section class="blk" id="shipping">
+        <div class="bh"><div><p class="latin-title">Delivery &amp; returns</p><h3>運送與退換</h3></div><p>付款方式為銀行轉帳。小艾確認款項後安排出貨。</p></div>
+        <div class="ship">
+          <div><h4>運費</h4><ul><li>訂單滿 NT$3,000 免運費</li><li>未滿 NT$3,000，運費 NT$100</li><li>宅配到府、7-11 與全家店到店，運費相同</li></ul></div>
+          <div><h4>出貨時間</h4><ul><li>付款確認後 2–3 個工作天出貨</li><li>同一筆訂單會一起寄出</li></ul></div>
+          <div><h4>退換貨</h4><ul><li>收到商品後享 7 天鑑賞期（不是試用期），未拆封可申請退貨</li><li>精油屬個人衛生用品，拆封後恕不退換</li><li>商品有瑕疵或寄錯，請 7 天內拍照傳 LINE，我們會換新</li></ul></div>
+        </div>
+      </section>
+    </div>
+  </section>
+</main>
+
+<main id="account" hidden>
+  <section class="acct">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">Member</p><p class="latin-title">Welcome back</p><h2 id="acctTitle">會員登入</h2></div>
+      <p class="demo-bar" id="acctDemo" hidden>示範模式：會員與訂單資料只存在這台裝置的瀏覽器，換一台手機就看不到。正式上線會接到訂單後台。</p>
+      <div id="acctBox"></div>
+    </div>
+  </section>
+</main>
+
+<main id="track" hidden>
+  <section class="acct">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">Order status</p><p class="latin-title">Where is my order?</p><h2>訂單查詢</h2><p class="sub">不用登入也能查。輸入訂單編號和下單時填的手機，就能看到付款與出貨進度。</p></div>
+      <p class="demo-bar" id="trackDemo" hidden>示範模式：可以用範例訂單試查，訂單編號 <span class="num">PA260928317</span>、手機 <span class="num">0912345678</span>。</p>
+      <div class="track">
+        <div class="panel">
+          <h3>查詢訂單</h3>
+          <form id="tf" novalidate>
+            <label for="t-no">訂單編號<input id="t-no" autocomplete="off" placeholder="例如 PA261010123" style="text-transform:uppercase"></label>
+            <label for="t-phone">下單手機<input id="t-phone" inputmode="tel" autocomplete="tel" placeholder="09xxxxxxxx"></label>
+            <p class="err" id="tErr" hidden></p>
+            <button class="pill" type="submit">查詢</button>
+          </form>
+          <p class="note">訂單編號在下單完成的畫面，以及你傳到 LINE 的訂單內容裡。找不到的話，直接在 LINE <span class="num">@688kumet</span> 問小艾。<br>會員可以到<a href="#account">會員中心</a>看到全部訂單。</p>
+        </div>
+        <div id="tRes" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+
+<footer>
+  <div class="wrap">
+    <div>
+      <span class="brand"><span class="seal" aria-hidden="true">植物<br>有解</span><b>植物有解</b></span>
+      <p class="slogan">身體有問，植物有解。</p>
+    </div>
+    <div><h4>CONTACT</h4><p>LINE 官方帳號<br><span class="num" id="lineId">@688kumet</span><button class="copybtn" type="button" id="copyLine">複製</button></p></div>
+    <div><h4>SHOPPING</h4><p><a href="#account">會員登入</a><br><a href="#track">訂單查詢</a><br>付款：銀行轉帳<br>滿 NT$3,000 免運</p></div>
+    <div><h4>SERVICES</h4><p><a href="#book">諮詢芳療課程</a><br><a href="#corporate">企業送禮</a><br><a href="#shipping">運送與退換</a></p></div>
+    <p class="legal">本產品為一般外用化粧品，不具醫療效能，無法取代專業醫療。若有身體不適或特殊健康狀況，請諮詢專科醫師。特價以頁面標示為準。</p>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-label="購物車">
+  <header><h2 id="dTitle">購物車</h2><button class="x" id="closeCart" type="button" aria-label="關閉">×</button></header>
+  <div class="dbody" id="dBody"></div>
+  <div class="dfoot" id="dFoot"></div>
+</aside>
+<div class="dlg" id="dlg" hidden role="dialog" aria-modal="true" aria-labelledby="dlgT"><div class="bg" data-close></div><div class="box" id="dlgBox"></div></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const P={
+  yuanxi:{clock:"08:00",tone:"day",name:"漢方元息香",full:"漢方元息香精華按摩油",en:"Vital Breath",no:"No.3",img:"img/yuanxi.jpg",price:2600,orig:3400,off:"7.7 折",
+    time:"Morning　早晨",
+    head:"爬到第三個彎，你缺的不是休息，是一口好氣。",
+    body:["主香來自九年以上的吉林高山野蔘根鬚。那是在長白山寒地慢慢長成的植物，氣味沉、厚，帶一點土地的甜。",
+          "把它抹在前胸與手腕，雙手攏在鼻前做三到五次深呼吸。早上剛起床、出門前，或是爬山中途、運動前後，都是它的場合。"],
+    key:"九年以上吉林高山野蔘根鬚",where:"前胸、手腕內側、虎口、易出汗處",points:"內關按壓 20 秒、合谷按揉 20 下",freq:"每日 1–3 次",
+    note:"香氣偏提振，睡前 4 小時內請勿使用。"},
+  guhe:{clock:"12:30",tone:"meal",name:"漢方穀合香",full:"漢方穀合香精華按摩油",en:"Harvest Harmony",no:"No.2",img:"img/guhe.jpg",price:2700,orig:3600,off:"7.5 折",
+    time:"After lunch　午餐後",
+    head:"吃得太快、喝得太冰，肚子都記得。",
+    body:["主角是放了好幾年的新會陳皮。年份越久，柑皮的香越圓、越暖，帶著淡淡木質調；再搭上菌類草本豬苓，調成沉穩的果香。",
+          "飯後把油在掌心搓熱，貼著肚子，以肚臍為中心順時針畫圓三到五分鐘，一邊聞掌心的柑香。這是一天裡最簡單的五分鐘。"],
+    key:"多年新會陳皮、豬苓萃取",where:"整個腹部（以肚臍為中心）、兩側脅肋",points:"中脘按壓 20 秒、天樞兩側按揉 20–30 下",freq:"三餐後皆可",
+    note:"腹部有傷口、發炎或剛動完手術，請避開患處。"},
+  yean:{clock:"22:00",tone:"night",name:"漢方夜安香",full:"漢方夜安香精華按摩油",en:"Night Calm",no:"No.1",img:"img/yean.jpg",price:2900,orig:3800,off:"7.6 折",
+    time:"Night　睡前",
+    head:"身體已經下班了，腦袋還在開會。",
+    body:["五味子同時有酸、苦、甘、辛、鹹五種味道，所以叫五味子。它的香氣不吵，微酸微甘，像一盞調暗的燈。",
+          "睡前抹在耳後、頸側、手腕內側與腳底，雙手罩住口鼻深呼吸幾次，讓速度一點一點慢下來。它不會讓你昏沉，只是幫你把今天放下。"],
+    key:"五味子",where:"太陽穴、耳後、頸部兩側、手腕內側、腳底",points:"神門按壓 20 秒、翳風順肌理輕刮 20 下",freq:"睡前；白天緊繃時可少量",
+    note:"不含西藥成分。若長期有嚴重睡眠困擾，請尋求專業醫療協助。"}
+};
+const SET={name:"三入組 Daily Rhythm Trio",img:"img/trio.jpg",price:8200,orig:10800};
+const ORDER=["yuanxi","guhe","yean"];
+const fmt=n=>n.toLocaleString("en-US");
+const $=id=>document.getElementById(id);
+
+$("prods").innerHTML=ORDER.map((k,i)=>{const p=P[k];return `
+<section class="prod ${p.tone}${i===1?" flip":""}" id="${k}">
+  <div class="wrap">
+    <figure><div class="frame"><div class="ph"><img src="${p.img}" alt="${p.full}產品照" loading="lazy"></div><div class="vlabel"><b>${p.name}</b><small>真元草本・精華按摩油</small><span class="seal" aria-hidden="true">真元<br>草本</span></div></div><figcaption><span>ZHENYUAN ${p.no}</span><span class="num">10 ML</span></figcaption></figure>
+    <div class="copy">
+      <p class="clock" aria-hidden="true">${p.clock}</p>
+      <p class="eyebrow">${p.time}</p>
+      <p class="latin-title">${p.en}</p>
+      <h2>${p.full}</h2>
+      <h3>${p.head}</h3>
+      <div class="body">${p.body.map(t=>`<p>${t}</p>`).join("")}</div>
+      <dl class="specs">
+        <div><dt>主要萃取</dt><dd>${p.key}</dd></div>
+        <div><dt>塗抹部位</dt><dd>${p.where}</dd></div>
+        <div><dt>加分穴位</dt><dd>${p.points}</dd></div>
+        <div><dt>使用時機</dt><dd>${p.freq}</dd></div>
+      </dl>
+      <p class="note">※ ${p.note}</p>
+      <div class="price"><span class="now">NT$${fmt(p.price)}</span><s>NT$${fmt(p.orig)}</s><span class="off">${p.off}</span></div>
+      <button class="pill block" type="button" data-add="${k}"><span class="en">ADD TO CART</span>／ 加入購物車</button>
+    </div>
+  </div>
+</section>`}).join("");
+
+if("IntersectionObserver" in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.2});document.querySelectorAll(".prod").forEach(el=>io.observe(el))}else document.querySelectorAll(".prod").forEach(el=>el.classList.add("in"));
+(()=>{const el=document.querySelector(".hero .par");if(!el||matchMedia("(prefers-reduced-motion: reduce)").matches)return;let t=0;addEventListener("scroll",()=>{if(t)return;t=requestAnimationFrame(()=>{t=0;const y=Math.min(scrollY,900);el.style.setProperty("--py",(y*.18)+"px")})},{passive:true})})();
+const SINGLES=[{"id": "s01", "zh": "杜仲", "la": "Eucommia ulmoides", "price": 1600}, {"id": "s02", "zh": "人蔘", "la": "Panax ginseng", "price": 3800}, {"id": "s03", "zh": "紫蘇", "la": "Perilla frutescens", "price": 1300}, {"id": "s04", "zh": "當歸", "la": "Angelica sinensis", "price": 1500}, {"id": "s05", "zh": "益母草", "la": "Leonurus artemisia", "price": 1650}, {"id": "s06", "zh": "肉蓯蓉", "la": "Cistanche deserticola", "price": 900}, {"id": "s07", "zh": "川芎", "la": "Ligusticum chuanxiong", "price": 1980}, {"id": "s08", "zh": "陳皮", "la": "Citrus reticulata", "price": 1980}, {"id": "s09", "zh": "鎖陽", "la": "Cynomorium songaricum", "price": 2800}, {"id": "s10", "zh": "香附", "la": "Cyperus rotundus", "price": 2800}, {"id": "s11", "zh": "何首烏", "la": "Polygonum multiflorum", "price": 2500}, {"id": "s12", "zh": "辛夷", "la": "Magnoliae Flos", "price": 1600}, {"id": "s13", "zh": "防風", "la": "Saposhnikovia divaricata", "price": 1300}, {"id": "s14", "zh": "蒼耳子", "la": "Xanthium sibiricum", "price": 1100}, {"id": "s15", "zh": "白朮", "la": "Atractylodes macrocephala", "price": 1300}, {"id": "s16", "zh": "黃耆", "la": "Astragalus membranaceus", "price": 2950}, {"id": "s17", "zh": "柴胡", "la": "Bupleurum chinense", "price": 1600}, {"id": "s18", "zh": "茯苓", "la": "Poria cocos", "price": 1900}, {"id": "s19", "zh": "桔梗", "la": "Platycodon grandiflorus", "price": 1980}, {"id": "s20", "zh": "黃精", "la": "Polygonatum sibiricum", "price": 2100}, {"id": "s21", "zh": "菟絲子", "la": "Cuscuta chinensis", "price": 1800}, {"id": "s22", "zh": "降真香", "la": "Boswellia carterii", "price": 2800}, {"id": "s23", "zh": "老薑", "la": "Zingiber officinale", "price": 1300}, {"id": "s24", "zh": "蒼朮", "la": "Atractylodes lancea", "price": 1500}, {"id": "s25", "zh": "白芷", "la": "Angelica dahurica", "price": 1600}, {"id": "s26", "zh": "連翹", "la": "Forsythia suspensa", "price": 1600}, {"id": "s27", "zh": "五味子", "la": "Schisandra chinensis", "price": 2800}, {"id": "s28", "zh": "三七", "la": "Panax notoginseng", "price": 1200}, {"id": "s29", "zh": "白芍", "la": "Paeonia lactiflora", "price": 1500}, {"id": "s30", "zh": "艾草", "la": "Artemisia argyi", "price": 1700}, {"id": "s31", "zh": "紅花", "la": "Carthamus tinctorius", "price": 1350}, {"id": "s32", "zh": "桂花", "la": "Osmanthus fragrans", "price": 4800}];
+const SIMG=["img/s00.jpg", "img/s01.jpg", "img/s02.jpg", "img/s03.jpg", "img/s04.jpg", "img/s05.jpg", "img/s06.jpg", "img/s07.jpg", "img/s08.jpg", "img/s09.jpg", "img/s10.jpg", "img/s11.jpg", "img/s12.jpg", "img/s13.jpg", "img/s14.jpg", "img/s15.jpg", "img/s16.jpg", "img/s17.jpg", "img/s18.jpg", "img/s19.jpg", "img/s20.jpg", "img/s21.jpg", "img/s22.jpg", "img/s23.jpg", "img/s24.jpg", "img/s25.jpg", "img/s26.jpg", "img/s27.jpg", "img/s28.jpg", "img/s29.jpg", "img/s30.jpg", "img/s31.jpg"];
+SINGLES.forEach((o,i)=>o.img=SIMG[i]);
+const SMAP=Object.fromEntries(SINGLES.map(o=>[o.id,{name:o.zh+"精油",price:o.price,orig:o.price,img:o.img}]));
+/* 32 味單方：香氣、漢方印象、適合、用法、注意。tags 供測驗計分；preg=孕期請避免 */
+const INFO={
+s01:{fam:"wood",aroma:"沉穩的樹皮木質香，微苦。",trad:"樹皮入藥，古人用來照顧腰膝與筋骨。",fit:"久坐久站、腰背常覺得痠緊的人。",use:"稀釋後按摩後腰、膝蓋周圍，搭配熱敷更舒服。",tags:{muscle:3,warm:1,energy:1},how:["massage","bath"]},
+s02:{fam:"earth",aroma:"土質根莖香，微甜帶苦。",trad:"大補元氣的代表藥材。",fit:"容易疲倦、早上需要提振的人。",use:"早上抹在前胸與手腕，雙手攏在鼻前深呼吸。",caution:"香氣偏提振，睡前 4 小時內避免；容易燥熱的人少量使用。",tags:{energy:3,warm:1},how:["massage","diffuse"],hotX:1},
+s03:{fam:"herb",aroma:"清新帶辛的綠葉香，介於羅勒與薄荷之間。",trad:"紫蘇葉在傳統上用於散寒、理氣寬中。",fit:"飯後悶脹、換季時想要呼吸清爽的人。",use:"稀釋後順時針按摩腹部，或滴在掌心嗅吸。",caution:"香氣成分較活潑，敏感肌請先小範圍試擦。",tags:{digest:2,breath:2,mood:1},how:["massage","diffuse"]},
+s04:{fam:"herb",aroma:"濃郁溫暖的藥香，尾韻帶甜。",trad:"有「婦科聖藥」之稱，傳統用於補血活血。",fit:"經期前後想被溫暖照顧、手腳容易冰冷的女性。",use:"稀釋後按摩小腹與下背，或加入泡腳水。",caution:"孕期請避免使用。",tags:{women:3,warm:2},how:["massage","bath"],preg:1},
+s05:{fam:"herb",aroma:"青澀微苦的草本香。",trad:"名字就說明了它：傳統上是女性調經用草。",fit:"經期前後想要溫和照顧的女性。",use:"稀釋後按摩小腹，以肚臍為中心畫圓。",caution:"孕期請避免使用。",tags:{women:3,mood:1},how:["massage"],preg:1},
+s06:{fam:"earth",aroma:"溫和、帶微甜的土質香。",trad:"有「沙漠人蔘」之稱，傳統用於溫補、潤腸。",fit:"怕冷、容易疲倦，想先從平價單方開始的人。",use:"稀釋後按摩後腰與腳底。",tags:{warm:2,energy:2,digest:1},how:["massage","bath"]},
+s07:{fam:"spice",aroma:"強烈的辛香藥草味，帶一點芹菜感。",trad:"傳統用於活血行氣，古方常用來照顧頭部。",fit:"用腦過度、頭肩常覺得緊繃的人。",use:"稀釋後按摩頸後與肩膀，太陽穴周圍少量即可，避開眼睛。",caution:"孕期請避免使用。",tags:{muscle:2,energy:1,women:1},how:["massage"],preg:1},
+s08:{fam:"citrus",aroma:"溫暖圓潤的柑橘皮香，帶淡淡木質調。",trad:"陳放越久越好，傳統用於理氣健脾。",fit:"飯後悶脹、心情鬱悶的人。",use:"掌心搓熱後順時針按摩腹部，也很適合擴香。",caution:"柑橘類精油擦在皮膚後，12 小時內避免直接日曬。",tags:{digest:3,mood:2},how:["massage","diffuse"]},
+s09:{fam:"earth",aroma:"低沉、微甜帶澀的根莖香。",trad:"生長於寒漠，傳統用於溫補腎陽。",fit:"怕冷、手腳冰冷、腰膝無力的人。",use:"稀釋後按摩後腰與腳底，睡前泡腳也合適。",caution:"容易燥熱的人少量使用。",tags:{warm:3,energy:1,muscle:1},how:["massage","bath"],hotX:1},
+s10:{fam:"wood",aroma:"溫暖的木質土壤香，近似香根草。",trad:"被稱為「氣病之總司，女科之主帥」，傳統用於理氣解鬱。",fit:"情緒悶、經期前容易煩躁的人。",use:"擴香，或稀釋後按摩胸口與小腹。",caution:"孕期請先詢問醫師或芳療師。",tags:{mood:3,women:2,digest:1},how:["diffuse","massage"],preg:1},
+s11:{fam:"earth",aroma:"淡雅的土質香。",trad:"古人用來養護鬚髮。",fit:"想保養頭皮與髮根的人。",use:"洗髮後取 1–2 滴稀釋油，指腹按摩頭皮。",caution:"頭皮敏感者請先小範圍試擦；勿口服。",tags:{skin:3,energy:1},how:["skin"]},
+s12:{fam:"floral",aroma:"清涼辛香，帶木蘭花香。",trad:"辛夷是木蘭花苞，傳統用於通鼻竅。",fit:"換季時想要呼吸順暢、頭腦清爽的人。",use:"滴在掌心或口罩外側嗅吸；稀釋後輕按鼻翼兩側。",tags:{breath:3,energy:1},how:["diffuse","massage"]},
+s13:{fam:"herb",aroma:"草本微甜，帶一點土壤氣。",trad:"有「風藥之潤劑」之稱，傳統用於祛風。",fit:"怕風、換季時肌膚容易乾燥的人。",use:"稀釋後按摩頸後與肩頸。",tags:{skin:2,breath:1,muscle:1},how:["massage","skin"]},
+s14:{fam:"herb",aroma:"草本微辛的種子香。",trad:"傳統用於通鼻竅、祛風濕。",fit:"想要呼吸順暢的人，以嗅吸為主。",use:"滴 1 滴在掌心或擴香石嗅吸。",caution:"刺激性較強，請高度稀釋、勿口服；孕期與嬰幼兒避免。",tags:{breath:2},how:["diffuse"],preg:1},
+s15:{fam:"earth",aroma:"溫和的甜香，帶土質。",trad:"傳統用於健脾益氣、燥濕。",fit:"腸胃容易累、飯後身體沉重的人。",use:"飯後稀釋按摩腹部。",tags:{digest:3,energy:1},how:["massage"]},
+s16:{fam:"earth",aroma:"淡淡的豆香與甜味。",trad:"傳統用於補氣固表。",fit:"容易累、換季時想好好照顧自己的人。",use:"早晨稀釋按摩前胸與上背。",tags:{energy:3,breath:1},how:["massage"]},
+s17:{fam:"herb",aroma:"清苦的草本香。",trad:"傳統用於疏肝解鬱。",fit:"壓力大、悶悶不樂、兩脅與肩頸緊的人。",use:"擴香，或稀釋後按摩兩側肋骨下緣。",tags:{mood:3,muscle:1},how:["diffuse","massage"]},
+s18:{fam:"mild",aroma:"非常淡、溫和的香氣。",trad:"傳統用於健脾、寧心安神。",fit:"想放鬆入睡、腸胃需要溫和照顧，或對香氣敏感的人。",use:"睡前按摩，也很適合和其他精油一起調配。",tags:{sleep:2,digest:2},how:["massage","skin"]},
+s19:{fam:"herb",aroma:"清淡的草本香。",trad:"傳統用於宣肺、利咽。",fit:"說話多的人，例如老師、業務，或想要呼吸順暢。",use:"稀釋後輕抹前胸與頸部前側。",tags:{breath:3},how:["massage","diffuse"]},
+s20:{fam:"earth",aroma:"溫潤微甜。",trad:"傳統用於補氣養陰、潤肺。",fit:"容易疲倦、肌膚又偏乾的人。",use:"稀釋後按摩，或調入護膚油。",tags:{energy:2,skin:2},how:["massage","skin"]},
+s21:{fam:"mild",aroma:"溫和的堅果與穀物香。",trad:"傳統用於補腎益精，古方也用於養顏。",fit:"想做肌膚保養、偏怕冷的人。",use:"調入基底油作為護膚油。",tags:{skin:2,warm:1},how:["skin"]},
+s22:{fam:"resin",aroma:"沉穩的樹脂木質香，微甜。",trad:"自古用於焚香、靜心。",fit:"想靜坐、冥想、沉澱心情的人。",use:"擴香，或滴在手腕內側嗅聞。",tags:{sleep:2,mood:2},how:["diffuse"]},
+s23:{fam:"spice",aroma:"溫熱辛辣的薑香。",trad:"傳統用於溫中散寒。",fit:"手腳冰冷、怕冷、飯後悶的人。",use:"泡腳，或稀釋後按摩腹部與腳底。",caution:"溫熱感明顯，請高度稀釋、避開臉部；敏感肌先試擦。",tags:{warm:3,digest:2,muscle:1},how:["bath","massage"],hotX:1},
+s24:{fam:"spice",aroma:"濃郁的辛香藥草味。",trad:"傳統用於燥濕健脾，古人端午會焚蒼朮淨化空間。",fit:"潮濕天氣覺得身體沉重、想淨化空間的人。",use:"擴香，或稀釋後按摩腹部。",tags:{digest:2,breath:1,mood:1},how:["diffuse","massage"]},
+s25:{fam:"spice",aroma:"辛香帶甜的根部香。",trad:"古代養顏方常用，傳統也用於祛風通竅。",fit:"想做肌膚保養的人。",use:"晚上調入護膚油使用。",caution:"擦後 12 小時內避免直接日曬。",tags:{skin:3,breath:1},how:["skin"]},
+s26:{fam:"herb",aroma:"清苦微辛的草本香。",trad:"傳統用於清熱。",fit:"體質偏燥熱、肌膚容易出油的人。",use:"稀釋後局部使用於護膚。",tags:{heat:3,skin:2},how:["skin"]},
+s27:{fam:"fruit",aroma:"微酸微甘的果香。",trad:"五味俱全，傳統用於寧心安神。",fit:"想好好睡、躺下後思緒停不下來的人。",use:"睡前抹在耳後、手腕內側，深呼吸幾次。",tags:{sleep:3,mood:1},how:["massage","diffuse"]},
+s28:{fam:"earth",aroma:"土質微苦，是人蔘的近親。",trad:"傳統用於活血、化瘀。",fit:"運動後肌肉疲勞的人。",use:"運動後稀釋按摩小腿與肩背。",caution:"孕期請避免使用；傷口處避開。",tags:{muscle:3},how:["massage"],preg:1},
+s29:{fam:"mild",aroma:"淡雅微苦。",trad:"傳統用於養血柔肝、緩急。",fit:"經期前後、或小腿常覺得抽緊的人。",use:"稀釋後按摩小腹與小腿。",tags:{women:2,muscle:2,mood:1},how:["massage"]},
+s30:{fam:"herb",aroma:"濃郁的草本香，微苦帶溫。",trad:"艾灸的主角，傳統用於溫經散寒。",fit:"怕冷、經期覺得寒涼，或想淨化空間的人。",use:"泡腳、熱敷，或稀釋後按摩小腹。",caution:"孕期請避免使用；請高度稀釋，勿長期大量使用。",tags:{warm:3,women:2},how:["bath","massage","diffuse"],preg:1,hotX:1},
+s31:{fam:"mild",aroma:"淡淡的乾草香，微甜。",trad:"傳統用於活血通經。",fit:"手腳冰冷、肩頸僵硬的人。",use:"稀釋後按摩肩頸與四肢。",caution:"孕期與經量多時請避免。",tags:{warm:2,women:2,muscle:1},how:["massage"],preg:1},
+s32:{fam:"floral",aroma:"甜美的杏桃花香。",trad:"古人用來薰衣、潤髮，也象徵團圓。",fit:"心情低落、想被溫柔對待的人，也適合當日常香氛。",use:"擴香、抹在手腕當香水，或調入護膚油。",tags:{mood:3,sleep:1,skin:1},how:["diffuse","skin"]}
+};
+const NEEDS=[["energy","疲倦，提不起勁"],["muscle","肩頸腰背緊繃"],["digest","飯後悶脹"],["sleep","夜裡難放鬆、難入睡"],["warm","手腳冰冷、怕冷"],["breath","想要呼吸更清爽"],["women","經期前後的照顧"],["mood","心情悶、壓力大"],["skin","肌膚或頭皮保養"]];
+const FAMS=[["wood","木質沉穩"],["earth","土壤根莖"],["citrus","柑橘果香"],["floral","花香甜美"],["spice","辛香溫暖"],["herb","草本藥香"],["mild","淡雅清淡"],["any","都可以"]];
+const QUIZ=[
+ {k:"need",q:"最近最想照顧的是？",hint:"最多選兩個",multi:2,opts:NEEDS},
+ {k:"body",q:"平常比較接近哪一種？",opts:[["cold","怕冷，手腳常是冰的"],["hot","容易燥熱、口乾"],["even","都還好"]]},
+ {k:"fam",q:"你喜歡哪一種香氣？",opts:FAMS},
+ {k:"time",q:"最常在什麼時候用？",opts:[["morning","早晨"],["day","白天工作時"],["meal","飯後"],["night","睡前"]]},
+ {k:"how",q:"你想怎麼用？",opts:[["massage","按摩"],["diffuse","擴香、嗅聞"],["bath","泡澡、泡腳"],["skin","調入護膚油"]]},
+ {k:"preg",q:"目前是否懷孕、哺乳或正在備孕？",hint:"這題是為了避開不適合的精油",opts:[["no","否"],["yes","是"]]}
+];
+const NEEDLBL=Object.fromEntries(NEEDS);
+const BLEND={energy:["yuanxi","元息香"],digest:["guhe","穀合香"],sleep:["yean","夜安香"]};
+function scoreOils(a){
+  const timeTag={morning:"energy",meal:"digest",night:"sleep"}[a.time];
+  return SINGLES.filter(o=>!(a.preg==="yes"&&INFO[o.id].preg)).map(o=>{
+    const f=INFO[o.id],t=f.tags; let s=0; const why=[];
+    (a.need||[]).forEach(n=>{if(t[n]){s+=t[n]*3;why.push(NEEDLBL[n])}});
+    if(a.body==="cold"&&t.warm){s+=t.warm*1.5;if(!why.includes("手腳冰冷、怕冷"))why.push("怕冷體質")}
+    if(a.body==="hot"){if(t.heat){s+=t.heat*1.5;why.push("偏燥熱體質")} if(f.hotX)s-=4;}
+    if(a.fam&&a.fam!=="any"&&(f.fam===a.fam||(a.fam==="citrus"&&f.fam==="fruit")||(a.fam==="wood"&&f.fam==="resin"))){s+=3;why.push("你喜歡的香氣")}
+    if(timeTag&&t[timeTag])s+=1.5;
+    if(a.time==="night"&&f.caution&&/提振/.test(f.caution))s-=5;
+    if(a.how&&f.how.includes(a.how))s+=1.5;
+    return {o,s,why};
+  }).sort((x,y)=>y.s-x.s||x.o.price-y.o.price);
+}
+
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const byId=id=>SINGLES.find(o=>o.id===id);
+/* ---- 介紹視窗 ---- */
+let lastFocus=null;
+function openInfo(id){
+  const o=byId(id),f=INFO[id],n=SINGLES.indexOf(o)+1;
+  $("dlgBox").innerHTML=`<button class="x" type="button" data-close aria-label="關閉">×</button>
+   <div class="ph"><img src="${o.img}" alt="真元草本${o.zh}精油"></div>
+   <div class="tx"><div><p class="eyebrow">No.${String(n).padStart(2,"0")}・10 ML ・ CO₂</p><h3 id="dlgT">${o.zh}精油</h3><p class="la">${o.la}</p></div>
+   <dl class="qa">
+    <div><dt>聞起來像什麼？</dt><dd>${f.aroma}</dd></div>
+    <div><dt>漢方裡怎麼看它？</dt><dd>${f.trad}</dd></div>
+    <div><dt>適合誰？</dt><dd>${f.fit}</dd></div>
+    <div><dt>怎麼用？</dt><dd>${f.use}請先稀釋在基底油中，身體按摩約 10ml 加 4–6 滴。</dd></div>
+    <div><dt>要注意什麼？</dt><dd class="warn">${f.caution?f.caution+" ":""}第一次使用請先在手臂內側小範圍試擦；僅供外用，勿口服。</dd></div>
+   </dl>
+   <div class="cta"><span class="pr">NT$${fmt(o.price)}</span><button class="pill" type="button" data-add="${o.id}">加入購物車</button></div></div>`;
+  lastFocus=document.activeElement;$("dlg").hidden=false;document.body.style.overflow="hidden";$("dlgBox").querySelector(".x").focus();
+}
+function closeInfo(){if($("dlg").hidden)return;$("dlg").hidden=true;document.body.style.overflow="";lastFocus&&lastFocus.focus&&lastFocus.focus()}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-info]");if(b){openInfo(b.dataset.info);return}
+  if(e.target.closest("[data-close]"))closeInfo()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeInfo()});
+/* ---- 測驗 ---- */
+let qs={step:-1,a:{}};
+function drawFinder(){
+  const box=$("finder");
+  if(qs.step<0){box.innerHTML=`<div class="fi-intro"><div><p class="eyebrow">Find your herb</p><p class="latin-title">Which one is yours?</p><h2>找到你的那一味</h2><p class="sub">回答 6 個問題，大約一分鐘。從 32 味單方裡，挑出最適合你現在狀態的三味。</p><div style="margin-top:22px"><button class="pill" type="button" id="fiGo">開始測驗</button></div></div><div class="fi-big" aria-hidden="true">問植物</div></div>`;$("fiGo").onclick=()=>{qs={step:0,a:{}};drawFinder()};return}
+  if(qs.step>=QUIZ.length){return drawResult()}
+  const Q=QUIZ[qs.step],v=qs.a[Q.k],sel=Q.multi?(v||[]):v;
+  box.innerHTML=`<div class="fi-q"><div class="fi-top"><span class="fi-step">${String(qs.step+1).padStart(2,"0")} / ${String(QUIZ.length).padStart(2,"0")}</span><button class="fi-back" type="button" id="fiBack">${qs.step?"← 上一題":"← 離開測驗"}</button></div>
+   <div class="fi-bar"><i style="width:${(qs.step+1)/QUIZ.length*100}%"></i></div>
+   <div><h3>${Q.q}</h3>${Q.hint?`<p class="hint">${Q.hint}</p>`:""}</div>
+   <div class="fi-opts" role="group" aria-label="${Q.q}">${Q.opts.map(([k,l])=>`<button class="fi-opt" type="button" data-k="${k}" aria-pressed="${Q.multi?sel.includes(k):sel===k}">${l}</button>`).join("")}</div>
+   ${Q.multi?`<div class="fi-nav"><span class="hint" style="font-size:13px;color:var(--ink-2)">已選 ${sel.length} / ${Q.multi}</span><button class="pill" type="button" id="fiNext" ${sel.length?"":"disabled"}>下一題</button></div>`:""}</div>`;
+  $("fiBack").onclick=()=>{qs.step--;drawFinder()};
+  box.querySelectorAll(".fi-opt").forEach(b=>b.onclick=()=>{const k=b.dataset.k;
+    if(Q.multi){let arr=[...(qs.a[Q.k]||[])];arr=arr.includes(k)?arr.filter(x=>x!==k):arr.length<Q.multi?[...arr,k]:[arr[1],k];qs.a[Q.k]=arr;drawFinder()}
+    else{qs.a[Q.k]=k;b.setAttribute("aria-pressed","true");setTimeout(()=>{qs.step++;drawFinder()},180)}});
+  if(Q.multi)$("fiNext").onclick=()=>{qs.step++;drawFinder()};
+}
+function drawResult(){
+  const top=scoreOils(qs.a).slice(0,3);
+  const bl=(qs.a.need||[]).map(n=>BLEND[n]).filter(Boolean)[0];
+  $("finder").innerHTML=`<div class="fi-res"><div class="rh"><div><p class="eyebrow">Your herbs</p><h3>適合你的三味</h3></div><button class="fi-back" type="button" id="fiAgain">重新測驗</button></div>
+   <div class="fi-cards">${top.map((r,i)=>{const o=r.o,f=INFO[o.id];return `<article class="fc"><span class="rank">No.${i+1}</span><img src="${o.img}" alt="${o.zh}精油">
+    <div><h4>${o.zh}精油</h4><p class="la">${o.la}</p></div>
+    <div style="display:grid;gap:10px;align-content:start">${r.why.length?`<div class="chips">${[...new Set(r.why)].map(w=>`<span>${w}</span>`).join("")}</div>`:""}<p>${f.aroma}${f.fit}</p></div>
+    <div class="cta"><span class="pr">NT$${fmt(o.price)}</span><div><button class="sm" type="button" data-info="${o.id}">介紹</button><button class="sm fill" type="button" data-add="${o.id}">加入</button></div></div></article>`}).join("")}</div>
+   ${bl?`<div class="fi-blend"><span>不想自己調？已經調好、打開就能擦的複方：<a href="#${bl[0]}">漢方${bl[1]} →</a></span></div>`:""}
+   <p class="fi-fine">${qs.a.preg==="yes"?"已依你的回答排除孕期不建議使用的精油；使用前仍請先詢問醫師。":""}測驗結果是依你的回答與香氣偏好整理的參考，不是醫療診斷。想要更精準的建議，可以把結果截圖傳到 LINE <span class="num">@688kumet</span> 問小艾。</p></div>`;
+  $("fiAgain").onclick=()=>{qs={step:0,a:{}};drawFinder()};
+  $("finder").scrollIntoView({block:"start"});
+}
+drawFinder();
+function drawSingles(){
+  const q=$("sq").value.trim(), so=$("ss").value;
+  let list=SINGLES.map((o,i)=>({...o,i})).filter(o=>!q||(o.zh+o.la).toLowerCase().includes(q.toLowerCase()));
+  if(so==="lo")list.sort((a,b)=>a.price-b.price); if(so==="hi")list.sort((a,b)=>b.price-a.price);
+  $("drawers").innerHTML=list.length?list.map(o=>`<article class="dw">
+    <button class="open top" type="button" data-info="${o.id}" aria-label="看${o.zh}精油的介紹"><img src="${o.img}" alt="真元草本${o.zh}精油 10ml 瓶身與外盒" loading="lazy"><span class="no">No.${String(o.i+1).padStart(2,"0")}</span></button>
+    <div><h3>${o.zh}精油</h3><p class="la">${o.la}</p><p class="ml">10 ML ・ CO₂</p><button class="open more" type="button" data-info="${o.id}">香氣與用法 →</button></div>
+    <div class="foot"><span class="pr">NT$${fmt(o.price)}</span><button class="add" type="button" data-add="${o.id}" aria-label="${o.zh}精油加入購物車">加入</button></div>
+  </article>`).join(""):`<p class="none">找不到「${q.replace(/</g,"&lt;")}」，換個字試試。</p>`;
+}
+
+/* ===== 後台連線：config.js 有填 Apps Script 網址就用真的後台，否則是示範模式（資料存在這台裝置） ===== */
+const CFG=window.PA_CONFIG||{};
+const API_URL=(CFG.endpoint&&!/PASTE_/.test(CFG.endpoint))?CFG.endpoint:"";
+const DEMO=!API_URL;
+const ls={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
+async function api(action,data={}){
+  if(DEMO) return LOCAL[action]({...data});
+  const ctl=new AbortController(),t=setTimeout(()=>ctl.abort(),25000);
+  try{
+    const r=await fetch(API_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({action,...data}),signal:ctl.signal});
+    return await r.json();
+  }catch(e){return {ok:false,error:"network"}}finally{clearTimeout(t)}
+}
+/* ---- 示範模式：和 Apps Script 相同的規則，資料存在瀏覽器 ---- */
+const SAMPLE={no:"PA260928317",createdAt:Date.parse("2026-09-28T14:20:00+08:00"),status:"已出貨",name:"王小明",phone:"0912345678",ship:"7-11 店到店",addr:"7-11 民生門市",items:"漢方夜安香 × 1（NT$2,900）\n五味子精油 × 1（NT$2,800）",subtotal:5700,shipFee:0,total:5700,tracking:"F12345678901",member:"",sample:true};
+async function sha(t){try{const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode("pa:"+t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}catch(e){return "x"+t.length}}
+const LOCAL={
+  async create(d){const lines=[];let sub=0;Object.entries(d.cart||{}).forEach(([k,q])=>{const it=item(k);if(!it||!(q>0))return;sub+=it.price*q;lines.push(`${it.name} × ${q}（NT$${fmt(it.price*q)}）`)});
+    if(!lines.length)return{ok:false,error:"empty_cart"};const sf=sub>=SHIP.free?0:SHIP.fee;
+    const day=new Date().toISOString().slice(2,10).replace(/-/g,""),all=ls.get("pa-orders",[]);const n=all.filter(o=>o.no.startsWith("PA"+day)).length+1;
+    const tok=ls.get("pa-token","");const o={no:`PA${day}${String(n).padStart(3,"0")}`,createdAt:Date.now(),status:"待付款",name:d.name,phone:d.phone,ship:d.ship,addr:d.addr,items:lines.join("\n"),subtotal:sub,shipFee:sf,total:sub+sf,tracking:"",member:tok.startsWith("local:")?tok.slice(6):""};
+    all.unshift(o);ls.set("pa-orders",all);return{ok:true,order:o}},
+  async track(d){const no=String(d.no).toUpperCase();return{ok:true,order:[SAMPLE,...ls.get("pa-orders",[])].find(o=>o.no===no&&o.phone===d.phone)||null}},
+  async register(d){const all=ls.get("pa-members",{});if(all[d.phone])return{ok:false,error:"exists"};all[d.phone]={name:d.name,phone:d.phone,pw:await sha(d.password),addr:"",ship:"宅配到府"};ls.set("pa-members",all);return{ok:true,token:"local:"+d.phone,member:pub(all[d.phone])}},
+  async login(d){const u=ls.get("pa-members",{})[d.phone];if(!u||u.pw!==await sha(d.password))return{ok:false,error:"wrong_login"};return{ok:true,token:"local:"+d.phone,member:pub(u)}},
+  async me(d){const ph=String(d.token||"").replace("local:","");const u=ls.get("pa-members",{})[ph];if(!u)return{ok:false,error:"not_logged_in"};return{ok:true,member:pub(u),orders:ls.get("pa-orders",[]).filter(o=>o.phone===ph||o.member===ph)}},
+  async profile(d){const ph=String(d.token||"").replace("local:",""),all=ls.get("pa-members",{}),u=all[ph];if(!u)return{ok:false,error:"not_logged_in"};Object.assign(u,{name:d.name||u.name,addr:d.addr,ship:d.ship});ls.set("pa-members",all);return{ok:true,member:pub(u)}},
+  async logout(){return{ok:true}}
+};
+const pub=u=>({name:u.name,phone:u.phone,addr:u.addr||"",ship:u.ship||"宅配到府"});
+/* ---- 共用 ---- */
+let ME=null;
+const me=()=>ME;
+const telOK=t=>/^09\d{8}$/.test(t);
+const ERR={network:"連線不穩，請稍後再試一次。",wrong_login:"手機或密碼不正確。",too_many_attempts:"嘗試太多次，請 15 分鐘後再試。",exists:"這支手機已經是會員，請直接登入。",invalid_fields:"資料格式不正確，請再檢查一次。",empty_cart:"購物車是空的。",not_logged_in:"登入已過期，請重新登入。"};
+const errMsg=r=>ERR[r&&r.error]||"系統忙碌中，請稍後再試，或直接在 LINE @688kumet 聯絡小艾。";
+const STEPS=["待付款","已付款","已出貨","已完成"];
+const dt=t=>{const d=new Date(t);return `${d.getFullYear()}/${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`};
+const busy=(btn,on,txt)=>{if(!btn)return;if(on){btn.dataset.t=btn.textContent;btn.textContent=txt||"處理中…";btn.disabled=true}else{btn.textContent=btn.dataset.t||btn.textContent;btn.disabled=false}};
+function orderCard(o){
+  const idx=STEPS.indexOf(o.status), cancel=o.status==="已取消";
+  return `<article class="ocard"><div class="oh"><div><span class="ono">${escT(o.no)}</span>${o.sample?' <span class="odate">（範例）</span>':""}<div class="odate">${dt(o.createdAt)}</div></div><span class="st" data-s="${escT(o.status)}">${escT(o.status)}</span></div>
+   ${cancel?"":`<ol class="tl" aria-label="訂單進度">${STEPS.map((s,i)=>`<li class="${i<=idx?"on":""} ${i<idx?"prev":""}">${s}</li>`).join("")}</ol>`}
+   <ul class="oitems">${escT(o.items).split("\n").map(x=>`<li>${x}</li>`).join("")}</ul>
+   <dl class="ometa"><dt>合計</dt><dd><span class="amt">NT$${fmt(o.total)}</span>${o.shipFee?`（含運費 NT$${fmt(o.shipFee)}）`:"（免運）"}</dd><dt>寄送</dt><dd>${escT(o.ship)}｜${escT(o.addr)}</dd>${o.tracking?`<dt>物流單號</dt><dd class="num">${escT(o.tracking)}</dd>`:""}</dl>
+   ${o.status==="待付款"?`<p class="payhint">請轉帳 <span class="num">NT$${fmt(o.total)}</span>${bankLine()}，再把帳號末五碼傳到 LINE <span class="num">@688kumet</span>。小艾確認後，狀態會變成「已付款」。</p>`:""}
+   ${o.status==="已出貨"?`<p class="payhint">包裹已寄出。${/7-11|全家/.test(o.ship)?"到店後會收到簡訊通知，請在 7 天內取貨。":"宅配一般 1–2 天送達。"}</p>`:""}</article>`;
+}
+function bankLine(){const b=CFG.bank||{};return b.account&&!/〔/.test(b.account)?`到 ${escT(b.name||"")}（${escT(b.code||"")}）帳號 <span class="num">${escT(b.account)}</span>，戶名 ${escT(b.holder||"")}`:""}
+/* ---- 訂單查詢 ---- */
+$("trackDemo").hidden=!DEMO;
+$("tf").addEventListener("submit",async e=>{e.preventDefault();
+  const no=$("t-no").value.trim().toUpperCase(), ph=$("t-phone").value.replace(/\D/g,""), er=$("tErr"), btn=e.target.querySelector("button");
+  if(!no||!telOK(ph)){er.textContent="請輸入訂單編號，手機請填 09 開頭的 10 碼號碼。";er.hidden=false;return}
+  er.hidden=true;busy(btn,true,"查詢中…");const r=await api("track",{no,phone:ph});busy(btn,false);
+  if(!r.ok){er.textContent=errMsg(r);er.hidden=false;return}
+  $("tRes").innerHTML=r.order?orderCard(r.order):`<div class="empty-o">找不到這筆訂單。<br><small style="font-family:var(--sans);font-size:13px">請確認訂單編號和手機是否正確，或在 LINE <span class="num">@688kumet</span> 問小艾。</small></div>`;
+});
+/* ---- 會員 ---- */
+let mtab="orders",MYORDERS=[];
+async function loadMe(){const tok=ls.get("pa-token","");if(!tok){ME=null;return}const r=await api("me",{token:tok});if(r.ok){ME=r.member;MYORDERS=r.orders||[]}else if(r.error==="not_logged_in"){ME=null;ls.del("pa-token")}}
+function signedIn(r){ls.set("pa-token",r.token);ME=r.member;MYORDERS=[];updUser()}
+async function drawAccount(fresh){
+  $("acctDemo").hidden=!DEMO;
+  const box=$("acctBox");
+  if(fresh!==false&&ls.get("pa-token","")){box.innerHTML=`<p class="note" style="margin-top:32px">載入中…</p>`;await loadMe();updUser()}
+  const m=ME;
+  if(!m){
+    $("acctTitle").textContent="會員登入";
+    box.innerHTML=`<div class="auth">
+     <div class="panel"><h3>登入</h3>
+      <form id="lf" novalidate><label for="l-phone">手機<input id="l-phone" inputmode="tel" autocomplete="username" placeholder="09xxxxxxxx"></label>
+      <label for="l-pw">密碼<input id="l-pw" type="password" autocomplete="current-password"></label><p class="err" id="lErr" hidden></p><button class="pill" type="submit">登入</button></form>
+      <p class="note">忘記密碼？請在 LINE <span class="num">@688kumet</span> 告訴小艾你的手機號碼，我們協助你重設。</p>
+      <a class="linkbtn" href="#track">不是會員？用訂單編號查詢 →</a></div>
+     <div class="panel"><h3>加入會員</h3>
+      <ul class="perks"><li>在會員中心查看每一筆訂單的付款與出貨進度</li><li>結帳時自動帶入收件資料，不用每次重填</li></ul>
+      <form id="rf" novalidate><label for="r-name">姓名<input id="r-name" autocomplete="name"></label>
+      <label for="r-phone">手機<input id="r-phone" inputmode="tel" autocomplete="tel" placeholder="09xxxxxxxx"></label>
+      <label for="r-pw">設定密碼（至少 8 碼）<input id="r-pw" type="password" autocomplete="new-password"></label>
+      <label class="chk" for="r-ok"><input type="checkbox" id="r-ok"><span>我同意植物有解保存我的姓名、手機與訂單資料，用於處理訂單與會員服務。</span></label>
+      <p class="err" id="rErr" hidden></p><button class="pill" type="submit">加入會員</button></form></div></div>`;
+    $("lf").addEventListener("submit",async e=>{e.preventDefault();const ph=$("l-phone").value.replace(/\D/g,""),pw=$("l-pw").value,er=$("lErr"),btn=e.target.querySelector("button");
+      if(!telOK(ph)||!pw){er.textContent="請輸入手機與密碼。";er.hidden=false;return}
+      busy(btn,true,"登入中…");const r=await api("login",{phone:ph,password:pw});busy(btn,false);
+      if(!r.ok){er.textContent=errMsg(r);er.hidden=false;return}
+      signedIn(r);drawAccount();toast(`歡迎回來，${r.member.name}`)});
+    $("rf").addEventListener("submit",async e=>{e.preventDefault();const n=$("r-name").value.trim(),ph=$("r-phone").value.replace(/\D/g,""),pw=$("r-pw").value,er=$("rErr"),btn=e.target.querySelector("button");
+      const msg=!n?"請填寫姓名。":!telOK(ph)?"手機請填 09 開頭的 10 碼號碼。":pw.length<8?"密碼至少 8 碼。":!$("r-ok").checked?"請勾選同意條款。":"";
+      if(msg){er.textContent=msg;er.hidden=false;return}
+      busy(btn,true,"建立中…");const r=await api("register",{name:n,phone:ph,password:pw});busy(btn,false);
+      if(!r.ok){er.textContent=errMsg(r);er.hidden=false;return}
+      signedIn(r);drawAccount();toast("已加入會員")});
+    return;
+  }
+  $("acctTitle").textContent="會員中心";
+  box.innerHTML=`<div class="hello"><div><h3>${escT(m.name)}，你好</h3><small>${escT(m.phone)}</small></div><button class="fi-back" type="button" id="logout">登出</button></div>
+   <div class="mtabs" role="group" aria-label="會員中心"><button type="button" data-mt="orders" aria-pressed="${mtab==="orders"}">我的訂單（${MYORDERS.length}）</button><button type="button" data-mt="profile" aria-pressed="${mtab==="profile"}">收件資料</button></div>
+   <div id="mBody"></div>`;
+  $("logout").onclick=async()=>{api("logout",{token:ls.get("pa-token","")});ls.del("pa-token");ME=null;MYORDERS=[];updUser();drawAccount(false);toast("已登出")};
+  box.querySelectorAll("[data-mt]").forEach(b=>b.onclick=()=>{mtab=b.dataset.mt;drawAccount(false)});
+  if(mtab==="orders"){
+    $("mBody").innerHTML=MYORDERS.length?`<div class="olist">${MYORDERS.map(orderCard).join("")}</div>`:`<div class="empty-o">還沒有訂單。<br><small style="font-family:var(--sans);font-size:13px"><a href="#top">去看看複方精油</a>，或<a href="#singles">單方精油</a>。</small></div>`;
+  }else{
+    $("mBody").innerHTML=`<form class="prof" id="pf" novalidate>
+      <label for="p-name">收件人姓名<input id="p-name" autocomplete="name" value="${escT(m.name)}"></label>
+      <label for="p-phone">手機（登入帳號）<input id="p-phone" value="${escT(m.phone)}" disabled></label>
+      <label for="p-ship">常用寄送方式<select id="p-ship">${["宅配到府","7-11 店到店","全家店到店"].map(x=>`<option ${m.ship===x?"selected":""}>${x}</option>`).join("")}</select></label>
+      <label class="full" for="p-addr">常用地址或取貨門市<input id="p-addr" autocomplete="street-address" value="${escT(m.addr||"")}"></label>
+      <p class="full note" style="font-size:13px;color:var(--ink-2)">結帳時會自動帶入這些資料，送出前仍可修改。</p>
+      <p class="err full" id="pErr" hidden></p>
+      <div class="full" style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><button class="pill" type="submit">儲存</button><span class="ok" id="pOk" hidden>已儲存</span></div></form>`;
+    $("pf").addEventListener("submit",async e=>{e.preventDefault();const btn=e.target.querySelector("button");busy(btn,true,"儲存中…");
+      const r=await api("profile",{token:ls.get("pa-token",""),name:$("p-name").value.trim(),ship:$("p-ship").value,addr:$("p-addr").value.trim()});busy(btn,false);
+      if(!r.ok){$("pErr").textContent=errMsg(r);$("pErr").hidden=false;return}
+      ME=r.member;updUser();$("pOk").hidden=false;toast("收件資料已儲存")});
+  }
+}
+function updUser(){const m=ME;$("userTxt").textContent=m?m.name:"會員";$("userBtn").setAttribute("aria-label",m?`會員中心（${m.name}）`:"會員登入")}
+document.addEventListener("click",e=>{if(e.target.closest("[data-close-cart]"))closeCart()});
+loadMe().then(updUser);
+function route(){
+  const h=location.hash||"#top", pages=["top","singles","services","account","track"];
+  let pg="top", t=null;
+  if(pages.includes(h.slice(1))) pg=h.slice(1);
+  else{try{t=document.querySelector(h)}catch(e){t=null} if(t){const m=t.closest("main");pg=m?m.id:"top"}}
+  pages.forEach(id=>$(id).hidden=id!==pg);
+  const tab={top:"blend",singles:"single"}[pg];
+  document.querySelectorAll('.bar nav a').forEach(a=>a.dataset.tab===tab?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
+  document.title={top:"植物有解 侘寂版",singles:"單方漢方精油｜植物有解",services:"服務｜植物有解",account:"會員｜植物有解",track:"訂單查詢｜植物有解"}[pg];
+  pg==="account"?$("userBtn").setAttribute("aria-current","page"):$("userBtn").removeAttribute("aria-current");
+  if(pg==="account")drawAccount();
+  if(t&&t.id!=="top") requestAnimationFrame(()=>t.scrollIntoView()); else window.scrollTo(0,0);
+}
+addEventListener("hashchange",route);
+$("sq").addEventListener("input",drawSingles);$("ss").addEventListener("change",drawSingles);drawSingles();
+const item=id=>id==="set"?SET:(P[id]||SMAP[id]);
+let cart={};
+try{cart=JSON.parse(localStorage.getItem("pa-wabi-cart")||"{}")||{}}catch(e){cart={}}
+for(const k of Object.keys(cart)) if(!item(k)) delete cart[k];
+const save=()=>{try{localStorage.setItem("pa-wabi-cart",JSON.stringify(cart))}catch(e){}};
+const count=()=>Object.values(cart).reduce((a,b)=>a+b,0);
+const sum=f=>Object.entries(cart).reduce((a,[k,q])=>a+item(k)[f]*q,0);
+let stage="cart";
+
+function toast(t){const el=$("toast");el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,1800)}
+function openCart(){$("scrim").hidden=false;$("drawer").hidden=false;render()}
+function closeCart(){$("scrim").hidden=true;$("drawer").hidden=true;if(stage==="done")stage="cart"}
+$("openCart").onclick=openCart;$("closeCart").onclick=closeCart;$("scrim").onclick=closeCart;
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("drawer").hidden)closeCart()});
+document.addEventListener("click",e=>{const b=e.target.closest("[data-add]");if(!b)return;
+  const k=b.dataset.add;cart[k]=(cart[k]||0)+1;save();updN();toast(`已加入　${item(k).name}`)});
+function updN(){$("cartN").textContent=count()}
+
+const escT=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+/* ---- 運費 ---- */
+const SHIP={fee:100,free:3000};
+const shipFee=()=>sum("price")>=SHIP.free?0:SHIP.fee;
+const grand=()=>sum("price")+shipFee();
+function render(){
+  if(stage==="done")return;
+  const body=$("dBody"),foot=$("dFoot");
+  $("dTitle").textContent=stage==="cart"?"購物車":"收件資料";
+  const keys=Object.keys(cart).filter(k=>cart[k]>0);
+  if(!keys.length){body.innerHTML=`<p class="empty">購物車是空的。<br>先從你最常卡住的時刻挑一瓶。</p>`;foot.innerHTML="";stage="cart";return}
+  const sf=shipFee();
+  const totals=`<div class="total sub"><span>商品小計</span><span class="num">NT$${fmt(sum("price"))}</span></div><div class="total sub"><span>運費</span><span class="num">${sf?`NT$${fmt(sf)}`:"免運"}</span></div>${sf?`<p class="nudge">再買 NT$${fmt(SHIP.free-sum("price"))} 就免運。</p>`:""}<div class="total"><span>合計</span><span class="num">NT$${fmt(grand())}</span></div>${sum("orig")>sum("price")?`<p class="save">比原價省下 NT$${fmt(sum("orig")-sum("price"))}</p>`:""}`;
+  if(stage==="cart"){
+    body.innerHTML=keys.map(k=>{const it=item(k);return `<div class="ln">${it.img?`<img src="${it.img}" alt="">`:`<span class="gl" aria-hidden="true">${it.glyph}</span>`}<div><div class="nm">${it.name}</div><div class="pr num">NT$${fmt(it.price)}${it.orig>it.price?`　<s>NT$${fmt(it.orig)}</s>`:""}</div></div>
+      <div class="qty"><button type="button" data-q="${k}" data-d="-1" aria-label="減少">−</button><span class="num">${cart[k]}</span><button type="button" data-q="${k}" data-d="1" aria-label="增加">+</button></div></div>`}).join("");
+    foot.innerHTML=totals+`<button class="pill block" type="button" id="toForm">填寫收件資料</button>`;
+    body.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{const k=b.dataset.q;cart[k]=Math.max(0,cart[k]+ +b.dataset.d);if(!cart[k])delete cart[k];save();updN();render()});
+    $("toForm").onclick=()=>{stage="form";render()};
+  }else{
+    body.innerHTML=`<form id="f" novalidate>
+      <label for="o-name">收件人姓名<input id="o-name" autocomplete="name"></label>
+      <label for="o-phone">手機<input id="o-phone" inputmode="tel" autocomplete="tel" placeholder="09xxxxxxxx"></label>
+      <label for="o-ship">寄送方式<select id="o-ship"><option>宅配到府</option><option>7-11 店到店</option><option>全家店到店</option></select></label>
+      <label for="o-addr">地址或取貨門市<input id="o-addr" autocomplete="street-address"></label>
+      <label for="o-note">備註（選填）<textarea id="o-note"></textarea></label>
+      <p class="err" id="ferr" hidden></p>
+    </form>`;
+    foot.innerHTML=totals+`<div style="display:flex;gap:10px"><button class="pill line" type="button" id="back" style="flex:1;padding-inline:12px">返回</button><button class="pill" type="submit" form="f" style="flex:2;padding-inline:12px">送出訂單</button></div>`;
+    $("back").onclick=()=>{stage="cart";render()};
+    {const m=me();if(m){$("o-name").value=m.name||"";$("o-phone").value=m.phone||"";$("o-addr").value=m.addr||"";if(m.ship)$("o-ship").value=m.ship}}
+    $("f").addEventListener("submit",async e=>{e.preventDefault();
+      const v=id=>$(id).value.trim(),er=$("ferr"),btn=document.querySelector('button[form="f"]');
+      if(!v("o-name")||!v("o-addr")||!/^09\d{8}$/.test(v("o-phone").replace(/\D/g,""))){er.textContent="請填好姓名與地址或門市；手機請填 09 開頭的 10 碼號碼。";er.hidden=false;return}
+      er.hidden=true;busy(btn,true,"送出中…");
+      const r=await api("create",{name:v("o-name"),phone:v("o-phone").replace(/\D/g,""),ship:v("o-ship"),addr:v("o-addr"),note:v("o-note"),cart:{...cart},token:ls.get("pa-token","")});
+      busy(btn,false);
+      if(!r.ok){er.textContent="訂單沒有送出："+errMsg(r);er.hidden=false;return}
+      const o=r.order;
+      const text=`訂單編號：${o.no}\n${o.items.split("\n").map(x=>"・"+x).join("\n")}\n商品小計：NT$${fmt(o.subtotal)}\n運費：${o.shipFee?"NT$"+fmt(o.shipFee):"免運"}\n合計：NT$${fmt(o.total)}\n\n收件人：${o.name}\n手機：${o.phone}\n寄送：${o.ship}\n地址／門市：${o.addr}${v("o-note")?"\n備註："+v("o-note"):""}`;
+      stage="done";cart={};save();updN();if(ME)loadMe();
+      const b=CFG.bank||{},hasBank=b.account&&!/〔/.test(b.account);
+      $("dTitle").textContent="訂單已建立";
+      $("dBody").innerHTML=`<div class="done"><p>謝謝你，訂單已經送到小艾這裡。請在 ${CFG.payDays||3} 天內轉帳 <span class="num">NT$${fmt(o.total)}</span>，匯款後把帳號末五碼傳到 LINE <span class="num">@688kumet</span>，小艾確認後就出貨。</p>
+        <pre>${escT(text)}</pre>
+        <p style="font-size:13px;color:var(--ink-2)">轉帳帳戶：${hasBank?`${escT(b.name||"")}（${escT(b.code||"")}）帳號 <span class="num">${escT(b.account)}</span>　戶名 ${escT(b.holder||"")}`:"銀行代碼〔請填入〕　帳號〔請填入〕　戶名〔請填入〕"}</p>
+        <p style="font-size:13px;color:var(--ink-2)">之後可以到<a href="#track" data-close-cart>訂單查詢</a>，用訂單編號 <span class="num">${escT(o.no)}</span> 和手機查看進度${ME?"，也可以在會員中心看到這筆訂單":""}。</p></div>`;
+      $("dFoot").innerHTML=`<button class="pill block" type="button" id="copyO">複製訂單內容</button>`;
+      $("copyO").onclick=()=>copy(text,"訂單內容已複製");
+    });
+  }
+}
+function copy(t,msg){try{(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast(msg)).catch(()=>toast("請長按選取文字複製"))}catch(e){toast("請長按選取文字複製")}}
+$("copyLine").onclick=()=>copy("@688kumet","LINE ID 已複製");
+/* ---- 預約表單 ---- */
+(()=>{const d=new Date();d.setDate(d.getDate()+1);const iso=d.toISOString().slice(0,10);$("bd").min=iso;
+  function bind(){const f=$("bf");if(!f)return;$("bd").min=iso;f.addEventListener("submit",e=>{e.preventDefault();
+    const v=id=>$(id).value.trim(),er=$("bErr");
+    if(!v("bn")||!/^09\d{8}$/.test(v("bp").replace(/\D/g,""))||!v("bd")){er.textContent="請填好姓名、希望日期，手機請填 09 開頭的 10 碼號碼。";er.hidden=false;return}
+    const svc=f.querySelector('input[name=bs]:checked').value;
+    const text=`【諮詢芳療課程】\n課程：${svc}\n希望日期：${v("bd")}\n時段：${v("bt")}\n姓名：${v("bn")}\n手機：${v("bp")}${v("bm")?"\n想聊的事："+v("bm"):""}`;
+    $("bookBox").innerHTML=`<div class="bform bdone"><p class="full">諮詢訊息已整理好。請複製後傳到 LINE <span class="num">@688kumet</span>，小艾會回覆課程時間、地點與費用。<b>傳出訊息前，小艾還沒收到你的諮詢。</b></p><pre class="full">${escT(text)}</pre><div class="full" style="display:flex;gap:10px;flex-wrap:wrap"><button class="pill" type="button" id="bCopy">複製諮詢訊息</button><button class="pill line" type="button" data-copyline>複製 LINE ID</button><button class="fi-back" type="button" id="bAgain">重新填寫</button></div></div>`;
+    $("bCopy").onclick=()=>copy(text,"諮詢訊息已複製");
+    $("bAgain").onclick=()=>{$("bookBox").innerHTML=FORM;bind()};
+  })}
+  const FORM=$("bookBox").innerHTML;bind();})();
+document.addEventListener("click",e=>{if(e.target.closest("[data-copyline]"))copy("@688kumet","LINE ID 已複製")});
+
+updN();
+route();
+</script>
+
+</body></html>
