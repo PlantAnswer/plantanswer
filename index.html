@@ -21,6 +21,10 @@
   --rule:#CBC2B5;    /* 細線 */
   --seal:#C23B22;    /* 印泥朱，只出現在印章 */
   --brass:#A3875A;   /* 舊黃銅：細線、數字、框 */
+  --c-root:#8A6A3E;  /* 分類：根莖・樹皮・木材（赭） */
+  --c-herb:#66784F;  /* 分類：全草・葉片（苔綠） */
+  --c-fruit:#A8623F; /* 分類：果實・種子（陶土） */
+  --c-flower:#866680;/* 分類：花類（藕紫） */
   --night:#1E1A17;   /* 夜 */
   --display:"Cormorant Garamond","Cormorant","Didot",Georgia,serif;
   --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
@@ -554,6 +558,28 @@ fieldset.opt legend{font-family:var(--serif);font-size:15px;letter-spacing:.1em;
 
 .prod figure img{width:auto!important;max-width:100%;max-height:min(70vh,560px);margin-inline:auto}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.frame img{transform:none}}
+
+/* 單方：分類顏色、篩選、實拍照 */
+[data-cat="root"]{--cat:var(--c-root)}[data-cat="herb"]{--cat:var(--c-herb)}[data-cat="fruit"]{--cat:var(--c-fruit)}[data-cat="flower"]{--cat:var(--c-flower)}[data-cat="all"]{--cat:var(--ink)}
+.catf{display:flex;flex-wrap:wrap;gap:8px 10px;margin-bottom:clamp(18px,2.4vw,26px)}
+.catf button{display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:0 16px;border:1px solid color-mix(in srgb,var(--cat) 55%,var(--rule));background:color-mix(in srgb,var(--cat) 7%,var(--linen));font-size:14px;letter-spacing:.06em;transition:background .3s,color .3s}
+.catf button::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cat)}
+.catf button[data-sc="all"]::before{display:none}
+.catf button span{font-family:var(--latin);font-size:12px;color:var(--ink-2)}
+.catf button[aria-pressed="true"]{background:var(--cat);border-color:var(--cat);color:var(--linen)}
+.catf button[aria-pressed="true"]::before{background:var(--linen)}
+.catf button[aria-pressed="true"] span{color:inherit;opacity:.8}
+.dw{box-shadow:inset 0 3px 0 var(--cat,transparent)}
+.dw .top{padding:0;aspect-ratio:4/3;background:var(--stone)}
+.dw .top img{width:100%;max-width:none;height:100%;object-fit:cover;-webkit-mask-image:none;mask-image:none}
+.dw .top .no{background:rgba(239,235,229,.9);padding:0 8px;line-height:1.6}
+.dw .cat,.dlg .dcat{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;letter-spacing:.08em;color:var(--cat);margin-top:4px}
+.dw .cat::before,.dlg .dcat::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cat)}
+.dlg .box{grid-template-columns:1fr;width:min(640px,100%)}
+.dlg .ph{padding:0;background:var(--stone)}
+.dlg .ph img{width:100%;max-width:none;aspect-ratio:16/9;object-fit:cover;-webkit-mask-image:none;mask-image:none}
+.fc img{width:100%;max-width:none;aspect-ratio:4/3;object-fit:cover;-webkit-mask-image:none;mask-image:none}
+@media (max-width:860px){.dlg .ph img{max-width:none}}
 </style>
 
 <header class="bar">
@@ -680,6 +706,7 @@ fieldset.opt legend{font-family:var(--serif);font-size:15px;letter-spacing:.1em;
         </div>
       </div>
       <section class="finder" id="finder" aria-live="polite"></section>
+      <div class="catf" id="catf" role="group" aria-label="依萃取部位篩選"></div>
       <div class="drawers" id="drawers"></div>
       <p class="fine">以上為建議售價。單方精油濃度較高，請稀釋後使用；調配方式可透過 LINE 詢問小艾。</p>
       <div class="sfaq" id="sfaq">
@@ -870,11 +897,11 @@ $("prods").innerHTML=ORDER.map((k,i)=>{const p=P[k];return `
 
 if("IntersectionObserver" in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.2});document.querySelectorAll(".prod").forEach(el=>io.observe(el))}else document.querySelectorAll(".prod").forEach(el=>el.classList.add("in"));
 (()=>{const el=document.querySelector(".hero .par");if(!el||matchMedia("(prefers-reduced-motion: reduce)").matches)return;let t=0;addEventListener("scroll",()=>{if(t)return;t=requestAnimationFrame(()=>{t=0;const y=Math.min(scrollY,900);el.style.setProperty("--py",(y*.18)+"px")})},{passive:true})})();
-const SINGLES=[{"id": "s01", "zh": "杜仲", "la": "Eucommia ulmoides", "price": 1600}, {"id": "s02", "zh": "人蔘", "la": "Panax ginseng", "price": 3800}, {"id": "s03", "zh": "紫蘇", "la": "Perilla frutescens", "price": 1300}, {"id": "s04", "zh": "當歸", "la": "Angelica sinensis", "price": 1500}, {"id": "s05", "zh": "益母草", "la": "Leonurus artemisia", "price": 1650}, {"id": "s06", "zh": "肉蓯蓉", "la": "Cistanche deserticola", "price": 900}, {"id": "s07", "zh": "川芎", "la": "Ligusticum chuanxiong", "price": 1980}, {"id": "s08", "zh": "陳皮", "la": "Citrus reticulata", "price": 1980}, {"id": "s09", "zh": "鎖陽", "la": "Cynomorium songaricum", "price": 2800}, {"id": "s10", "zh": "香附", "la": "Cyperus rotundus", "price": 2800}, {"id": "s11", "zh": "何首烏", "la": "Polygonum multiflorum", "price": 2500}, {"id": "s12", "zh": "辛夷", "la": "Magnoliae Flos", "price": 1600}, {"id": "s13", "zh": "防風", "la": "Saposhnikovia divaricata", "price": 1300}, {"id": "s14", "zh": "蒼耳子", "la": "Xanthium sibiricum", "price": 1100}, {"id": "s15", "zh": "白朮", "la": "Atractylodes macrocephala", "price": 1300}, {"id": "s16", "zh": "黃耆", "la": "Astragalus membranaceus", "price": 2950}, {"id": "s17", "zh": "柴胡", "la": "Bupleurum chinense", "price": 1600}, {"id": "s18", "zh": "茯苓", "la": "Poria cocos", "price": 1900}, {"id": "s19", "zh": "桔梗", "la": "Platycodon grandiflorus", "price": 1980}, {"id": "s20", "zh": "黃精", "la": "Polygonatum sibiricum", "price": 2100}, {"id": "s21", "zh": "菟絲子", "la": "Cuscuta chinensis", "price": 1800}, {"id": "s22", "zh": "降真香", "la": "Boswellia carterii", "price": 2800}, {"id": "s23", "zh": "老薑", "la": "Zingiber officinale", "price": 1300}, {"id": "s24", "zh": "蒼朮", "la": "Atractylodes lancea", "price": 1500}, {"id": "s25", "zh": "白芷", "la": "Angelica dahurica", "price": 1600}, {"id": "s26", "zh": "連翹", "la": "Forsythia suspensa", "price": 1600}, {"id": "s27", "zh": "五味子", "la": "Schisandra chinensis", "price": 2800}, {"id": "s28", "zh": "三七", "la": "Panax notoginseng", "price": 1200}, {"id": "s29", "zh": "白芍", "la": "Paeonia lactiflora", "price": 1500}, {"id": "s30", "zh": "艾草", "la": "Artemisia argyi", "price": 1700}, {"id": "s31", "zh": "紅花", "la": "Carthamus tinctorius", "price": 1350}, {"id": "s32", "zh": "桂花", "la": "Osmanthus fragrans", "price": 4800}];
-const SIMG=["img/s00.jpg", "img/s01.jpg", "img/s02.jpg", "img/s03.jpg", "img/s04.jpg", "img/s05.jpg", "img/s06.jpg", "img/s07.jpg", "img/s08.jpg", "img/s09.jpg", "img/s10.jpg", "img/s11.jpg", "img/s12.jpg", "img/s13.jpg", "img/s14.jpg", "img/s15.jpg", "img/s16.jpg", "img/s17.jpg", "img/s18.jpg", "img/s19.jpg", "img/s20.jpg", "img/s21.jpg", "img/s22.jpg", "img/s23.jpg", "img/s24.jpg", "img/s25.jpg", "img/s26.jpg", "img/s27.jpg", "img/s28.jpg", "img/s29.jpg", "img/s30.jpg", "img/s31.jpg"];
-SINGLES.forEach((o,i)=>o.img=SIMG[i]);
+const SINGLES=[{"id": "s01", "zh": "杜仲", "la": "Eucommia ulmoides", "price": 1600, "cat": "root"}, {"id": "s02", "zh": "人蔘", "la": "Panax ginseng", "price": 3500, "cat": "root"}, {"id": "s03", "zh": "紫蘇", "la": "Perilla frutescens", "price": 1300, "cat": "herb"}, {"id": "s04", "zh": "當歸", "la": "Angelica sinensis", "price": 1500, "cat": "root"}, {"id": "s05", "zh": "益母草", "la": "Leonurus artemisia", "price": 1650, "cat": "herb"}, {"id": "s33", "zh": "蛇床子", "la": "Cnidium monnieri", "price": 900, "cat": "fruit"}, {"id": "s06", "zh": "肉蓯蓉", "la": "Cistanche deserticola", "price": 1800, "cat": "root"}, {"id": "s07", "zh": "川芎", "la": "Ligusticum chuanxiong", "price": 1980, "cat": "root"}, {"id": "s08", "zh": "陳皮", "la": "Citrus reticulata", "price": 1980, "cat": "fruit"}, {"id": "s09", "zh": "鎖陽", "la": "Cynomorium songaricum", "price": 2800, "cat": "root"}, {"id": "s10", "zh": "香附", "la": "Cyperus rotundus", "price": 2800, "cat": "root"}, {"id": "s11", "zh": "何首烏", "la": "Polygonum multiflorum", "price": 2500, "cat": "root"}, {"id": "s12", "zh": "辛夷", "la": "Magnoliae Flos", "price": 1600, "cat": "flower"}, {"id": "s13", "zh": "防風", "la": "Saposhnikovia divaricata", "price": 1300, "cat": "root"}, {"id": "s14", "zh": "蒼耳子", "la": "Xanthium sibiricum", "price": 1100, "cat": "fruit"}, {"id": "s15", "zh": "白朮", "la": "Atractylodes macrocephala", "price": 1300, "cat": "root"}, {"id": "s16", "zh": "黃耆", "la": "Astragalus membranaceus", "price": 2950, "cat": "root"}, {"id": "s17", "zh": "柴胡", "la": "Bupleurum chinense", "price": 1600, "cat": "root"}, {"id": "s18", "zh": "茯苓", "la": "Poria cocos", "price": 1900, "cat": "root"}, {"id": "s19", "zh": "桔梗", "la": "Platycodon grandiflorus", "price": 1980, "cat": "root"}, {"id": "s20", "zh": "黃精", "la": "Polygonatum sibiricum", "price": 2130, "cat": "root"}, {"id": "s21", "zh": "菟絲子", "la": "Cuscuta chinensis", "price": 1800, "cat": "fruit"}, {"id": "s22", "zh": "降真香", "la": "Boswellia carterii", "price": 2800, "cat": "root"}, {"id": "s23", "zh": "老薑", "la": "Zingiber officinale", "price": 1300, "cat": "root"}, {"id": "s24", "zh": "蒼朮", "la": "Atractylodes lancea", "price": 1500, "cat": "root"}, {"id": "s25", "zh": "白芷", "la": "Angelica dahurica", "price": 1600, "cat": "root"}, {"id": "s26", "zh": "連翹", "la": "Forsythia suspensa", "price": 1600, "cat": "fruit"}, {"id": "s27", "zh": "五味子", "la": "Schisandra chinensis", "price": 2800, "cat": "fruit"}, {"id": "s28", "zh": "三七", "la": "Panax notoginseng", "price": 1200, "cat": "root"}, {"id": "s29", "zh": "白芍", "la": "Paeonia lactiflora", "price": 1500, "cat": "root"}, {"id": "s30", "zh": "艾草", "la": "Artemisia argyi", "price": 1700, "cat": "herb"}, {"id": "s31", "zh": "紅花", "la": "Carthamus tinctorius", "price": 1330, "cat": "flower"}, {"id": "s32", "zh": "桂花", "la": "Osmanthus fragrans", "price": 4800, "cat": "flower"}];
+const SCAT={root:"根莖・樹皮・木材",herb:"全草・葉片",fruit:"果實・種子",flower:"花類"};
+SINGLES.forEach(o=>o.img="img/oil/"+o.id+".jpg");
 const SMAP=Object.fromEntries(SINGLES.map(o=>[o.id,{name:o.zh+"精油",price:o.price,orig:o.price,img:o.img}]));
-/* 32 味單方：香氣、漢方印象、適合、用法、注意。tags 供測驗計分；preg=孕期請避免 */
+/* 33 味單方：香氣、漢方印象、適合、用法、注意。tags 供測驗計分；preg=孕期請避免 */
 const INFO={
 s01:{fam:"wood",aroma:"沉穩的樹皮木質香，微苦。",trad:"樹皮入藥，古人用來照顧腰膝與筋骨。",fit:"久坐久站、腰背常覺得痠緊的人。",use:"稀釋後按摩後腰、膝蓋周圍，搭配熱敷更舒服。",tags:{muscle:3,warm:1,energy:1},how:["massage","bath"]},
 s02:{fam:"earth",aroma:"土質根莖香，微甜帶苦。",trad:"大補元氣的代表藥材。",fit:"容易疲倦、早上需要提振的人。",use:"早上抹在前胸與手腕，雙手攏在鼻前深呼吸。",caution:"香氣偏提振，睡前 4 小時內避免；容易燥熱的人少量使用。",tags:{energy:3,warm:1},how:["massage","diffuse"],hotX:1},
@@ -907,6 +934,7 @@ s28:{fam:"earth",aroma:"土質微苦，是人蔘的近親。",trad:"傳統用於
 s29:{fam:"mild",aroma:"淡雅微苦。",trad:"傳統用於養血柔肝、緩急。",fit:"經期前後、或小腿常覺得抽緊的人。",use:"稀釋後按摩小腹與小腿。",tags:{women:2,muscle:2,mood:1},how:["massage"]},
 s30:{fam:"herb",aroma:"濃郁的草本香，微苦帶溫。",trad:"艾灸的主角，傳統用於溫經散寒。",fit:"怕冷、經期覺得寒涼，或想淨化空間的人。",use:"泡腳、熱敷，或稀釋後按摩小腹。",caution:"孕期請避免使用；請高度稀釋，勿長期大量使用。",tags:{warm:3,women:2},how:["bath","massage","diffuse"],preg:1,hotX:1},
 s31:{fam:"mild",aroma:"淡淡的乾草香，微甜。",trad:"傳統用於活血通經。",fit:"手腳冰冷、肩頸僵硬的人。",use:"稀釋後按摩肩頸與四肢。",caution:"孕期與經量多時請避免。",tags:{warm:2,women:2,muscle:1},how:["massage"],preg:1},
+s33:{fam:"herb",aroma:"辛香帶苦的草本種子香。",trad:"傳統多為外用，常見於肌膚清潔保養的方子。",fit:"想加強肌膚清潔保養的人。",use:"高度稀釋後局部塗抹，或調入護膚油少量使用。",caution:"刺激性較強，請高度稀釋；孕期請先詢問醫師或芳療師。",tags:{skin:3,warm:1},how:["skin"],preg:1},
 s32:{fam:"floral",aroma:"甜美的杏桃花香。",trad:"古人用來薰衣、潤髮，也象徵團圓。",fit:"心情低落、想被溫柔對待的人，也適合當日常香氛。",use:"擴香、抹在手腕當香水，或調入護膚油。",tags:{mood:3,sleep:1,skin:1},how:["diffuse","skin"]}
 };
 const NEEDS=[["energy","疲倦，提不起勁"],["muscle","肩頸腰背緊繃"],["digest","飯後悶脹"],["sleep","夜裡難放鬆、難入睡"],["warm","手腳冰冷、怕冷"],["breath","想要呼吸更清爽"],["women","經期前後的照顧"],["mood","心情悶、壓力大"],["skin","肌膚或頭皮保養"]];
@@ -944,7 +972,7 @@ function openInfo(id){
   const o=byId(id),f=INFO[id],n=SINGLES.indexOf(o)+1;
   $("dlgBox").innerHTML=`<button class="x" type="button" data-close aria-label="關閉">×</button>
    <div class="ph"><img src="${o.img}" alt="真元草本${o.zh}精油"></div>
-   <div class="tx"><div><p class="eyebrow">No.${String(n).padStart(2,"0")}・10 ML ・ CO₂</p><h3 id="dlgT">${o.zh}精油</h3><p class="la">${o.la}</p></div>
+   <div class="tx"><div><p class="eyebrow">No.${String(n).padStart(2,"0")}・10 ML ・ CO₂</p><h3 id="dlgT">${o.zh}精油</h3><p class="la">${o.la}</p><p class="dcat" data-cat="${o.cat}">${SCAT[o.cat]}</p></div>
    <dl class="qa">
     <div><dt>聞起來像什麼？</dt><dd>${f.aroma}</dd></div>
     <div><dt>漢方裡怎麼看它？</dt><dd>${f.trad}</dd></div>
@@ -963,7 +991,7 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")closeInfo()});
 let qs={step:-1,a:{}};
 function drawFinder(){
   const box=$("finder");
-  if(qs.step<0){box.innerHTML=`<div class="fi-intro"><div><p class="eyebrow">Find your herb</p><p class="latin-title">Which one is yours?</p><h2>找到你的那一味</h2><p class="sub">回答 6 個問題，大約一分鐘。從 32 味單方裡，挑出最適合你現在狀態的三味。</p><div style="margin-top:22px"><button class="pill" type="button" id="fiGo">開始測驗</button></div></div><div class="fi-big" aria-hidden="true">問植物</div></div>`;$("fiGo").onclick=()=>{qs={step:0,a:{}};drawFinder()};return}
+  if(qs.step<0){box.innerHTML=`<div class="fi-intro"><div><p class="eyebrow">Find your herb</p><p class="latin-title">Which one is yours?</p><h2>找到你的那一味</h2><p class="sub">回答 6 個問題，大約一分鐘。從 33 味單方裡，挑出最適合你現在狀態的三味。</p><div style="margin-top:22px"><button class="pill" type="button" id="fiGo">開始測驗</button></div></div><div class="fi-big" aria-hidden="true">問植物</div></div>`;$("fiGo").onclick=()=>{qs={step:0,a:{}};drawFinder()};return}
   if(qs.step>=QUIZ.length){return drawResult()}
   const Q=QUIZ[qs.step],v=qs.a[Q.k],sel=Q.multi?(v||[]):v;
   box.innerHTML=`<div class="fi-q"><div class="fi-top"><span class="fi-step">${String(qs.step+1).padStart(2,"0")} / ${String(QUIZ.length).padStart(2,"0")}</span><button class="fi-back" type="button" id="fiBack">${qs.step?"← 上一題":"← 離開測驗"}</button></div>
@@ -991,13 +1019,20 @@ function drawResult(){
   $("finder").scrollIntoView({block:"start"});
 }
 drawFinder();
+let SC="all";
+function drawCatf(){
+  const opts=[["all","全部",SINGLES.length],...Object.entries(SCAT).map(([k,v])=>[k,v,SINGLES.filter(o=>o.cat===k).length])];
+  $("catf").innerHTML=opts.map(([k,v,n])=>`<button type="button" data-sc="${k}" data-cat="${k}" aria-pressed="${SC===k}">${v}<span>${n}</span></button>`).join("");
+}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-sc]");if(!b)return;SC=b.dataset.sc;drawSingles()});
 function drawSingles(){
   const q=$("sq").value.trim(), so=$("ss").value;
-  let list=SINGLES.map((o,i)=>({...o,i})).filter(o=>!q||(o.zh+o.la).toLowerCase().includes(q.toLowerCase()));
+  let list=SINGLES.map((o,i)=>({...o,i})).filter(o=>(SC==="all"||o.cat===SC)&&(!q||(o.zh+o.la).toLowerCase().includes(q.toLowerCase())));
+  drawCatf();
   if(so==="lo")list.sort((a,b)=>a.price-b.price); if(so==="hi")list.sort((a,b)=>b.price-a.price);
-  $("drawers").innerHTML=list.length?list.map(o=>`<article class="dw">
+  $("drawers").innerHTML=list.length?list.map(o=>`<article class="dw" data-cat="${o.cat}">
     <button class="open top" type="button" data-info="${o.id}" aria-label="看${o.zh}精油的介紹"><img src="${o.img}" alt="真元草本${o.zh}精油 10ml 瓶身與外盒" loading="lazy"><span class="no">No.${String(o.i+1).padStart(2,"0")}</span></button>
-    <div><h3>${o.zh}精油</h3><p class="la">${o.la}</p><p class="ml">10 ML ・ CO₂</p><button class="open more" type="button" data-info="${o.id}">香氣與用法 →</button></div>
+    <div><h3>${o.zh}精油</h3><p class="la">${o.la}</p><p class="cat">${SCAT[o.cat]}</p><p class="ml">10 ML ・ CO₂</p><button class="open more" type="button" data-info="${o.id}">香氣與用法 →</button></div>
     <div class="foot"><span class="pr">NT$${fmt(o.price)}</span><button class="add" type="button" data-add="${o.id}" aria-label="${o.zh}精油加入購物車">加入</button></div>
   </article>`).join(""):`<p class="none">找不到「${q.replace(/</g,"&lt;")}」，換個字試試。</p>`;
 }
