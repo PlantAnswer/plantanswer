@@ -596,8 +596,13 @@ fieldset.opt legend{font-family:var(--serif);font-size:15px;letter-spacing:.1em;
 .dw:hover .top img{transform:none;opacity:.92}
 .dlg .ph{padding:28px 28px 4px;background:var(--linen);display:grid;place-items:center}
 .dlg .ph img{width:78%;aspect-ratio:3/2}
-.fc img{width:82%;margin:4px auto 0}
+.fc img{width:82%;margin:20px auto 0}
 @media (max-width:860px){.dw .top{padding:24px 2px 6px}.dlg .ph{padding:20px 20px 0}.dlg .ph img{width:88%}.fc img{width:100%;margin:0}}
+
+/* 單方頁的測驗入口；測驗本身在「找到你的那一味」頁 */
+.quiz-link{margin-bottom:clamp(28px,3.6vw,44px)}
+.quiz-link a{padding-block:clamp(22px,3vw,34px)}
+.quiz-link .latin-title{font-size:clamp(24px,3vw,36px)}
 </style>
 
 <header class="bar">
@@ -723,7 +728,7 @@ fieldset.opt legend{font-family:var(--serif);font-size:15px;letter-spacing:.1em;
           <label for="ss">排序<select id="ss"><option value="cat">目錄順序</option><option value="lo">價格低到高</option><option value="hi">價格高到低</option></select></label>
         </div>
       </div>
-      <section class="finder" id="finder" aria-live="polite"></section>
+      <div class="apo-teaser quiz-link"><a href="#quiz"><span class="latin-title">Which one is yours?</span><span class="tx"><b>不知道選哪一味？</b><small>回答 6 個問題，大約一分鐘，從 33 味單方裡挑出最適合你的三味。</small></span><span class="go" aria-hidden="true">→</span></a></div>
       <div class="catf" id="catf" role="group" aria-label="依萃取部位篩選"></div>
       <div class="drawers" id="drawers"></div>
       <p class="fine">以上為建議售價。單方精油濃度較高，請稀釋後使用；調配方式可透過 LINE 詢問小艾。</p>
@@ -740,6 +745,15 @@ fieldset.opt legend{font-family:var(--serif);font-size:15px;letter-spacing:.1em;
           <details><summary>單方精油怎麼保存？</summary><p>蓋緊瓶蓋，放在陰涼、避光的地方，避開浴室的濕氣和高溫。開封後建議一年內用完；柑橘類（如陳皮）氧化得比較快，建議半年內用完。</p></details>
         </div>
       </div>
+    </div>
+  </section>
+</main>
+
+<main id="quiz" hidden>
+  <section class="apo">
+    <div class="wrap">
+      <a class="back" href="#singles">← 回到單方精油</a>
+      <section class="finder" id="finder" aria-live="polite"></section>
     </div>
   </section>
 </main>
@@ -1177,14 +1191,14 @@ function updUser(){const m=ME;$("userTxt").textContent=m?m.name:"會員";$("user
 document.addEventListener("click",e=>{if(e.target.closest("[data-close-cart]"))closeCart()});
 loadMe().then(updUser);
 function route(){
-  const h=location.hash||"#singles", pages=["top","singles","services","account","track"];
+  const h=location.hash||"#singles", pages=["top","singles","quiz","services","account","track"];
   let pg="singles", t=null;
   if(pages.includes(h.slice(1))) pg=h.slice(1);
   else{try{t=document.querySelector(h)}catch(e){t=null} if(t){const m=t.closest("main");pg=m?m.id:"top"}}
   pages.forEach(id=>$(id).hidden=id!==pg);
-  const tab={top:"blend",singles:"single"}[pg];
+  const tab={top:"blend",singles:"single",quiz:"single"}[pg];
   document.querySelectorAll('.bar nav a').forEach(a=>a.dataset.tab===tab?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
-  document.title={top:"複方精油｜真元草本｜植物有解",singles:"真元草本｜植物有解",services:"服務｜植物有解",account:"會員｜植物有解",track:"訂單查詢｜植物有解"}[pg];
+  document.title={top:"複方精油｜真元草本｜植物有解",singles:"真元草本｜植物有解",quiz:"找到你的那一味｜真元草本｜植物有解",services:"服務｜植物有解",account:"會員｜植物有解",track:"訂單查詢｜植物有解"}[pg];
   pg==="account"?$("userBtn").setAttribute("aria-current","page"):$("userBtn").removeAttribute("aria-current");
   if(pg==="account")drawAccount();
   if(t&&t.id!=="top") requestAnimationFrame(()=>t.scrollIntoView()); else window.scrollTo(0,0);
