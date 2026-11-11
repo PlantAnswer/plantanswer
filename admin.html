@@ -208,10 +208,10 @@ $("q").oninput=()=>render();
 /* ---------- 回覆訊息 ---------- */
 function reply(o){
   const b=CFG.bank||{};
-  if(o.status==="待付款") return `${o.name} 您好，謝謝你在植物有解訂購！\n訂單編號：${o.no}\n${o.items}\n商品金額：${fmt(o.total)}\n\n請於 ${CFG.payDays||3} 天內轉帳至：\n${b.name||""}（${b.code||""}）\n帳號 ${b.account||""}\n戶名 ${b.holder||""}\n\n轉帳後回傳末五碼，小艾確認後就出貨。`;
+  if(o.status==="待付款") return `${o.name} 您好，謝謝你在植物有解訂購！\n訂單編號：${o.no}\n${o.items}\n商品金額：${fmt(o.total)}\n\n請於 ${CFG.payDays||3} 天內轉帳至：\n${b.name||""}（${b.code||""}）\n帳號 ${b.account||""}\n戶名 ${b.holder||""}\n\n轉帳後回傳末五碼，小艾小幫手確認後就出貨。`;
   if(o.status==="已付款") return `${o.name} 您好，已收到你的款項（末五碼 ${o.last5||"—"}），訂單 ${o.no} 會盡快出貨，謝謝！`;
-  if(o.status==="已出貨") return `${o.name} 您好，訂單 ${o.no} 已出貨（${o.ship}）${o.tracking?`\n物流單號：${o.tracking}`:""}\n收到後有任何使用問題，都可以直接問小艾。`;
-  if(o.status==="已取消") return `${o.name} 您好，訂單 ${o.no} 已取消。如果還需要，隨時再跟小艾說。`;
+  if(o.status==="已出貨") return `${o.name} 您好，訂單 ${o.no} 已出貨（${o.ship}）${o.tracking?`\n物流單號：${o.tracking}`:""}\n收到後有任何使用問題，都可以直接問小艾小幫手。`;
+  if(o.status==="已取消") return `${o.name} 您好，訂單 ${o.no} 已取消。如果還需要，隨時再跟小艾小幫手說。`;
   return `${o.name} 您好，謝謝你選擇植物有解。身體有問，植物有解。`;
 }
 

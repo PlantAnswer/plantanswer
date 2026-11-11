@@ -624,6 +624,15 @@ fieldset.opt legend{font-family:var(--serif);font-size:15px;letter-spacing:.1em;
 .dlg .cta:has(.soonnote){flex-wrap:wrap;gap:6px 14px}
 .soontag{font-size:12px;letter-spacing:.12em;color:var(--umber);border:1px solid var(--umber);border-radius:999px;padding:2px 10px}
 .soonnote{font-size:13px;color:var(--ink-2);line-height:1.7}
+/* 轉帳資訊卡 */
+.bankcard{border:2px solid #2a2521;border-radius:6px;padding:18px 18px 14px;margin:14px 0;background:#fffdf9;color:#2a2521}
+.bankcard .bk-t{margin:0 0 10px;font-family:var(--serif);font-size:18px;font-weight:600;letter-spacing:.08em}
+.bankcard dl{display:grid;grid-template-columns:3.2em minmax(0,1fr);gap:8px 10px;margin:0;align-items:center}
+.bankcard dt{font-size:13px;color:#6d645b}.bankcard dd{margin:0;font-size:15px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.bankcard .bk-acc{font-size:22px;font-weight:600;letter-spacing:.06em}
+.bankcard .bk-amt{font-size:20px;font-weight:600;color:#a8463e}
+.bankcard .bk-copy{font:inherit;font-size:12px;border:1px solid #2a2521;background:#2a2521;color:#fffdf9;border-radius:999px;padding:3px 12px;cursor:pointer}
+.bankcard .bk-steps{margin:12px 0 0;padding-left:1.3em;font-size:13px;line-height:1.75;color:#4a423c}
 </style>
 
 <header class="bar">
@@ -687,9 +696,9 @@ fieldset.opt legend{font-family:var(--serif);font-size:15px;letter-spacing:.1em;
 
   <section class="voice" id="xiaoai">
     <div class="wrap">
-      <p class="eyebrow">A note from 小艾</p>
+      <p class="eyebrow">A note from 小艾小幫手</p>
       <blockquote>常有朋友跟我說，不是哪裡特別不舒服，而是「說不上來，就是卡卡的」。這三瓶油不是藥，它們做的事很小、很輕：讓你停下來，把手放在身上，好好吸一口氣。</blockquote>
-      <p class="sig"><span class="seal" aria-hidden="true">小<br>艾</span>小艾，植物有解</p>
+      <p class="sig"><span class="seal" aria-hidden="true">小<br>艾</span>小艾小幫手，植物有解</p>
     </div>
   </section>
 
@@ -751,7 +760,7 @@ fieldset.opt legend{font-family:var(--serif);font-size:15px;letter-spacing:.1em;
       </div>
       <div class="catf" id="catf" role="group" aria-label="依萃取部位篩選"></div>
       <div class="drawers" id="drawers"></div>
-      <p class="fine">以上為建議售價。單方精油濃度較高，請稀釋後使用；調配方式可透過 LINE 詢問小艾(小幫手)。</p>
+      <p class="fine">以上為建議售價。單方精油濃度較高，請稀釋後使用；調配方式可透過 LINE 詢問小艾小幫手。</p>
       <div class="sfaq" id="sfaq">
         <h2>單方精油常見問題</h2>
         <div>
@@ -785,7 +794,7 @@ fieldset.opt legend{font-family:var(--serif);font-size:15px;letter-spacing:.1em;
         <p class="eyebrow">Services</p>
         <p class="latin-title">At your service</p>
         <h2>植物有解的服務</h2>
-        <p class="sub">想認識植物、學會照顧自己，或替公司準備一份禮物，都可以找小艾聊聊。</p>
+        <p class="sub">想認識植物、學會照顧自己，或替公司準備一份禮物，都可以找小艾小幫手聊聊。</p>
       </div>
       <nav class="svc-nav" aria-label="服務項目">
         <a href="#book"><span class="latin-title">Courses</span><b>香氣課程諮詢</b><small>調香體驗、線上課程</small></a>
@@ -794,10 +803,10 @@ fieldset.opt legend{font-family:var(--serif);font-size:15px;letter-spacing:.1em;
       </nav>
 
       <section class="blk" id="book">
-        <div class="bh"><div><p class="latin-title">Courses</p><h3>香氣課程諮詢</h3></div><p>想來上課，或想先了解課程內容，可以填好下面的表單，把內容傳到 LINE，小幫手小艾會回覆課程時間、地點與費用。</p></div>
+        <div class="bh"><div><p class="latin-title">Courses</p><h3>香氣課程諮詢</h3></div><p>想來上課，或想先了解課程內容，可以填好下面的表單，把內容傳到 LINE，小艾小幫手會回覆課程時間、地點與費用。</p></div>
         <div class="book">
           <div class="svcs">
-            <div><b>調香體驗</b><small>Cynthia 老師帶著你聞、選、調，親手調出一瓶屬於自己的漢方按摩油，帶回家使用。四人即可開班，可以約朋友一起來，也可以先報名，湊滿四人時小艾(小幫手)會通知你。</small></div>
+            <div><b>調香體驗</b><small>Cynthia 老師帶著你聞、選、調，親手調出一瓶屬於自己的漢方按摩油，帶回家使用。四人即可開班，可以約朋友一起來，也可以先報名，湊滿四人時小艾小幫手會通知你。</small></div>
             <div><b>線上課程</b><small>用視訊上課，在家就能跟著 Cynthia 老師認識植物、學會挑選與使用精油。</small></div>
             <p class="fine">課程內容為香氛保養的知識與分享，不能取代醫療診斷。</p>
           </div>
@@ -821,13 +830,13 @@ fieldset.opt legend{font-family:var(--serif);font-size:15px;letter-spacing:.1em;
 
       <section class="blk" id="corporate">
         <div class="corp">
-          <div><p class="eyebrow" style="color:var(--stone)">Corporate gifts</p><h3>企業送禮與大量訂購</h3><p>年節、員工關懷或客戶答謝，10 份以上可以搭配客製祝福卡與統一包裝。歡迎私訊 LINE 官方帳號 @795smcix，告訴小艾預算、份數與送達日期，我們幫你安排。</p></div>
+          <div><p class="eyebrow" style="color:var(--stone)">Corporate gifts</p><h3>企業送禮與大量訂購</h3><p>年節、員工關懷或客戶答謝，10 份以上可以搭配客製祝福卡與統一包裝。歡迎私訊 LINE 官方帳號 @795smcix，告訴小艾小幫手預算、份數與送達日期，我們幫你安排。</p></div>
           <button class="pill" type="button" data-copyline>複製 LINE ID　<span class="num">@795smcix</span></button>
         </div>
       </section>
 
       <section class="blk" id="shipping">
-        <div class="bh"><div><p class="latin-title">Delivery &amp; returns</p><h3>運送與退換</h3></div><p>付款方式為銀行轉帳。小艾確認款項後安排出貨。</p></div>
+        <div class="bh"><div><p class="latin-title">Delivery &amp; returns</p><h3>運送與退換</h3></div><p>付款方式為銀行轉帳。小艾小幫手確認款項後安排出貨。</p></div>
         <div class="ship">
           <div><h4>運費</h4><ul><li>訂單滿 NT$3,000 免運費</li><li>未滿 NT$3,000：7-11、全家店到店運費 NT$70</li><li>未滿 NT$3,000：宅配到府運費 NT$130</li></ul></div>
           <div><h4>出貨時間</h4><ul><li>付款確認後 2–3 個工作天出貨</li><li>同一筆訂單會一起寄出</li></ul></div>
@@ -862,7 +871,7 @@ fieldset.opt legend{font-family:var(--serif);font-size:15px;letter-spacing:.1em;
             <p class="err" id="tErr" hidden></p>
             <button class="pill" type="submit">查詢</button>
           </form>
-          <p class="note">訂單編號在下單完成的畫面，以及你傳到 LINE 的訂單內容裡。找不到的話，直接在 LINE <span class="num">@795smcix</span> 問小艾。<br>會員可以到<a href="#account">會員中心</a>看到全部訂單。</p>
+          <p class="note">訂單編號在下單完成的畫面，以及你傳到 LINE 的訂單內容裡。找不到的話，直接在 LINE <span class="num">@795smcix</span> 問小艾小幫手。<br>會員可以到<a href="#account">會員中心</a>看到全部訂單。</p>
         </div>
         <div id="tRes" aria-live="polite"></div>
       </div>
@@ -1071,7 +1080,7 @@ function drawResult(){
     <div style="display:grid;gap:10px;align-content:start">${r.why.length?`<div class="chips">${[...new Set(r.why)].map(w=>`<span>${w}</span>`).join("")}</div>`:""}<p>${f.aroma}${f.fit}</p></div>
     <div class="cta"><span class="pr">NT$${fmt(o.price)}</span><div><button class="sm" type="button" data-info="${o.id}">介紹</button><button class="sm fill" type="button" data-add="${o.id}">加入</button></div></div></article>`}).join("")}</div>
    ${bl?`<div class="fi-blend"><span>不想自己調？已經調好、打開就能擦的複方：<a href="#${bl[0]}">漢方${bl[1]} →</a></span></div>`:""}
-   <p class="fi-fine">${qs.a.preg==="yes"?"已依你的回答排除孕期不建議使用的精油；使用前仍請先詢問醫師。":""}測驗結果是依你的回答與香氣偏好整理的參考，不是醫療診斷。想要更精準的建議，可以把結果截圖傳到 LINE <span class="num">@795smcix</span> 問小艾。</p></div>`;
+   <p class="fi-fine">${qs.a.preg==="yes"?"已依你的回答排除孕期不建議使用的精油；使用前仍請先詢問醫師。":""}測驗結果是依你的回答與香氣偏好整理的參考，不是醫療診斷。想要更精準的建議，可以把結果截圖傳到 LINE <span class="num">@795smcix</span> 問小艾小幫手。</p></div>`;
   $("fiAgain").onclick=()=>{qs={step:0,a:{}};drawFinder()};
   $("finder").scrollIntoView({block:"start"});
 }
@@ -1129,7 +1138,7 @@ let ME=null;
 const me=()=>ME;
 const telOK=t=>/^09\d{8}$/.test(t);
 const ERR={network:"連線不穩，請稍後再試一次。",wrong_login:"手機或密碼不正確。",too_many_attempts:"嘗試太多次，請 15 分鐘後再試。",exists:"這支手機已經是會員，請直接登入。",invalid_fields:"資料格式不正確，請再檢查一次。",empty_cart:"購物車是空的。",not_logged_in:"登入已過期，請重新登入。"};
-const errMsg=r=>ERR[r&&r.error]||"系統忙碌中，請稍後再試，或直接在 LINE @795smcix 聯絡小艾。";
+const errMsg=r=>ERR[r&&r.error]||"系統忙碌中，請稍後再試，或直接在 LINE @795smcix 聯絡小艾小幫手。";
 const STEPS=["待付款","已付款","已出貨","已完成"];
 const dt=t=>{const d=new Date(t);return `${d.getFullYear()}/${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`};
 const busy=(btn,on,txt)=>{if(!btn)return;if(on){btn.dataset.t=btn.textContent;btn.textContent=txt||"處理中…";btn.disabled=true}else{btn.textContent=btn.dataset.t||btn.textContent;btn.disabled=false}};
@@ -1139,9 +1148,17 @@ function orderCard(o){
    ${cancel?"":`<ol class="tl" aria-label="訂單進度">${STEPS.map((s,i)=>`<li class="${i<=idx?"on":""} ${i<idx?"prev":""}">${s}</li>`).join("")}</ol>`}
    <ul class="oitems">${escT(o.items).split("\n").map(x=>`<li>${x}</li>`).join("")}</ul>
    <dl class="ometa"><dt>合計</dt><dd><span class="amt">NT$${fmt(o.total)}</span>${o.shipFee?`（含運費 NT$${fmt(o.shipFee)}）`:"（免運）"}</dd><dt>寄送</dt><dd>${escT(o.ship)}｜${escT(o.addr)}</dd>${o.tracking?`<dt>物流單號</dt><dd class="num">${escT(o.tracking)}</dd>`:""}</dl>
-   ${o.status==="待付款"?`<p class="payhint">請轉帳 <span class="num">NT$${fmt(o.total)}</span>${bankLine()}，再把帳號末五碼傳到 LINE <span class="num">@795smcix</span>。小艾確認後，狀態會變成「已付款」。</p>`:""}
+   ${o.status==="待付款"?`<p class="payhint">這筆訂單還沒收到款項。轉帳後，小艾小幫手確認收款，狀態就會變成「已付款」。</p>${bankCard(o.total,o.no)}`:""}
    ${o.status==="已出貨"?`<p class="payhint">包裹已寄出。${/7-11|全家/.test(o.ship)?"到店後會收到簡訊通知，請在 7 天內取貨。":"宅配一般 1–2 天送達。"}</p>`:""}</article>`;
 }
+function bankCard(total,no){const b=CFG.bank||{};if(!(b.account&&!/〔/.test(b.account)))return"";
+ return `<div class="bankcard"><p class="bk-t">請轉帳到這個帳戶</p>
+ <dl><dt>銀行</dt><dd>${escT(b.name||"")}（代碼 <span class="num">${escT(b.code||"")}</span>）</dd>
+ <dt>帳號</dt><dd><span class="bk-acc num">${escT(b.account)}</span><button type="button" class="bk-copy" data-copy="${escT(String(b.account).replace(/\D/g,""))}" data-msg="帳號已複製">複製帳號</button></dd>
+ <dt>戶名</dt><dd>${escT(b.holder||"")}</dd>
+ <dt>金額</dt><dd><span class="bk-amt num">NT$${fmt(total)}</span><button type="button" class="bk-copy" data-copy="${total}" data-msg="金額已複製">複製金額</button></dd></dl>
+ <ol class="bk-steps"><li>打開你的手機銀行 App 或網路 ATM，選「轉帳」，貼上帳號與金額。</li><li>轉帳後，把<b>帳號末五碼</b>${no?`和訂單編號 <span class="num">${escT(no)}</span> `:""}傳到 LINE <span class="num">@795smcix</span>。</li></ol></div>`}
+document.addEventListener("click",e=>{const c=e.target.closest(".bk-copy");if(c)copy(c.dataset.copy,c.dataset.msg)});
 function bankLine(){const b=CFG.bank||{};return b.account&&!/〔/.test(b.account)?`到 ${escT(b.name||"")}（${escT(b.code||"")}）帳號 <span class="num">${escT(b.account)}</span>，戶名 ${escT(b.holder||"")}`:""}
 /* ---- 訂單查詢 ---- */
 $("trackDemo").hidden=!DEMO;
@@ -1150,7 +1167,7 @@ $("tf").addEventListener("submit",async e=>{e.preventDefault();
   if(!no||!telOK(ph)){er.textContent="請輸入訂單編號，手機請填 09 開頭的 10 碼號碼。";er.hidden=false;return}
   er.hidden=true;busy(btn,true,"查詢中…");const r=await api("track",{no,phone:ph});busy(btn,false);
   if(!r.ok){er.textContent=errMsg(r);er.hidden=false;return}
-  $("tRes").innerHTML=r.order?orderCard(r.order):`<div class="empty-o">找不到這筆訂單。<br><small style="font-family:var(--sans);font-size:13px">請確認訂單編號和手機是否正確，或在 LINE <span class="num">@795smcix</span> 問小艾。</small></div>`;
+  $("tRes").innerHTML=r.order?orderCard(r.order):`<div class="empty-o">找不到這筆訂單。<br><small style="font-family:var(--sans);font-size:13px">請確認訂單編號和手機是否正確，或在 LINE <span class="num">@795smcix</span> 問小艾小幫手。</small></div>`;
 });
 /* ---- 會員 ---- */
 let mtab="orders",MYORDERS=[];
@@ -1167,7 +1184,7 @@ async function drawAccount(fresh){
      <div class="panel"><h3>登入</h3>
       <form id="lf" novalidate><label for="l-phone">手機<input id="l-phone" inputmode="tel" autocomplete="username" placeholder="09xxxxxxxx"></label>
       <label for="l-pw">密碼<input id="l-pw" type="password" autocomplete="current-password"></label><p class="err" id="lErr" hidden></p><button class="pill" type="submit">登入</button></form>
-      <p class="note">忘記密碼？請在 LINE <span class="num">@795smcix</span> 告訴小艾你的手機號碼，我們協助你重設。</p>
+      <p class="note">忘記密碼？請在 LINE <span class="num">@795smcix</span> 告訴小艾小幫手你的手機號碼，我們協助你重設。</p>
       <a class="linkbtn" href="#track">不是會員？用訂單編號查詢 →</a></div>
      <div class="panel"><h3>加入會員</h3>
       <ul class="perks"><li>在會員中心查看每一筆訂單的付款與出貨進度</li><li>結帳時自動帶入收件資料，不用每次重填</li></ul>
@@ -1304,9 +1321,9 @@ function render(){
       stage="done";cart={};save();updN();if(ME)loadMe();
       const b=CFG.bank||{},hasBank=b.account&&!/〔/.test(b.account);
       $("dTitle").textContent="訂單已建立";
-      $("dBody").innerHTML=`<div class="done"><p>謝謝你，訂單已經送到小艾這裡。請在 ${CFG.payDays||3} 天內轉帳 <span class="num">NT$${fmt(o.total)}</span>，匯款後把帳號末五碼傳到 LINE <span class="num">@795smcix</span>，小艾確認後就出貨。</p>
+      $("dBody").innerHTML=`<div class="done"><p>謝謝你，訂單已經送到小艾小幫手這裡。請在 ${CFG.payDays||3} 天內轉帳 <span class="num">NT$${fmt(o.total)}</span>，匯款後把帳號末五碼傳到 LINE <span class="num">@795smcix</span>，小艾小幫手確認後就出貨。</p>
+        ${hasBank?bankCard(o.total,o.no):`<p style="font-size:13px;color:var(--ink-2)">轉帳帳戶：銀行代碼〔請填入〕　帳號〔請填入〕　戶名〔請填入〕</p>`}
         <pre>${escT(text)}</pre>
-        <p style="font-size:13px;color:var(--ink-2)">轉帳帳戶：${hasBank?`${escT(b.name||"")}（${escT(b.code||"")}）帳號 <span class="num">${escT(b.account)}</span>　戶名 ${escT(b.holder||"")}`:"銀行代碼〔請填入〕　帳號〔請填入〕　戶名〔請填入〕"}</p>
         <p style="font-size:13px;color:var(--ink-2)">之後可以到<a href="#track" data-close-cart>訂單查詢</a>，用訂單編號 <span class="num">${escT(o.no)}</span> 和手機查看進度${ME?"，也可以在會員中心看到這筆訂單":""}。</p></div>`;
       $("dFoot").innerHTML=`<button class="pill block" type="button" id="copyO">複製訂單內容</button>`;
       $("copyO").onclick=()=>copy(text,"訂單內容已複製");
@@ -1322,7 +1339,7 @@ $("copyLine").onclick=()=>copy("@795smcix","LINE ID 已複製");
     if(!v("bn")||!/^09\d{8}$/.test(v("bp").replace(/\D/g,""))||!v("bd")){er.textContent="請填好姓名、希望日期，手機請填 09 開頭的 10 碼號碼。";er.hidden=false;return}
     const svc=f.querySelector('input[name=bs]:checked').value;
     const text=`【香氣課程諮詢】\n課程：${svc}\n希望日期：${v("bd")}\n時段：${v("bt")}\n姓名：${v("bn")}\n手機：${v("bp")}${v("bm")?"\n想聊的事："+v("bm"):""}`;
-    $("bookBox").innerHTML=`<div class="bform bdone"><p class="full">諮詢訊息已整理好。請複製後傳到 LINE <span class="num">@795smcix</span>，小艾會回覆課程時間、地點與費用。<b>傳出訊息前，小艾還沒收到你的諮詢。</b></p><pre class="full">${escT(text)}</pre><div class="full" style="display:flex;gap:10px;flex-wrap:wrap"><button class="pill" type="button" id="bCopy">複製諮詢訊息</button><button class="pill line" type="button" data-copyline>複製 LINE ID</button><button class="fi-back" type="button" id="bAgain">重新填寫</button></div></div>`;
+    $("bookBox").innerHTML=`<div class="bform bdone"><p class="full">諮詢訊息已整理好。請複製後傳到 LINE <span class="num">@795smcix</span>，小艾小幫手會回覆課程時間、地點與費用。<b>傳出訊息前，小艾小幫手還沒收到你的諮詢。</b></p><pre class="full">${escT(text)}</pre><div class="full" style="display:flex;gap:10px;flex-wrap:wrap"><button class="pill" type="button" id="bCopy">複製諮詢訊息</button><button class="pill line" type="button" data-copyline>複製 LINE ID</button><button class="fi-back" type="button" id="bAgain">重新填寫</button></div></div>`;
     $("bCopy").onclick=()=>copy(text,"諮詢訊息已複製");
     $("bAgain").onclick=()=>{$("bookBox").innerHTML=FORM;bind()};
   })}
