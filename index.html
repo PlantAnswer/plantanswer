@@ -90,6 +90,8 @@ button{font:inherit;cursor:pointer;color:inherit}
 .hero .ph .par{transform:translateY(var(--py,0px))}
 @keyframes push{from{transform:scale(1.12)}to{transform:scale(1)}}
 .hero figcaption{display:grid;gap:22px;align-content:end;align-self:end;padding-block:0 8px;min-width:0}
+.hero{grid-template-columns:auto minmax(0,1fr);padding-bottom:clamp(28px,5vw,64px)}
+.hero figcaption{align-self:center;max-width:34em}
 .hero .lede{max-width:28em;color:var(--ink-2);font-size:15px}
 
 /* moments strip */
@@ -634,9 +636,24 @@ fieldset.opt legend{font-family:var(--serif);font-size:15px;letter-spacing:.1em;
   <section class="hero">
     <h1 class="vt" aria-label="身體有問，植物有解。"><span aria-hidden="true"><i style="animation-delay:0.15s">身</i><i style="animation-delay:0.26s">體</i><i style="animation-delay:0.37s">有</i><i style="animation-delay:0.48s">問</i></span><span aria-hidden="true"><i style="animation-delay:0.59s">植</i><i style="animation-delay:0.70s">物</i><i style="animation-delay:0.81s">有</i><i style="animation-delay:0.92s">解</i><em class="seal" style="font-style:normal">植物<br>有解</em></span></h1>
     <figure>
-      <div class="ph"><div class="par"><img src="img/trio.jpg" alt="真元草本漢方精華按摩油三瓶與禮盒，放在茶盤上，背景有菊花、茶壺與「禪」字擺件"></div></div>
       <figcaption><p class="eyebrow">Ask the plant</p><p class="lede">一天裡，總有幾個需要停下來的時刻。真元草本以漢方入香，為早晨、午後與睡前，各調了一瓶。</p><a class="link" href="#yuanxi">從你的時刻開始 →</a></figcaption>
     </figure>
+  </section>
+
+  <section class="set" id="set">
+    <div class="wrap">
+      <figure><img src="真元草本_漢方精華按摩油_海報.jpg" alt="真元草本漢方精華按摩油三入組：元息香、穀合香、夜安香" loading="lazy"></figure>
+      <div class="copy">
+        <p class="eyebrow">The full day</p>
+        <p class="latin-title">Daily Rhythm Trio</p>
+        <h2>漢方精華按摩油三入組</h2>
+        <h3>元息香＋穀合香＋夜安香，10ml 各一。從早上第一口氣，到夜裡最後一個念頭。</h3>
+        <p class="body" style="color:var(--ink-2)">第一次認識真元草本，不妨從這三瓶開始；也很適合送給那位總說「我沒事」、卻一直忙著照顧別人的人。</p>
+        <div class="price"><span class="now">NT$8,200</span><s>NT$10,800</s><span class="off">7.6 折</span></div>
+        <button class="pill block" type="button" data-add="set"><span class="en">ADD TO CART</span>／ 加入購物車</button>
+        <p class="ask">有問題嗎？LINE 搜尋 <span class="num">@795smcix</span></p>
+      </div>
+    </div>
   </section>
 
   <nav class="moments" aria-label="依時刻選擇">
@@ -662,21 +679,6 @@ fieldset.opt legend{font-family:var(--serif);font-size:15px;letter-spacing:.1em;
 
   <div id="prods"></div>
 
-  <section class="set" id="set">
-    <div class="wrap">
-      <figure><img src="真元草本_漢方精華按摩油_海報.jpg" alt="真元草本漢方精華按摩油三入組：元息香、穀合香、夜安香" loading="lazy"></figure>
-      <div class="copy">
-        <p class="eyebrow">The full day</p>
-        <p class="latin-title">Daily Rhythm Trio</p>
-        <h2>漢方精華按摩油三入組</h2>
-        <h3>元息香＋穀合香＋夜安香，10ml 各一。從早上第一口氣，到夜裡最後一個念頭。</h3>
-        <p class="body" style="color:var(--ink-2)">第一次認識真元草本，不妨從這三瓶開始；也很適合送給那位總說「我沒事」、卻一直忙著照顧別人的人。</p>
-        <div class="price"><span class="now">NT$8,200</span><s>NT$10,800</s><span class="off">7.6 折</span></div>
-        <button class="pill block" type="button" data-add="set"><span class="en">ADD TO CART</span>／ 加入購物車</button>
-        <p class="ask">有問題嗎？LINE 搜尋 <span class="num">@795smcix</span></p>
-      </div>
-    </div>
-  </section>
 
 
 
