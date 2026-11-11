@@ -5,13 +5,12 @@ window.PA_CONFIG = {
 
   // 轉帳資訊（顯示在下單完成頁、訂單查詢與後台的付款通知）
   bank: {
-code: "017",
-name: "兆豐銀行",
-account: "20310314146",
-holder: "張淑惠"
-   
+    code: "822",
+    name: "中國信託",
+    account: "129-533-076-754",
+    holder: "鄭希婭"
   },
   payDays: 3,            // 幾天內完成轉帳
-  lineId: "@688kumet",   // LINE 官方帳號
-  shippingNote: "未滿 NT$3,000 運費 NT$100，滿額免運。"
+  lineId: "@795smcix",   // LINE 官方帳號
+  shippingNote: "未滿 NT$3,000：店到店運費 NT$70、宅配運費 NT$130；滿額免運。"
 };
