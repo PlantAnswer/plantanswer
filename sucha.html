@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>五季五臟速查表｜真元草本漢方精油學苑</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@500;700&display=swap">
+<style>
+/* 經典對照長表為主體，其後是節氣、選品與說明；五季各用五行色 */
+:root{
+  --paper:#ECEAE4;--panel:#F7F6F2;--ink:#23211E;--muted:#6E6A62;--line:#CFCAC0;--seal:#C23B22;
+  --wood:#4F6E4B;--fire:#B4442E;--earth:#A07A2C;--metal:#7A776D;--water:#2E4A63;
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+}
+*{box-sizing:border-box}
+html{color-scheme:light}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.8;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 64px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:48px}
+.backnav{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:-24px}
+.backnav a{font-size:14px;letter-spacing:.1em;color:var(--ink);text-decoration:none;border:1px solid var(--ink);border-radius:999px;padding:6px 16px;line-height:1.4}
+.backnav a:hover,.backnav a:focus-visible{background:var(--ink);color:var(--panel);outline:none}
+header{display:flex;flex-direction:column;gap:10px;max-width:38em}
+.eyebrow{font-size:13px;letter-spacing:.24em;color:var(--muted)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,6.5vw,50px);line-height:1.2;margin:0;letter-spacing:.06em}
+.tag{font-family:var(--display);font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin:0;letter-spacing:.08em}
+header p{margin:0}
+.intro{display:flex;flex-direction:column;gap:12px;margin-top:8px;color:var(--ink)}
+section{display:flex;flex-direction:column;gap:16px}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(22px,3.6vw,28px);letter-spacing:.08em;margin:0;text-wrap:balance}
+.sub{margin:0;color:var(--muted);font-size:15px}
+.tbl{overflow-x:auto;background:var(--panel);border:1px solid var(--line)}
+.tbl table{border-collapse:collapse;width:100%;min-width:340px}
+.tbl th,.tbl td{padding:9px 6px;text-align:center;border-bottom:1px solid var(--line);font-size:16px;line-height:1.4;vertical-align:middle}
+.tbl tbody tr:last-child th,.tbl tbody tr:last-child td{border-bottom:0}
+.tbl tbody th{font-weight:400;font-size:13px;letter-spacing:.08em;color:var(--muted);text-align:left;padding-left:12px;position:sticky;left:0;background:var(--panel)}
+.wide tbody th{white-space:nowrap}
+.tbl thead th{border-bottom:2px solid var(--c,var(--line));padding-block:12px;font-weight:400;font-size:13px;color:var(--muted)}
+.hn{font-family:var(--display);font-weight:700;font-size:19px;color:var(--c);white-space:nowrap}
+.tbl td.st{font-family:var(--display);font-weight:700;font-size:19px;color:var(--c)}
+.tbl tbody tr:nth-child(even) td,.tbl tbody tr:nth-child(even) th{background:color-mix(in srgb,var(--ink) 3%,var(--panel))}
+.sw{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:1px;border:1px solid var(--line)}
+.seasons td{text-align:left;font-size:15px;padding-inline:10px}
+.seasons tbody th{padding-block:12px;border-left:3px solid var(--c)}
+.callout{margin:0;font-size:14px;color:var(--muted);border-left:2px solid var(--line);padding:2px 0 2px 14px}
+.callout b,.disc b{color:var(--ink);font-weight:500}
+.sels{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.sel{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--c);padding:16px 18px 18px;display:flex;flex-direction:column;gap:12px}
+.sel h3{margin:0;display:flex;align-items:baseline;gap:10px}
+.sel h3 b{font-family:var(--display);font-weight:700;font-size:24px;color:var(--c);letter-spacing:.06em}
+.sel h3 span{font-size:14px;color:var(--muted);letter-spacing:.12em;font-weight:400}
+.chips{display:flex;flex-wrap:wrap;gap:6px 8px}
+.chips a,.chips span{font-size:15px;padding:4px 12px;border:1px solid color-mix(in srgb,var(--c) 45%,var(--line));background:color-mix(in srgb,var(--c) 7%,var(--panel));color:var(--ink);text-decoration:none;border-radius:2px;line-height:1.6}
+.chips a:hover,.chips a:focus-visible{background:var(--c);color:var(--panel);border-color:var(--c);outline:none}
+.chips .soon{border-style:dashed;background:transparent;color:var(--muted)}
+.prose{display:flex;flex-direction:column;gap:12px;max-width:38em}
+.prose p{margin:0}
+hr{border:0;border-top:1px solid var(--line);margin:0}
+.disc{margin:0;font-size:14px;color:var(--muted);background:var(--panel);border:1px solid var(--line);padding:14px 16px}
+</style></head><body>
+<div class="wrap">
+  <nav class="backnav" aria-label="返回"><a href="jieqi.html">← 回上一頁</a><a href="index.html">回首頁</a></nav>
+  <header>
+    <div class="eyebrow">真元草本 漢方精油學苑</div>
+    <h1>五季五臟速查表</h1>
+    <p class="tag">順應四時，認識天地與身體的自然節律</p>
+    <div class="intro">
+      <p>《黃帝內經》以陰陽五行觀察自然與人體的關係，將春、夏、長夏、秋、冬五季，與肝、心、脾、肺、腎五臟相互對應。</p>
+      <p>從季節氣候、五色、五味，到情志與身體組織，形成一套理解自然變化與傳統中醫臟象理論的知識系統。</p>
+      <p>透過這張速查表，認識五季五臟的基本對應，也能延伸探索真元草本的漢方植物香氣。</p>
+    </div>
+  </header>
+
+  <section aria-labelledby="t1">
+    <h2 id="t1">五季五臟經典對照</h2>
+    <div class="tbl wide"><table>
+      <thead><tr><th scope="col">項目</th><th scope="col" style="--c:var(--wood)"><span class="hn">春</span></th><th scope="col" style="--c:var(--fire)"><span class="hn">夏</span></th><th scope="col" style="--c:var(--earth)"><span class="hn">長夏</span></th><th scope="col" style="--c:var(--metal)"><span class="hn">秋</span></th><th scope="col" style="--c:var(--water)"><span class="hn">冬</span></th></tr></thead>
+      <tbody><tr><th scope="row">五臟</th><td style="--c:var(--wood)" class="st">肝</td><td style="--c:var(--fire)" class="st">心</td><td style="--c:var(--earth)" class="st">脾</td><td style="--c:var(--metal)" class="st">肺</td><td style="--c:var(--water)" class="st">腎</td></tr><tr><th scope="row">相表裡之腑</th><td style="--c:var(--wood)">膽</td><td style="--c:var(--fire)">小腸</td><td style="--c:var(--earth)">胃</td><td style="--c:var(--metal)">大腸</td><td style="--c:var(--water)">膀胱</td></tr><tr><th scope="row">五行</th><td style="--c:var(--wood)" class="st">木</td><td style="--c:var(--fire)" class="st">火</td><td style="--c:var(--earth)" class="st">土</td><td style="--c:var(--metal)" class="st">金</td><td style="--c:var(--water)" class="st">水</td></tr><tr><th scope="row">五氣</th><td style="--c:var(--wood)">風</td><td style="--c:var(--fire)">熱／暑</td><td style="--c:var(--earth)">濕</td><td style="--c:var(--metal)">燥</td><td style="--c:var(--water)">寒</td></tr><tr><th scope="row">五色</th><td style="--c:var(--wood)"><i class="sw" style="background:#4F6E4B"></i>青</td><td style="--c:var(--fire)"><i class="sw" style="background:#B4442E"></i>赤</td><td style="--c:var(--earth)"><i class="sw" style="background:#B08A3E"></i>黃</td><td style="--c:var(--metal)"><i class="sw" style="background:#F4F2EC"></i>白</td><td style="--c:var(--water)"><i class="sw" style="background:#23211E"></i>黑</td></tr><tr><th scope="row">五味</th><td style="--c:var(--wood)">酸</td><td style="--c:var(--fire)">苦</td><td style="--c:var(--earth)">甘</td><td style="--c:var(--metal)">辛</td><td style="--c:var(--water)">鹹</td></tr></tbody>
+    </table></div>
+  </section>
+
+  <section aria-labelledby="t2">
+    <h2 id="t2">五季與節氣</h2>
+    <div class="tbl seasons"><table>
+      <thead><tr><th scope="col">季節</th><th scope="col">節氣範圍</th><th scope="col">自然特徵</th></tr></thead>
+      <tbody><tr style="--c:var(--wood)"><th scope="row"><span class="hn">春</span></th><td>立春～穀雨</td><td>陽氣生發、萬物萌芽</td></tr><tr style="--c:var(--fire)"><th scope="row"><span class="hn">夏</span></th><td>立夏～大暑</td><td>陽氣旺盛、氣候炎熱</td></tr><tr style="--c:var(--earth)"><th scope="row"><span class="hn">長夏</span></th><td>盛夏至夏秋之交</td><td>暑濕交蒸、濕氣偏盛</td></tr><tr style="--c:var(--metal)"><th scope="row"><span class="hn">秋</span></th><td>立秋～霜降</td><td>陽氣漸收、氣候轉燥</td></tr><tr style="--c:var(--water)"><th scope="row"><span class="hn">冬</span></th><td>立冬～大寒</td><td>陽氣內藏、氣候寒冷</td></tr></tbody>
+    </table></div>
+    <p class="callout"><b>節氣說明</b>　春、夏、秋、冬依現行二十四節氣的四季分法呈現。長夏是傳統中醫五季配屬中的概念，與夏季後段有所重疊，並非另有一組固定且獨立的節氣。</p>
+  </section>
+
+  <section aria-labelledby="t3">
+    <h2 id="t3">五季漢方植物香氣選品</h2>
+    <p class="sub">以下依學苑五季主題整理，作為認識植物與香氣的延伸入口。</p>
+    <div class="sels"><div class="sel" style="--c:var(--wood)"><h3><b>春</b><span>木・肝</span></h3><div class="chips"><a href="index.html#s17">柴胡</a><a href="index.html#s10">香附</a><a href="index.html#s29">白芍</a><a href="index.html#s07">川芎</a><a href="index.html#s04">當歸</a><a href="index.html#s05">益母草</a><a href="index.html#s13">防風</a><a href="index.html#s28">三七</a><a href="index.html#s22">降真香</a></div></div><div class="sel" style="--c:var(--fire)"><h3><b>夏</b><span>火・心</span></h3><div class="chips"><a href="index.html#s30">艾草</a><a href="index.html#s27">五味子</a><span class="soon" title="即將上架">金銀花</span><a href="index.html#s26">連翹</a><a href="index.html#s31">紅花</a></div></div><div class="sel" style="--c:var(--earth)"><h3><b>長夏</b><span>土・脾</span></h3><div class="chips"><a href="index.html#s16">黃耆</a><a href="index.html#s15">白朮</a><a href="index.html#s18">茯苓</a><a href="index.html#s23">老薑</a><span class="soon" title="即將上架">葛根</span><a href="index.html#s08">陳皮</a><a href="index.html#s24">蒼朮</a><a href="index.html#s02">人蔘</a></div></div><div class="sel" style="--c:var(--metal)"><h3><b>秋</b><span>金・肺</span></h3><div class="chips"><a href="index.html#s19">桔梗</a><a href="index.html#s32">桂花</a><a href="index.html#s12">辛夷</a><a href="index.html#s14">蒼耳子</a><a href="index.html#s03">紫蘇</a><a href="index.html#s25">白芷</a></div></div><div class="sel" style="--c:var(--water)"><h3><b>冬</b><span>水・腎</span></h3><div class="chips"><a href="index.html#s21">菟絲子</a><a href="index.html#s06">肉蓯蓉</a><a href="index.html#s01">杜仲</a><a href="index.html#s11">何首烏</a><a href="index.html#s20">黃精</a><a href="index.html#s09">鎖陽</a></div></div></div>
+    <p class="callout">上述為學苑目前的五季主題選品分類，未來將持續加入更多漢方植物香氣。各植物的傳統本草歸經、性味、使用部位與香氣特性，應分別依資料說明；此分類不代表精油能直接作用於對應臟腑。</p>
+  </section>
+
+  <section aria-labelledby="t4">
+    <h2 id="t4">認識植物，從香氣開始</h2>
+    <div class="prose">
+      <p>每一株植物都有自己的生長環境、氣味特徵與文化故事。</p>
+      <p>真元草本漢方精油學苑希望透過《黃帝內經》的四時觀念，結合傳統本草知識與現代植物香氣體驗，陪伴讀者認識植物，也理解不同季節的生活節律。</p>
+      <p>點選植物名稱，可以進一步探索植物來源、使用部位、香氣描述、製作方式及日常使用注意事項。</p>
+    </div>
+  </section>
+
+  <hr>
+  <p class="disc"><b>學苑說明</b>　本表為傳統中醫文化與植物香氣知識整理，非疾病診斷、治療或用藥建議。傳統中藥材的性味歸經，不等同於其精油或芳香萃取物的功效。</p>
+  <nav class="backnav" aria-label="返回" style="margin:0"><a href="jieqi.html">← 回上一頁</a><a href="index.html">回首頁</a></nav>
+</div>
+</body></html>
