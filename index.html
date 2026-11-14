@@ -258,11 +258,12 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:70;opa
 .apo .head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 48px;align-items:end;margin-bottom:clamp(32px,4vw,52px)}
 .apo .head .latin-title{font-size:clamp(40px,5.4vw,64px);color:var(--brass)}
 /* 單方標題區背景：本草綱目原文，淡化直書 */
+@font-face{font-family:"BencaoMing";src:url("fonts/bencao-iming.woff") format("woff");font-display:swap}
 .apo .head{position:relative;isolation:isolate}
 .apo .head>*:not(.bencao){position:relative;z-index:1}
 .bencao{position:absolute;z-index:0;inset:-28px -16px -20px;overflow:hidden;pointer-events:none;user-select:none;
   display:flex;flex-direction:row-reverse;justify-content:flex-start;gap:clamp(10px,1.6vw,22px);
-  font-family:var(--serif);font-size:clamp(15px,1.5vw,19px);line-height:1;letter-spacing:.32em;color:var(--ink);opacity:.11;
+  font-family:"BencaoMing",var(--serif);font-size:clamp(16px,1.6vw,21px);line-height:1;letter-spacing:.3em;color:var(--ink);opacity:.11;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 22%,#000 78%,transparent),linear-gradient(transparent,#000 18%,#000 82%,transparent);
   -webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 22%,#000 78%,transparent),linear-gradient(transparent,#000 18%,#000 82%,transparent);mask-composite:intersect}
 .bencao span{writing-mode:vertical-rl;white-space:nowrap;flex:none}
