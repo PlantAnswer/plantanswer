@@ -257,6 +257,17 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:70;opa
 .bar nav a:not([aria-current]):hover{background:var(--oat)}
 .apo .head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 48px;align-items:end;margin-bottom:clamp(32px,4vw,52px)}
 .apo .head .latin-title{font-size:clamp(40px,5.4vw,64px);color:var(--brass)}
+/* 單方標題區背景：本草綱目原文，淡化直書 */
+.apo .head{position:relative;isolation:isolate}
+.apo .head>*:not(.bencao){position:relative;z-index:1}
+.bencao{position:absolute;z-index:0;inset:-28px -16px -20px;overflow:hidden;pointer-events:none;user-select:none;
+  display:flex;flex-direction:row-reverse;justify-content:flex-start;gap:clamp(10px,1.6vw,22px);
+  font-family:var(--serif);font-size:clamp(15px,1.5vw,19px);line-height:1;letter-spacing:.32em;color:var(--ink);opacity:.06;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 22%,#000 78%,transparent),linear-gradient(transparent,#000 18%,#000 82%,transparent);
+  -webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 22%,#000 78%,transparent),linear-gradient(transparent,#000 18%,#000 82%,transparent);mask-composite:intersect}
+.bencao span{writing-mode:vertical-rl;white-space:nowrap;flex:none}
+.bencao span:first-child,.bencao span:nth-child(8){font-weight:700}
+@media (max-width:860px){.bencao{opacity:.045}}
 .apo .head h2{font-size:clamp(24px,2.8vw,32px);letter-spacing:.1em;margin-top:6px}
 .apo .head p.sub{color:var(--ink-2);max-width:32em;margin-top:14px;font-size:15px}
 .apo .ctrl{display:flex;gap:20px;align-items:end;flex-wrap:wrap}
@@ -747,6 +758,7 @@ fieldset.opt legend{font-family:var(--serif);font-size:15px;letter-spacing:.1em;
   <section class="apo">
     <div class="wrap">
       <div class="head">
+        <div class="bencao" aria-hidden="true"><span>本草綱目本草綱目</span><span>橘皮同補藥則補同瀉藥則瀉同升藥則升同降藥則降橘皮同補藥則補同瀉藥則瀉同升藥則升同降藥則降</span><span>當歸調血為女人要藥有思夫之意故有當歸之名當歸調血為女人要藥有思夫之意故有當歸之名</span><span>耆長也黃耆色黃為補藥之長故名耆長也黃耆色黃為補藥之長故名</span><span>黃精為服食要藥以其得坤土之精粹故謂之黃精黃精為服食要藥以其得坤土之精粹故謂之黃精</span><span>香附氣病之總司女科之主帥香附氣病之總司女科之主帥</span><span>防者禦也防者禦也</span><span>本草綱目　李時珍本草綱目　李時珍</span><span>橘皮同補藥則補同瀉藥則瀉同升藥則升同降藥則降橘皮同補藥則補同瀉藥則瀉同升藥則升同降藥則降</span><span>當歸調血為女人要藥有思夫之意故有當歸之名當歸調血為女人要藥有思夫之意故有當歸之名</span><span>耆長也黃耆色黃為補藥之長故名耆長也黃耆色黃為補藥之長故名</span><span>黃精為服食要藥以其得坤土之精粹故謂之黃精黃精為服食要藥以其得坤土之精粹故謂之黃精</span><span>香附氣病之總司女科之主帥香附氣病之總司女科之主帥</span><span>防者禦也防者禦也</span></div>
         <div>
           <p class="eyebrow">Single herbal oils</p>
           <p class="latin-title">The Apothecary</p>
