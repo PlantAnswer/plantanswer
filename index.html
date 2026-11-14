@@ -260,11 +260,11 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:70;opa
 /* 單方標題區背景：《本草綱目》金陵初刻本（1590）卷之一書頁，淡化呈現。圖片：Wellcome Collection，Public Domain Mark */
 .apo .head{position:relative;isolation:isolate}
 .apo .head>*:not(.bencao){position:relative;z-index:1}
-.bencao{position:absolute;z-index:0;top:-36px;bottom:-24px;right:-8px;width:min(62%,560px);pointer-events:none;
-  background:url("img/bencao-page.webp") 100% 4%/cover no-repeat;opacity:.16;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 30%,#000 85%,transparent),linear-gradient(transparent,#000 15%,#000 80%,transparent);
-  -webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 30%,#000 85%,transparent),linear-gradient(transparent,#000 15%,#000 80%,transparent);mask-composite:intersect}
-@media (max-width:860px){.bencao{width:100%;right:-16px;opacity:.1}}
+.bencao{position:absolute;z-index:0;top:calc(-1 * clamp(40px,6vw,72px));bottom:-24px;left:calc(50% - 50vw);width:100vw;pointer-events:none;
+  background:url("img/bencao-page.webp") 50% 6%/cover no-repeat;opacity:.13;
+  -webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+.apo{overflow-x:clip}
+@media (max-width:860px){.bencao{opacity:.09;background-position:60% 4%}}
 .apo .head h2{font-size:clamp(24px,2.8vw,32px);letter-spacing:.1em;margin-top:6px}
 .apo .head p.sub{color:var(--ink-2);max-width:32em;margin-top:14px;font-size:15px}
 .apo .ctrl{display:flex;gap:20px;align-items:end;flex-wrap:wrap}
