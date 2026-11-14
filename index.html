@@ -967,15 +967,15 @@ SINGLES.forEach(o=>o.img=o.soon?"":"img/oil/"+o.id+".jpg");
 const SMAP=Object.fromEntries(SINGLES.map(o=>[o.id,{name:o.zh+"精油",price:o.price,orig:o.price,img:o.img}]));
 /* 35 味單方：香氣、漢方印象、適合、用法、注意。tags 供測驗計分；preg=孕期請避免 */
 const INFO={
-s01:{fam:"wood",aroma:"沉穩的樹皮木質香，帶一點微苦，像走進一片安靜的林子。",trad:"杜仲取的是樹皮，味甘、性溫。折開樹皮會牽出細細的白絲，古人很看重它，常用來照顧腰膝與筋骨。",fit:"久坐久站、一天下來腰背總覺得痠緊的你。",use:"稀釋後，輕輕按摩後腰與膝蓋周圍，再用溫熱的毛巾敷一敷，會更舒服。",tags:{muscle:3,warm:1,energy:1},how:["massage","bath"]},
+s01:{fam:"wood",aroma:"沉穩的樹皮木質香，帶一點微苦，像走進一片安靜的林子。",trad:"杜仲取的是樹皮，味甘、性溫。折開樹皮會牽出細細的白絲，古人很看重它，常用來照顧腰膝與筋骨。",fit:"久坐久站，一天下來想讓腰背好好放鬆的你。",use:"稀釋後，輕輕按摩後腰與膝蓋周圍，再用溫熱的毛巾敷一敷，會更舒服。",tags:{muscle:3,warm:1,energy:1},how:["massage","bath"]},
 s02:{fam:"earth",aroma:"先是淡淡的甜，再慢慢透出土地與根莖的微苦。",trad:"在本草裡，人蔘是大補元氣的代表，自古就被視為珍貴的藥材。",fit:"早上需要一點精神，想讓一天有個好開始的你。",use:"早上抹一點在前胸與手腕，雙手攏在鼻前，慢慢深呼吸三次。",caution:"香氣偏提振，睡前 4 小時內不建議使用；體質容易燥熱的人，少量就好。",tags:{energy:3,warm:1},how:["massage","diffuse"],hotX:1},
 s03:{fam:"herb",aroma:"清新又帶點辛的綠葉香，有點像羅勒，又有點像薄荷。",trad:"紫蘇性溫、味辛，古人用它的葉子來散寒、理氣寬中；料理魚蟹時，也常放上幾片紫蘇。",fit:"換季時想讓呼吸清爽一點，或飯後想讓肚子輕鬆些的你。",use:"稀釋後順時針輕輕按摩腹部，或滴一滴在掌心，搓熱後靠近鼻前嗅聞。",caution:"香氣較活潑，敏感肌的朋友請先小範圍試擦。",tags:{digest:2,breath:2,mood:1},how:["massage","diffuse"]},
-s04:{fam:"herb",aroma:"打開瓶蓋，是一股濃濃的、暖暖的根香，聞久了，尾韻會慢慢透出一點甜。像冬天裡，有人替你端來一碗溫熱的湯。",trad:"《本草綱目》說它性溫，味甘、辛。李時珍解釋「當歸」這個名字：它調血，是女人的要藥，帶著思念、盼人歸來的意思。千百年來，它一直被稱為「婦科聖藥」，是古人照顧女性氣血時，最先想到的那一味。",fit:"想好好疼惜自己的女性。天冷時手腳容易冰涼、每個月那幾天特別想被暖暖照顧的你，不妨讓當歸的香氣陪陪自己。",use:"稀釋後，雙手搓熱，輕輕按摩小腹與下背，讓溫暖慢慢化開；也可以滴進泡腳水裡，給自己一段安靜的時光。",caution:"當歸在傳統上屬「活血」的藥材，孕期請不要使用。",tags:{women:3,warm:2},how:["massage","bath"],preg:1},
+s04:{fam:"herb",aroma:"打開瓶蓋，是一股濃濃的、暖暖的根香，聞久了，尾韻會慢慢透出一點甜。像冬天裡，有人替你端來一碗溫熱的湯。",trad:"《本草綱目》說它性溫，味甘、辛。李時珍解釋「當歸」這個名字：它調血，是女人的要藥，帶著思念、盼人歸來的意思。千百年來，它一直被稱為「婦科聖藥」，是古人照顧女性氣血時，最先想到的那一味。",fit:"想好好疼惜自己的女性。天冷時特別需要一點暖意、每個月那幾天特別想被暖暖照顧的你，不妨讓當歸的香氣陪陪自己。",use:"稀釋後，雙手搓熱，輕輕按摩小腹與下背，讓溫暖慢慢化開；也可以滴進泡腳水裡，給自己一段安靜的時光。",caution:"當歸在傳統上屬「活血」的藥材，孕期請不要使用。",tags:{women:3,warm:2},how:["massage","bath"],preg:1},
 s05:{fam:"herb",aroma:"青青澀澀、帶一點微苦的草本香。",trad:"光看名字就知道，它是「有益於母親」的草；古人用它照顧女性的月事，是女科常用的一味。",fit:"每個月那幾天前後，想溫柔照顧自己的女性。",use:"稀釋後以肚臍為中心，順時針輕輕畫圓按摩小腹。",caution:"益母草在傳統上屬「活血」的藥材，孕期請不要使用。",tags:{women:3,mood:1},how:["massage"],preg:1},
 s06:{fam:"earth",aroma:"溫和的土質香，帶著淡淡的甜。",trad:"生長在沙漠裡，有「沙漠人蔘」之稱。李時珍說它補而不峻，溫和不急，所以有「從容」之名；傳統用於溫補、潤腸。",fit:"怕冷、容易覺得累，想從溫和的單方開始認識漢方精油的你。",use:"稀釋後按摩後腰與腳底，睡前做最好。",tags:{warm:2,energy:2,digest:1},how:["massage","bath"]},
 s07:{fam:"spice",aroma:"強烈的辛香藥草味，還帶一點芹菜般的清香。",trad:"川芎性溫、味辛，古人認為它的氣能往上走到頭目，傳統用於活血行氣，古方常用來照顧頭部。",fit:"每天用腦很多、頭肩常覺得緊繃的你。",use:"稀釋後按摩頸後與肩膀；太陽穴周圍只需少量，記得避開眼睛。",caution:"川芎在傳統上屬「活血」的藥材，孕期請不要使用。",tags:{muscle:2,energy:1,women:1},how:["massage"],preg:1},
 s08:{fam:"citrus",aroma:"溫暖圓潤的柑橘皮香，底下藏著淡淡的木質調。",trad:"陳皮就是陳放的橘皮，越陳越香。《本草綱目》說它「同補藥則補，同瀉藥則瀉，同升藥則升，同降藥則降」，傳統用於理氣健脾。",fit:"飯後覺得悶悶的、心裡也悶悶的時候，很適合請它來陪你。",use:"掌心搓熱後順時針按摩腹部；晚上擴香也很好。",caution:"柑橘類精油擦在皮膚後，12 小時內請避免直接日曬，建議晚上使用。",tags:{digest:3,mood:2},how:["massage","diffuse"]},
-s09:{fam:"earth",aroma:"低沉的根莖香，微甜裡帶一點澀。",trad:"鎖陽生長在寒冷的荒漠，相傳它生長的地方，冬天的積雪會先融開。傳統用於溫補腎陽。",fit:"怕冷、手腳常冰涼，腰膝總想被暖暖照顧的你。",use:"稀釋後按摩後腰與腳底；睡前泡腳時加一點也很合適。",caution:"體質容易燥熱的人，少量使用就好。",tags:{warm:3,energy:1,muscle:1},how:["massage","bath"],hotX:1},
+s09:{fam:"earth",aroma:"低沉的根莖香，微甜裡帶一點澀。",trad:"鎖陽生長在寒冷的荒漠，相傳它生長的地方，冬天的積雪會先融開。傳統用於溫補腎陽。",fit:"怕冷，腰膝總想被暖暖照顧的你。",use:"稀釋後按摩後腰與腳底；睡前泡腳時加一點也很合適。",caution:"體質容易燥熱的人，少量使用就好。",tags:{warm:3,energy:1,muscle:1},how:["massage","bath"],hotX:1},
 s10:{fam:"wood",aroma:"溫暖的木質與土壤香，有點像岩蘭草。",trad:"李時珍稱它為「氣病之總司，女科之主帥」，傳統用於理氣解鬱。",fit:"心裡悶悶的、壓力一直壓著，或每個月那幾天前後心情比較起伏的你。",use:"擴香，或稀釋後輕輕按摩胸口與小腹。",caution:"孕期使用前請先詢問醫師。",tags:{mood:3,women:2,digest:1},how:["diffuse","massage"],preg:1},
 s11:{fam:"earth",aroma:"淡雅的土質香，很安靜。",trad:"相傳有位何姓老人長年服用，白髮轉黑，因此得名；古人常用它來養護鬚髮。",fit:"想好好保養頭皮與髮根的你。",use:"洗髮後取 1–2 滴稀釋好的油，用指腹輕輕按摩頭皮。",caution:"頭皮較敏感的人，請先小範圍試擦。",tags:{skin:3,energy:1},how:["skin"]},
 s12:{fam:"floral",aroma:"清涼的辛香裡，帶著木蘭花的花香。",trad:"辛夷是木蘭的花苞，在早春花還沒開時採下。它性溫、味辛，古人用它來通鼻竅。",fit:"換季時想讓呼吸順暢、頭腦清爽一點的你。",use:"滴在掌心或口罩外側嗅聞；也可以稀釋後輕按鼻翼兩側。",tags:{breath:3,energy:1},how:["diffuse","massage"]},
@@ -989,7 +989,7 @@ s19:{fam:"herb",aroma:"清淡的草本香。",trad:"桔梗入肺經，古人把�
 s20:{fam:"earth",aroma:"溫潤的微甜。",trad:"古人認為它得了大地之土的精華，所以叫黃精；傳統用於補氣養陰、潤肺。",fit:"容易覺得累，肌膚又偏乾的你。",use:"稀釋後按摩，或調進護膚油裡。",tags:{energy:2,skin:2},how:["massage","skin"]},
 s21:{fam:"mild",aroma:"溫和的堅果與穀物香。",trad:"菟絲是攀附在其他植物上的細絲藤蔓，種子入藥，傳統用於補腎益精，古方也用來養顏。",fit:"想做肌膚保養、又比較怕冷的你。",use:"調入基底油，作為護膚油使用。",tags:{skin:2,warm:1},how:["skin"]},
 s22:{fam:"resin",aroma:"沉穩的樹脂木質香，微微的甜。",trad:"古人在祭祀時焚燒它，相傳香氣能感召天上的仙真降臨，因此得名「降真」；自古也用來靜心。",fit:"想靜坐、冥想，讓心情慢慢沉澱的你。",use:"擴香，或滴一點稀釋好的油在手腕內側嗅聞。",tags:{sleep:2,mood:2},how:["diffuse"]},
-s23:{fam:"spice",aroma:"溫熱辛辣的薑香。",trad:"生薑味辛、性溫，傳統用於溫中散寒；老薑越老越辣，就像老人家說的「薑是老的辣」。",fit:"手腳冰涼、怕冷，飯後也想讓肚子暖一暖的你。",use:"加進泡腳水，或稀釋後按摩腹部與腳底。",caution:"溫熱感明顯，請高度稀釋、避開臉部；敏感肌請先試擦。",tags:{warm:3,digest:2,muscle:1},how:["bath","massage"],hotX:1},
+s23:{fam:"spice",aroma:"溫熱辛辣的薑香。",trad:"生薑味辛、性溫，傳統用於溫中散寒；老薑越老越辣，就像老人家說的「薑是老的辣」。",fit:"怕冷，飯後也想讓肚子暖一暖的你。",use:"加進泡腳水，或稀釋後按摩腹部與腳底。",caution:"溫熱感明顯，請高度稀釋、避開臉部；敏感肌請先試擦。",tags:{warm:3,digest:2,muscle:1},how:["bath","massage"],hotX:1},
 s24:{fam:"spice",aroma:"濃郁的辛香藥草味。",trad:"傳統用於燥濕健脾。古人在端午、梅雨時節會焚燒蒼朮，讓屋子乾爽清淨。",fit:"濕濕的天氣裡覺得身體沉重，或想讓空間清爽一點的你。",use:"擴香，或稀釋後按摩腹部。",tags:{digest:2,breath:1,mood:1},how:["diffuse","massage"]},
 s25:{fam:"spice",aroma:"辛香裡帶著甜的根部香。",trad:"《本草綱目》記載白芷性溫、味辛，氣味芳香；古代的養顏方子常常有它，傳統也用於祛風通竅。",fit:"想好好做肌膚保養的你。",use:"晚上調進護膚油裡使用。",caution:"擦後 12 小時內請避免直接日曬，建議晚上使用。",tags:{skin:3,breath:1},how:["skin"]},
 s26:{fam:"herb",aroma:"清苦、微微帶辛的草本香。",trad:"連翹味苦、性微寒，傳統用於清熱。",fit:"體質偏燥熱、肌膚容易出油的你。",use:"稀釋後局部用於護膚。",tags:{heat:3,skin:2},how:["skin"]},
@@ -997,7 +997,7 @@ s27:{fam:"fruit",aroma:"微酸微甘的果香。",trad:"酸、苦、甘、辛、
 s28:{fam:"earth",aroma:"土質微苦，它是人蔘的近親。",trad:"三七又名「金不換」，意思是比金子還珍貴；傳統用於活血、化瘀。",fit:"運動後，想好好照顧肌肉的你。",use:"運動後稀釋，按摩小腿與肩背。",caution:"三七在傳統上屬「活血」的藥材，孕期請不要使用；有傷口的地方請避開。",tags:{muscle:3},how:["massage"],preg:1},
 s29:{fam:"mild",aroma:"淡雅，帶一點點苦。",trad:"白芍是芍藥的根，傳統用於養血柔肝、緩急。",fit:"每個月那幾天前後想被溫柔照顧，或小腿常覺得緊緊的你。",use:"稀釋後按摩小腹與小腿。",tags:{women:2,muscle:2,mood:1},how:["massage"]},
 s30:{fam:"herb",aroma:"濃郁的草本香，微苦裡帶著溫暖。",trad:"艾是艾灸的主角，傳統用於溫經散寒；端午時，家家戶戶也會在門口掛上艾草。",fit:"怕冷、每個月那幾天覺得身子寒寒的，或想讓空間清淨的你。",use:"加進泡腳水、熱敷，或稀釋後按摩小腹。",caution:"艾草在傳統上屬「活血」的藥材，孕期請不要使用；請高度稀釋，不要長期大量使用。",tags:{warm:3,women:2},how:["bath","massage","diffuse"],preg:1,hotX:1},
-s31:{fam:"mild",aroma:"淡淡的乾草香，微甜。",trad:"紅花取的是花，傳統用於活血通經。",fit:"手腳冰涼、肩頸僵硬的你。",use:"稀釋後按摩肩頸與四肢。",caution:"紅花在傳統上屬「活血」的藥材，孕期與經量多時請不要使用。",tags:{warm:2,women:2,muscle:1},how:["massage"],preg:1},
+s31:{fam:"mild",aroma:"淡淡的乾草香，微甜。",trad:"紅花取的是花，傳統用於活血通經。",fit:"想讓肩頸與四肢暖暖鬆開的你。",use:"稀釋後按摩肩頸與四肢。",caution:"紅花在傳統上屬「活血」的藥材，孕期與經量多時請不要使用。",tags:{warm:2,women:2,muscle:1},how:["massage"],preg:1},
 s33:{fam:"herb",aroma:"辛香帶苦的草本種子香。",trad:"傳統多為外用，常見於清潔、保養肌膚的方子。",fit:"想加強肌膚清潔保養的你。",use:"高度稀釋後局部塗抹，或少量調入護膚油。",caution:"刺激性較強，請高度稀釋；孕期使用前請先詢問醫師。",tags:{skin:3,warm:1},how:["skin"],preg:1},
 s32:{fam:"floral",aroma:"甜美的杏桃花香。",trad:"古人用桂花來薰衣、潤髮；秋天桂花開，也象徵著團圓。",fit:"心情低落、想被溫柔對待的時候，也很適合當作日常的香氛。",use:"擴香、抹在手腕當香水，或調入護膚油。",tags:{mood:3,sleep:1,skin:1},how:["diffuse","skin"]},
 s34:{fam:"floral",aroma:"清清甜甜的花香，帶一點淡淡的草本氣，像初夏傍晚的藤架下。",trad:"金銀花本名「忍冬」，因為它的藤蔓過了冬天也不凋零。《本草綱目》記載，它的花剛開時是白色，過一兩天轉成黃色，黃白相映，所以叫金銀花。性寒、味甘，傳統用於清熱。",fit:"體質偏燥熱，夏天或悶熱的日子裡，想讓自己清爽、靜下來一點的你。",use:"稀釋後輕抹在頸後與手腕內側；悶熱的午後擴香，也很清爽。",caution:"金銀花性寒，體質偏寒、怕冷的人請少量使用。",tags:{heat:3,mood:1,skin:1},how:["diffuse","massage"]},
@@ -1038,12 +1038,12 @@ function openInfo(id){
   const o=byId(id),f=INFO[id],n=SINGLES.indexOf(o)+1;
   $("dlgBox").innerHTML=`<button class="x" type="button" data-close aria-label="關閉">×</button>
    <div class="ph">${o.img?`<img src="${o.img}" alt="真元草本${o.zh}精油">`:`<span class="tcard" role="img" aria-label="${o.zh}精油"><b>${o.zh}</b><small>真元草本</small></span>`}</div>
-   <div class="tx"><div><p class="eyebrow">No.${String(n).padStart(2,"0")}・10 ML ・ CO₂</p><h3 id="dlgT">${o.zh}精油</h3><p class="la">${o.la}</p><p class="dcat" data-cat="${o.cat}">${SCAT[o.cat]}</p></div>
+   <div class="tx"><div><p class="eyebrow">No.${String(n).padStart(2,"0")}・10 ML ・ CO₂</p><h3 id="dlgT">${o.zh}精油</h3><p class="dcat" data-cat="${o.cat}">${SCAT[o.cat]}</p></div>
    <dl class="qa">
     <div><dt>聞起來像什麼？</dt><dd>${f.aroma}</dd></div>
     <div><dt>漢方裡怎麼看它？</dt><dd>${f.trad}</dd></div>
     <div><dt>適合誰？</dt><dd>${f.fit}</dd></div>
-    <div><dt>怎麼用？</dt><dd>${f.use}請先以 3% 稀釋在基底油中，10ml 基底油加 6 滴。</dd></div>
+    <div><dt>怎麼用？</dt><dd>${f.use}使用方式、濃度與體質配伍，在課堂教學進行。</dd></div>
     <div><dt>要注意什麼？</dt><dd class="warn">${f.caution?f.caution+" ":""}第一次使用請先在手臂內側小範圍試擦；僅供外用，勿口服。</dd></div>
    </dl>
    <div class="cta">${o.price?`<span class="pr">NT$${fmt(o.price)}</span><button class="pill" type="button" data-add="${o.id}">加入購物車</button>`:`<span class="pr soon">售價待補</span><span class="soonnote">即將上架，想先了解可以私訊 LINE <span class="num">@795smcix</span></span>`}</div></div>`;
@@ -1076,7 +1076,7 @@ function drawResult(){
   const bl=(qs.a.need||[]).map(n=>BLEND[n]).filter(Boolean)[0];
   $("finder").innerHTML=`<div class="fi-res"><div class="rh"><div><p class="eyebrow">Your herbs</p><h3>適合你的三味</h3></div><button class="fi-back" type="button" id="fiAgain">重新測驗</button></div>
    <div class="fi-cards">${top.map((r,i)=>{const o=r.o,f=INFO[o.id];return `<article class="fc"><span class="rank">No.${i+1}</span><img src="${o.img}" alt="${o.zh}精油">
-    <div><h4>${o.zh}精油</h4><p class="la">${o.la}</p></div>
+    <div><h4>${o.zh}精油</h4></div>
     <div style="display:grid;gap:10px;align-content:start">${r.why.length?`<div class="chips">${[...new Set(r.why)].map(w=>`<span>${w}</span>`).join("")}</div>`:""}<p>${f.aroma}${f.fit}</p></div>
     <div class="cta"><span class="pr">NT$${fmt(o.price)}</span><div><button class="sm" type="button" data-info="${o.id}">介紹</button><button class="sm fill" type="button" data-add="${o.id}">加入</button></div></div></article>`}).join("")}</div>
    ${bl?`<div class="fi-blend"><span>不想自己調？已經調好、打開就能擦的複方：<a href="#${bl[0]}">漢方${bl[1]} →</a></span></div>`:""}
@@ -1098,7 +1098,7 @@ function drawSingles(){
   const pv=(o,d)=>o.price==null?d:o.price;if(so==="lo")list.sort((a,b)=>pv(a,1e9)-pv(b,1e9)); if(so==="hi")list.sort((a,b)=>pv(b,-1)-pv(a,-1));
   $("drawers").innerHTML=list.length?list.map(o=>`<article class="dw" data-cat="${o.cat}">
     <button class="open top" type="button" data-info="${o.id}" aria-label="看${o.zh}精油的介紹">${o.img?`<img src="${o.img}" alt="真元草本${o.zh}精油 10ml 瓶身與外盒" loading="lazy">`:`<span class="tcard" role="img" aria-label="${o.zh}精油"><b>${o.zh}</b><small>真元草本</small></span>`}<span class="no">No.${String(o.i+1).padStart(2,"0")}</span></button>
-    <div><h3>${o.zh}精油</h3><p class="la">${o.la}</p><p class="cat">${SCAT[o.cat]}</p><p class="ml">10 ML ・ CO₂</p><button class="open more" type="button" data-info="${o.id}">香氣與用法 →</button></div>
+    <div><h3>${o.zh}精油</h3><p class="cat">${SCAT[o.cat]}</p><p class="ml">10 ML ・ CO₂</p><button class="open more" type="button" data-info="${o.id}">香氣與用法 →</button></div>
     <div class="foot">${o.price?`<span class="pr">NT$${fmt(o.price)}</span><button class="add" type="button" data-add="${o.id}" aria-label="${o.zh}精油加入購物車">加入</button>`:`<span class="pr soon">售價待補</span><span class="soontag">即將上架</span>`}</div>
   </article>`).join(""):`<p class="none">找不到「${q.replace(/</g,"&lt;")}」，換個字試試。</p>`;
 }
