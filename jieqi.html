@@ -118,6 +118,12 @@ mark{background:color-mix(in srgb,var(--earth) 30%,transparent);color:inherit;pa
 .rd-meta{display:flex;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted);letter-spacing:.08em;font-variant-numeric:tabular-nums}
 .rd-meta b{color:var(--c);font-weight:500}
 .reader h3.rt{font-family:var(--display);font-weight:700;font-size:clamp(24px,3.6vw,32px);line-height:1.45;margin:10px 0 18px;text-wrap:balance}
+/* 節氣畫：清 張若靄〈墨妙珠林（卯）〉冊，國立故宮博物院，CC0。淡化呈現 */
+.jq-pic{margin:4px auto 26px;width:min(56%,230px);text-align:center}
+.jq-pic img{display:block;width:100%;height:auto;opacity:.6;filter:sepia(.18) saturate(.7) contrast(.92);mix-blend-mode:multiply;
+  -webkit-mask-image:radial-gradient(ellipse 72% 76% at 50% 50%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 72% 76% at 50% 50%,#000 62%,transparent 100%)}
+.jq-pic figcaption{font-size:11.5px;letter-spacing:.06em;color:#a39985;margin-top:6px}
+@media (max-width:600px){.jq-pic{width:min(62%,220px)}}
 .toc{display:flex;flex-direction:column;gap:2px;border-block:1px solid var(--line);padding:12px 0;margin-bottom:24px}
 .toc span{font-size:12px;letter-spacing:.2em;color:var(--muted)}
 .toc button{font:inherit;font-size:15px;text-align:left;background:none;border:none;color:var(--ink);padding:4px 0;cursor:pointer}
@@ -271,6 +277,7 @@ const SHOP={"杜仲":"s01","人蔘":"s02","紫蘇":"s03","當歸":"s04","益母�
 const SHOPURL=o=>`https://plantanswer.github.io/plantanswer/#${SHOP[o]}`;
 const OILS=S.flatMap(x=>x.oils.map(o=>o[0]));
 const esc=t=>t.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const JQPIC=new Set(["lichun", "yushui", "jingzhe", "chunfen", "qingming", "guyu", "lixia", "xiaoman", "mangzhong", "xiazhi", "xiaoshu", "dashu", "liqiu", "chushu", "bailu", "qiufen", "hanlu", "shuangjiang", "lidong", "xiaoxue", "daxue", "dongzhi", "xiaohan", "dahan"]);
 const TM=Object.fromEntries(TERMS.map(t=>[t[0],t]));
 const AT=id=>(ARTS[id]&&ARTS[id].term)||id;
 const LATEST=tid=>Object.keys(ARTS).filter(a=>AT(a)===tid).sort((a,b)=>ARTS[b].date.localeCompare(ARTS[a].date))[0];
@@ -326,6 +333,7 @@ function openArt(id,scroll=true){if(!ARTS[id])return;const p=parse(id),t=TM[AT(i
  const heads=p.blocks.filter(b=>b.h);
  rd.innerHTML=`<div class="rd-meta"><b>${t[1]}</b><span>${fmt(DATE(id))}</span><span>${t[3]}・${SEA[t[3]][1]}</span></div>
  <h3 class="rt">${esc(p.title||t[1])}</h3>
+ ${JQPIC.has(t[0])?`<figure class="jq-pic"><img src="img/jieqi/${t[0]}.webp" alt="${t[1]}，清 張若靄〈墨妙珠林〉冊" loading="lazy" width="230" height="340"><figcaption>清 張若靄〈墨妙珠林〉冊・${t[1]}<br>國立故宮博物院</figcaption></figure>`:""}
  ${heads.length?`<nav class="toc" aria-label="本文段落"><span>本文段落</span>${heads.map((b,i)=>`<button type="button" data-h="${i}">${esc(b.t)}</button>`).join("")}</nav>`:""}
  <div class="rd-body">${p.blocks.map(b=>b.sep?`<hr class="rsep">`:b.h?`<h4 id="h-${id}-${hi++}">${linkOils(b.t,p.feat)}</h4>`:`<p>${linkOils(b.t,p.feat).replace(/\n/g,"<br>")}</p>`).join("")}
  ${p.sign?`<p class="sign">${esc(p.sign)}</p>`:""}
