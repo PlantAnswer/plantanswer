@@ -265,6 +265,10 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:70;opa
 .bencao i{position:absolute;aspect-ratio:720/982;background:url("img/bencao-page.webp") no-repeat;background-size:150% auto;transform-origin:50% 50%;
   -webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 45%,transparent 100%);mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 45%,transparent 100%)}
 .apo{overflow-x:clip}
+/* 電腦版：右側「找一味／排序」區塊不放本草背景 */
+@media (min-width:861px){.bencao i:nth-child(4),.bencao i:nth-child(5){display:none}
+  .bencao{-webkit-mask-image:linear-gradient(#000 65%,transparent),linear-gradient(90deg,#000 52%,transparent 66%);-webkit-mask-composite:source-in;
+    mask-image:linear-gradient(#000 65%,transparent),linear-gradient(90deg,#000 52%,transparent 66%);mask-composite:intersect}}
 @media (max-width:860px){.bencao{opacity:.11}.bencao i{height:200px!important}.bencao i:nth-child(2),.bencao i:nth-child(4){display:none}}
 .apo .head h2{font-size:clamp(24px,2.8vw,32px);letter-spacing:.1em;margin-top:6px}
 .apo .head p.sub{color:var(--ink-2);max-width:32em;margin-top:14px;font-size:15px}
