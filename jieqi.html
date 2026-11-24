@@ -7,18 +7,12 @@
 <style>
 /* 版面概念：上為人體五臟圖與五行相生環，下為五座「藥櫃」，每支精油是一格抽屜，品名直書如百子櫃標籤 */
 :root{
-  --paper:#ECEAE4;--panel:#F7F6F2;--ink:#23211E;--muted:#6E6A62;--line:#CFCAC0;--seal:#C23B22;
+  --paper:#F5F2E9;--panel:#EDEBE2;--ink:#292C27;--muted:#6F6D66;--line:#D6D3C9;--seal:#C23B22;
   --c-root:#8A6A3E;--c-herb:#66784F;--c-fruit:#A8623F;--c-flower:#866680;--wood:#4F6E4B;--fire:#B4442E;--earth:#A07A2C;--metal:#7A776D;--water:#2E4A63;
   --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
   --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
   --label:"LXGW WenKai TC","Kaiti TC","DFKai-SB","Noto Serif TC",serif;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#1B1A18;--panel:#252320;--ink:#ECE8E0;--muted:#A29C90;--line:#3D3A35;--seal:#E06A52;
-  --c-root:#C9A574;--c-herb:#A3B58B;--c-fruit:#D9906C;--c-flower:#BC9BB5;--wood:#93B38C;--fire:#E2846E;--earth:#D3AE60;--metal:#BAB5A8;--water:#8CABCB;color-scheme:dark}}
-:root[data-theme="dark"]{
-  --paper:#1B1A18;--panel:#252320;--ink:#ECE8E0;--muted:#A29C90;--line:#3D3A35;--seal:#E06A52;
-  --c-root:#C9A574;--c-herb:#A3B58B;--c-fruit:#D9906C;--c-flower:#BC9BB5;--wood:#93B38C;--fire:#E2846E;--earth:#D3AE60;--metal:#BAB5A8;--water:#8CABCB;color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.7;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 64px}
