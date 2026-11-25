@@ -291,6 +291,16 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:70;opa
 .dw .ml{font-size:11px;letter-spacing:.24em;color:var(--ink-2);margin-top:6px;font-family:var(--latin)}
 .dw .foot{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:12px;border-top:1px solid var(--rule)}
 .dw .pr{font-family:var(--display);font-size:22px;letter-spacing:.02em}
+/* 最新消息與節氣優惠 */
+.news{background:var(--oat);border-bottom:1px solid var(--rule)}
+.news .wrap{display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;padding-block:10px;font-size:14px;letter-spacing:.06em;line-height:1.6}
+.news .lb{font-size:12px;letter-spacing:.2em;color:var(--linen);background:var(--seal);padding:1px 10px;border-radius:2px}
+.news b{font-family:var(--serif);font-weight:600;letter-spacing:.1em}
+.news .ns{color:var(--ink-2)}
+.news button{font:inherit;font-size:13px;color:var(--ink);background:transparent;border:1px solid var(--brass);border-radius:999px;padding:2px 12px;cursor:pointer;letter-spacing:.08em}
+.news button:hover{background:var(--linen)}
+.pr s,.ptag s{font-family:var(--latin);font-size:13px;color:var(--ink-2);margin-left:6px;font-weight:300}
+.ptag{display:inline-block;font-family:var(--serif);font-size:11px;letter-spacing:.12em;color:var(--seal);border:1px solid var(--seal);padding:0 6px;border-radius:2px;margin-left:6px;vertical-align:middle}
 .dw .add{background:none;border:1px solid var(--ink);border-radius:999px;font-size:12px;letter-spacing:.14em;padding:4px 14px;min-height:36px;transition:background .3s,color .3s}
 .dw .add:hover{background:var(--ink);color:var(--linen)}
 .apo .none{grid-column:1/-1;text-align:center;padding:48px 12px;color:var(--ink-2);font-family:var(--serif);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
@@ -656,6 +666,7 @@ fieldset.opt legend{font-family:var(--serif);font-size:15px;letter-spacing:.1em;
     <button class="cartbtn" id="openCart" type="button" aria-label="購物車"><span class="ct">購物車</span><svg class="bag" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.2"/></svg> <span class="num" id="cartN">0</span></button>
   </div>
 </header>
+<aside class="news" id="news" aria-label="最新消息" hidden><div class="wrap"><span class="lb">最新消息</span><b id="newsTitle"></b><span class="ns" id="newsText"></span><span><button type="button" data-info="s11">何首烏</button> <button type="button" data-info="s20">黃精</button></span></div></aside>
 
 <main id="top" hidden>
   <section class="hero">
@@ -977,7 +988,14 @@ if("IntersectionObserver" in window){const io=new IntersectionObserver(es=>es.fo
 const SINGLES=[{"id": "s01", "zh": "杜仲", "la": "Eucommia ulmoides", "price": 1600, "cat": "root"}, {"id": "s02", "zh": "人蔘", "la": "Panax ginseng", "price": 3500, "cat": "root"}, {"id": "s03", "zh": "紫蘇", "la": "Perilla frutescens", "price": 1300, "cat": "herb"}, {"id": "s04", "zh": "當歸", "la": "Angelica sinensis", "price": 1500, "cat": "root"}, {"id": "s05", "zh": "益母草", "la": "Leonurus artemisia", "price": 1650, "cat": "herb"}, {"id": "s33", "zh": "蛇床子", "la": "Cnidium monnieri", "price": 900, "cat": "fruit"}, {"id": "s06", "zh": "肉蓯蓉", "la": "Cistanche deserticola", "price": 1800, "cat": "root"}, {"id": "s07", "zh": "川芎", "la": "Ligusticum chuanxiong", "price": 1980, "cat": "root"}, {"id": "s08", "zh": "陳皮", "la": "Citrus reticulata", "price": 1980, "cat": "fruit"}, {"id": "s09", "zh": "鎖陽", "la": "Cynomorium songaricum", "price": 2800, "cat": "root"}, {"id": "s10", "zh": "香附", "la": "Cyperus rotundus", "price": 2800, "cat": "root"}, {"id": "s11", "zh": "何首烏", "la": "Polygonum multiflorum", "price": 2500, "cat": "root"}, {"id": "s12", "zh": "辛夷", "la": "Magnoliae Flos", "price": 1600, "cat": "flower"}, {"id": "s13", "zh": "防風", "la": "Saposhnikovia divaricata", "price": 1300, "cat": "root"}, {"id": "s14", "zh": "蒼耳子", "la": "Xanthium sibiricum", "price": 1100, "cat": "fruit"}, {"id": "s15", "zh": "白朮", "la": "Atractylodes macrocephala", "price": 1300, "cat": "root"}, {"id": "s16", "zh": "黃耆", "la": "Astragalus membranaceus", "price": 2950, "cat": "root"}, {"id": "s17", "zh": "柴胡", "la": "Bupleurum chinense", "price": 1600, "cat": "root"}, {"id": "s18", "zh": "茯苓", "la": "Poria cocos", "price": 1900, "cat": "root"}, {"id": "s19", "zh": "桔梗", "la": "Platycodon grandiflorus", "price": 1980, "cat": "root"}, {"id": "s20", "zh": "黃精", "la": "Polygonatum sibiricum", "price": 2130, "cat": "root"}, {"id": "s21", "zh": "菟絲子", "la": "Cuscuta chinensis", "price": 1800, "cat": "fruit"}, {"id": "s22", "zh": "降真香", "la": "Boswellia carterii", "price": 2800, "cat": "root"}, {"id": "s23", "zh": "老薑", "la": "Zingiber officinale", "price": 1300, "cat": "root"}, {"id": "s24", "zh": "蒼朮", "la": "Atractylodes lancea", "price": 1500, "cat": "root"}, {"id": "s25", "zh": "白芷", "la": "Angelica dahurica", "price": 1600, "cat": "root"}, {"id": "s26", "zh": "連翹", "la": "Forsythia suspensa", "price": 1600, "cat": "fruit"}, {"id": "s27", "zh": "五味子", "la": "Schisandra chinensis", "price": 2800, "cat": "fruit"}, {"id": "s28", "zh": "三七", "la": "Panax notoginseng", "price": 1200, "cat": "root"}, {"id": "s29", "zh": "白芍", "la": "Paeonia lactiflora", "price": 1500, "cat": "root"}, {"id": "s30", "zh": "艾草", "la": "Artemisia argyi", "price": 1700, "cat": "herb"}, {"id": "s31", "zh": "紅花", "la": "Carthamus tinctorius", "price": 1330, "cat": "flower"}, {"id": "s32", "zh": "桂花", "la": "Osmanthus fragrans", "price": 4800, "cat": "flower"}, {"id": "s34", "zh": "金銀花", "la": "Lonicera japonica", "price": null, "cat": "flower", "soon": true}, {"id": "s35", "zh": "葛根", "la": "Pueraria lobata", "price": null, "cat": "root", "soon": true}];
 const SCAT={root:"根莖・樹皮・木材",herb:"全草・葉片",fruit:"果實・種子",flower:"花類"};
 SINGLES.forEach(o=>o.img=o.soon?"":"img/oil/"+o.id+".jpg");
-const SMAP=Object.fromEntries(SINGLES.map(o=>[o.id,{name:o.zh+"精油",price:o.price,orig:o.price,img:o.img}]));
+/* ===== 節氣優惠：期間內自動打折，時間到自動恢復原價（結帳金額以 Code.gs 為準，要一起改） ===== */
+const PROMO={ids:["s11","s20"],rate:.8,start:"2026-11-22T00:00:00+08:00",end:"2026-12-07T00:00:00+08:00",tag:"節氣八折",title:"小雪節氣精油 八折",text:"何首烏、黃精兩味單方，小雪期間八折，至 12/6 止。"};
+const PROMO_ON=(()=>{const t=Date.now();return t>=Date.parse(PROMO.start)&&t<Date.parse(PROMO.end)})();
+if(PROMO_ON)SINGLES.forEach(o=>{if(PROMO.ids.includes(o.id)&&o.price){o.orig=o.price;o.price=Math.round(o.price*PROMO.rate)}});
+const was=o=>o.orig>o.price?`<s>NT$${fmt(o.orig)}</s>`:"";
+const ptag=o=>o.orig>o.price?`<span class="ptag">${PROMO.tag}</span>`:"";
+if(PROMO_ON){const n=document.getElementById("news");document.getElementById("newsTitle").textContent=PROMO.title;document.getElementById("newsText").textContent=PROMO.text;n.hidden=false}
+const SMAP=Object.fromEntries(SINGLES.map(o=>[o.id,{name:o.zh+"精油",price:o.price,orig:o.orig||o.price,img:o.img}]));
 /* 35 味單方：香氣、漢方印象、適合、用法、注意。tags 供測驗計分；preg=孕期請避免 */
 const INFO={
 s01:{fam:"wood",aroma:"沉穩的樹皮木質香，帶一點微苦，像走進一片安靜的林子。",trad:"杜仲取的是樹皮，味甘、性溫。折開樹皮會牽出細細的白絲，古人很看重它，常用來照顧腰膝與筋骨。",fit:"久坐久站，一天下來想讓腰背好好放鬆的你。",use:"稀釋後，輕輕按摩後腰與膝蓋周圍，再用溫熱的毛巾敷一敷，會更舒服。",tags:{muscle:3,warm:1,energy:1},how:["massage","bath"]},
@@ -1059,7 +1077,7 @@ function openInfo(id){
     <div><dt>怎麼用？</dt><dd>${f.use}使用方式、濃度與體質配伍，在課堂教學進行。</dd></div>
     <div><dt>要注意什麼？</dt><dd class="warn">${f.caution?f.caution+" ":""}第一次使用請先在手臂內側小範圍試擦；僅供外用，勿口服。</dd></div>
    </dl>
-   <div class="cta">${o.price?`<span class="pr">NT$${fmt(o.price)}</span><button class="pill" type="button" data-add="${o.id}">加入購物車</button>`:`<span class="pr soon">售價待補</span><span class="soonnote">即將上架，想先了解可以私訊 LINE <span class="num">@795smcix</span></span>`}</div></div>`;
+   <div class="cta">${o.price?`<span class="pr">NT$${fmt(o.price)}${was(o)}${ptag(o)}</span><button class="pill" type="button" data-add="${o.id}">加入購物車</button>`:`<span class="pr soon">售價待補</span><span class="soonnote">即將上架，想先了解可以私訊 LINE <span class="num">@795smcix</span></span>`}</div></div>`;
   lastFocus=document.activeElement;$("dlg").hidden=false;document.body.style.overflow="hidden";$("dlgBox").querySelector(".x").focus();
 }
 function closeInfo(){if($("dlg").hidden)return;$("dlg").hidden=true;document.body.style.overflow="";lastFocus&&lastFocus.focus&&lastFocus.focus()}
@@ -1091,7 +1109,7 @@ function drawResult(){
    <div class="fi-cards">${top.map((r,i)=>{const o=r.o,f=INFO[o.id];return `<article class="fc"><span class="rank">No.${i+1}</span><img src="${o.img}" alt="${o.zh}精油">
     <div><h4>${o.zh}精油</h4></div>
     <div style="display:grid;gap:10px;align-content:start">${r.why.length?`<div class="chips">${[...new Set(r.why)].map(w=>`<span>${w}</span>`).join("")}</div>`:""}<p>${f.aroma}${f.fit}</p></div>
-    <div class="cta"><span class="pr">NT$${fmt(o.price)}</span><div><button class="sm" type="button" data-info="${o.id}">介紹</button><button class="sm fill" type="button" data-add="${o.id}">加入</button></div></div></article>`}).join("")}</div>
+    <div class="cta"><span class="pr">NT$${fmt(o.price)}${was(o)}</span><div><button class="sm" type="button" data-info="${o.id}">介紹</button><button class="sm fill" type="button" data-add="${o.id}">加入</button></div></div></article>`}).join("")}</div>
    ${bl?`<div class="fi-blend"><span>不想自己調？已經調好、打開就能擦的複方：<a href="#${bl[0]}">漢方${bl[1]} →</a></span></div>`:""}
    <p class="fi-fine">${qs.a.preg==="yes"?"已依你的回答排除孕期不建議使用的精油；使用前仍請先詢問醫師。":""}測驗結果是依你的回答與香氣偏好整理的參考，不是醫療診斷。想要更精準的建議，可以把結果截圖傳到 LINE <span class="num">@795smcix</span> 問小艾小幫手。</p></div>`;
   $("fiAgain").onclick=()=>{qs={step:0,a:{}};drawFinder()};
@@ -1111,8 +1129,8 @@ function drawSingles(){
   const pv=(o,d)=>o.price==null?d:o.price;if(so==="lo")list.sort((a,b)=>pv(a,1e9)-pv(b,1e9)); if(so==="hi")list.sort((a,b)=>pv(b,-1)-pv(a,-1));
   $("drawers").innerHTML=list.length?list.map(o=>`<article class="dw" data-cat="${o.cat}">
     <button class="open top" type="button" data-info="${o.id}" aria-label="看${o.zh}精油的介紹">${o.img?`<img src="${o.img}" alt="真元草本${o.zh}精油 10ml 瓶身與外盒" loading="lazy">`:`<span class="tcard" role="img" aria-label="${o.zh}精油"><b>${o.zh}</b><small>真元草本</small></span>`}<span class="no">No.${String(o.i+1).padStart(2,"0")}</span></button>
-    <div><h3>${o.zh}精油</h3><p class="cat">${SCAT[o.cat]}</p><p class="ml">10 ML ・ CO₂</p><button class="open more" type="button" data-info="${o.id}">香氣與用法 →</button></div>
-    <div class="foot">${o.price?`<span class="pr">NT$${fmt(o.price)}</span><button class="add" type="button" data-add="${o.id}" aria-label="${o.zh}精油加入購物車">加入</button>`:`<span class="pr soon">售價待補</span><span class="soontag">即將上架</span>`}</div>
+    <div><h3>${o.zh}精油${ptag(o)}</h3><p class="cat">${SCAT[o.cat]}</p><p class="ml">10 ML ・ CO₂</p><button class="open more" type="button" data-info="${o.id}">香氣與用法 →</button></div>
+    <div class="foot">${o.price?`<span class="pr">NT$${fmt(o.price)}${was(o)}</span><button class="add" type="button" data-add="${o.id}" aria-label="${o.zh}精油加入購物車">加入</button>`:`<span class="pr soon">售價待補</span><span class="soontag">即將上架</span>`}</div>
   </article>`).join(""):`<p class="none">找不到「${q.replace(/</g,"&lt;")}」，換個字試試。</p>`;
 }
 
