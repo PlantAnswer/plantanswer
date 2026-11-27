@@ -4,7 +4,7 @@
 <script src="config.js"></script>
 <meta name="description" content="植物有解｜真元草本漢方精油。身體有問，植物有解。">
 </head><body>
-<title>植物有解 侘寂版</title>
+<title>植物有解 新東方玄學版</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500&family=Jost:wght@200;300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap">
@@ -658,6 +658,93 @@ fieldset.opt legend{font-family:var(--serif);font-size:15px;letter-spacing:.1em;
 .bankcard .bk-steps{margin:12px 0 0;padding-left:1.3em;font-size:13px;line-height:1.75;color:#4a423c}
 </style>
 
+<style>
+/* ===== 新東方玄學版（亮色）：宣紙底、赤金細線、方圓圓窗、印章篩選、當令輪播 ===== */
+:root{--linen:#F8F3E8;--oat:#F0E7D3;--stone:#E6DAC2;--mist:#F3ECDD;--ink:#1F1B17;--ink-2:#5C5347;--rule:#DED1B6;--brass:#94702F;--umber:#7A5A26;--card:#FFFCF5;--jade:#2F4A3A;--gold:#B8924A}
+body{background:
+  radial-gradient(circle at 12% 8%,rgba(184,146,74,.10),transparent 32%),
+  radial-gradient(circle at 92% 36%,rgba(47,74,58,.07),transparent 30%),
+  var(--linen)}
+.bar{background:rgba(248,243,232,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--gold)}
+.bar::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--rule)}
+.bar nav a{border-color:var(--brass)}
+.bar nav a[aria-current="page"]{background:var(--jade);border-color:var(--jade);color:#F8F3E8}
+.brand b{font-weight:700}
+
+/* 標題區：方圓雙環 */
+.apo .head{padding-block:clamp(12px,2vw,24px)}
+.apo .head::before,.apo .head::after{content:"";position:absolute;z-index:0;border-radius:50%;pointer-events:none}
+.apo .head::before{width:clamp(180px,22vw,280px);aspect-ratio:1;left:-90px;top:50%;transform:translateY(-50%);border:1px solid rgba(184,146,74,.3)}
+.apo .head::after{width:clamp(130px,16vw,200px);aspect-ratio:1;left:calc(-90px + clamp(25px,3vw,40px));top:50%;transform:translateY(-50%);border:1px dashed rgba(184,146,74,.35);animation:xx-turn 60s linear infinite}
+@keyframes xx-turn{to{transform:translateY(-50%) rotate(360deg)}}
+.apo .head .latin-title{color:var(--gold)}
+.apo .head h2{font-weight:900;font-size:clamp(30px,3.8vw,46px);letter-spacing:.22em}
+.apo .head .eyebrow{color:var(--brass)}
+.bencao{opacity:.08}
+
+/* 篩選：印章式 */
+.catf button{border-radius:4px;border:1px solid var(--brass);background:var(--card);font-family:var(--serif);letter-spacing:.14em}
+.catf button::before{border-radius:2px;transform:rotate(45deg)}
+.catf button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#F8F3E8}
+
+/* 單方卡：圓窗 */
+.drawers{gap:clamp(14px,1.8vw,22px);border:0}
+.dw{background:var(--card);border:1px solid var(--rule);border-radius:6px;box-shadow:inset 0 0 0 5px var(--card),inset 0 0 0 6px rgba(184,146,74,.28);transition:transform .5s cubic-bezier(.2,.6,.2,1),box-shadow .5s;text-align:center}
+.dw:hover{background:var(--card);transform:translateY(-4px);box-shadow:inset 0 0 0 5px var(--card),inset 0 0 0 6px rgba(184,146,74,.6),0 18px 36px -22px rgba(94,70,30,.45)}
+.dw .top{background:none;margin:0 0 2px;padding:30px 0 8px;border:0;display:grid;place-items:center}
+.dw .top img,.dw .top .tcard{width:min(68%,180px);max-width:none;aspect-ratio:1;object-fit:cover;border-radius:50%;-webkit-mask-image:none;mask-image:none;border:1px solid var(--gold);box-shadow:0 0 0 6px var(--card),0 0 0 7px rgba(184,146,74,.45);transition:transform 1.2s cubic-bezier(.2,.6,.2,1)}
+.dw .top .tcard{display:grid;place-content:center;background:radial-gradient(circle,#F4EBD7,#EADCBF)}
+.dw:hover .top img{transform:scale(1.04) rotate(-2deg)}
+.dw .top .no{left:50%;top:4px;transform:translateX(-50%);font-family:var(--serif);font-style:normal;font-size:12px;letter-spacing:.3em;color:var(--brass)}
+.dw h3{font-weight:700;letter-spacing:.22em;margin-top:6px}
+.dw .cat{color:var(--brass);font-family:var(--serif);font-size:13px;letter-spacing:.2em}
+.dw .more{color:var(--jade)}
+.dw .foot{border-top:1px solid var(--rule);justify-content:space-between}
+.dw .pr{font-family:var(--serif);font-weight:600;font-size:19px}
+.dw .add{background:var(--jade);border-color:var(--jade);color:#F8F3E8}
+.dw .add:hover{background:var(--ink);border-color:var(--ink)}
+.sfaq details{border-color:var(--rule)}
+
+/* 當令輪播 */
+.xc{position:relative;margin:clamp(24px,3vw,40px) auto clamp(36px,5vw,64px);max-width:1180px;padding-inline:20px}
+.xc-view{position:relative;overflow:hidden;border:1px solid var(--gold);border-radius:8px;background:
+  radial-gradient(circle at 78% 50%,rgba(184,146,74,.16),transparent 42%),linear-gradient(120deg,#FBF6EA,#F1E6CF);box-shadow:inset 0 0 0 6px #FBF6EA,inset 0 0 0 7px rgba(184,146,74,.35)}
+.xc-track{display:flex;transition:transform .9s cubic-bezier(.65,0,.25,1)}
+.xc-slide{flex:0 0 100%;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:center;gap:clamp(20px,4vw,56px);padding:clamp(36px,5vw,60px) clamp(24px,6vw,80px)}
+.xc-tx{display:grid;gap:16px;justify-items:start}
+.xc-tag{font-family:var(--serif);font-size:13px;letter-spacing:.36em;color:var(--brass)}
+.xc-tag em{font-style:normal;color:#F8F3E8;background:var(--seal);padding:1px 8px;margin-left:10px;letter-spacing:.14em;border-radius:2px}
+.xc h3{font-family:var(--serif);font-weight:900;font-size:clamp(36px,5vw,60px);letter-spacing:.2em;line-height:1.25}
+.xc p{color:var(--ink-2);font-size:15px;max-width:24em;line-height:2}
+.xc-act{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:6px}
+.xc-act .pr{font-family:var(--serif);font-weight:600;font-size:20px;margin-right:6px}
+.xc-act button{min-height:44px;padding:0 24px;border-radius:999px;font-size:14px;letter-spacing:.16em;border:1px solid var(--jade)}
+.xc-act .go{background:var(--jade);color:#F8F3E8}
+.xc-act .go:hover{background:var(--ink);border-color:var(--ink)}
+.xc-act .info{background:transparent;color:var(--jade)}
+.xc-pic{position:relative;display:grid;place-items:center;aspect-ratio:1;max-width:340px;width:100%;justify-self:center}
+.xc-pic::after{content:"";position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(184,146,74,.7)}
+.xc-pic img{width:86%;aspect-ratio:1;object-fit:cover;border-radius:50%;border:1px solid var(--gold);box-shadow:0 0 0 8px #F7EFDD,0 0 0 9px rgba(184,146,74,.5)}
+.xc-pic b{position:absolute;right:-10px;top:9%;z-index:1;writing-mode:vertical-rl;font-family:var(--serif);font-weight:900;font-size:clamp(26px,2.8vw,34px);letter-spacing:.2em;color:#F8F3E8;background:var(--seal);padding:12px 6px;border-radius:3px}
+.xc-slide.on .xc-tx>*{animation:xx-up .9s cubic-bezier(.2,.6,.2,1) both}
+.xc-slide.on .xc-tx>*:nth-child(2){animation-delay:.08s}.xc-slide.on .xc-tx>*:nth-child(3){animation-delay:.16s}.xc-slide.on .xc-tx>*:nth-child(4){animation-delay:.24s}
+.xc-slide.on .xc-pic{animation:xx-in 1.2s cubic-bezier(.2,.6,.2,1) both}
+.xc-slide.on .xc-pic::after{animation:xx-spin 30s linear infinite}
+@keyframes xx-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes xx-in{from{opacity:0;transform:scale(.9) rotate(-6deg)}to{opacity:1;transform:none}}
+@keyframes xx-spin{to{transform:rotate(360deg)}}
+.xc-nav{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px}
+.xc-nav .ar{width:44px;height:44px;border-radius:50%;border:1px solid var(--brass);background:var(--card);display:grid;place-items:center}
+.xc-nav .ar svg{width:16px;height:16px}
+.xc-dots{display:flex;gap:4px}
+.xc-dots button{width:44px;height:44px;border:0;background:none;display:grid;place-items:center;padding:0}
+.xc-dots button::before{content:"";width:12px;height:12px;transform:rotate(45deg);border:1px solid var(--brass);transition:background .3s,transform .3s}
+.xc-dots button[aria-current="true"]::before{background:var(--brass);transform:rotate(45deg) scale(1.2)}
+.xc-count{font-family:var(--serif);font-size:13px;letter-spacing:.24em;color:var(--ink-2);min-width:4.5em;text-align:center;white-space:nowrap}
+@media (max-width:760px){.xc-act{justify-content:center}.xc-nav{gap:6px}.xc-dots button{width:34px}.xc-slide{grid-template-columns:1fr;text-align:center}.xc-tx{justify-items:center;order:2}.xc-pic{max-width:240px}.xc-pic b{right:-14px}}
+@media (prefers-reduced-motion:reduce){.xc-track{transition:none}.xc-slide.on *,.xc-slide.on .xc-pic,.apo .head::after{animation:none!important}}
+</style>
+
 <header class="bar">
   <div class="wrap">
     <a class="brand" href="#singles" aria-label="真元草本｜植物有解 首頁"><span class="seal" aria-hidden="true">植物<br>有解</span><b class="duo"><span>真元草本<i aria-hidden="true">｜</i></span><span>植物有解</span></b><small>PLANT ANSWER</small></a>
@@ -768,6 +855,33 @@ fieldset.opt legend{font-family:var(--serif);font-size:15px;letter-spacing:.1em;
 </main>
 
 <main id="singles">
+  <section class="xc" id="xc" aria-roledescription="carousel" aria-label="冬季當令單方">
+    <div class="xc-view"><div class="xc-track" id="xcTrack">
+    <div class="xc-slide on" role="group" aria-roledescription="slide" aria-label="1 / 4：杜仲精油">
+      <div class="xc-tx"><span class="xc-tag">立冬 ・ 冬季當令</span><h3>杜仲</h3><p>樹皮輕輕一折，白絲還連著。<br>冬天的第一味，沉穩、溫厚。</p>
+        <div class="xc-act"><span class="pr" data-xp="s01"></span><button class="go" type="button" data-add="s01">加入購物車</button><button class="info" type="button" data-info="s01">看介紹</button></div></div>
+      <div class="xc-pic"><img src="img/oil/s01.jpg" alt="真元草本杜仲精油 10ml 瓶身與外盒" loading="lazy"><b>冬藏</b></div>
+    </div>
+<div class="xc-slide" role="group" aria-roledescription="slide" aria-label="2 / 4：菟絲子精油">
+      <div class="xc-tx"><span class="xc-tag">立冬 ・ 冬季當令</span><h3>菟絲子</h3><p>細小的種子，<br>收著整個秋天留下的氣味。</p>
+        <div class="xc-act"><span class="pr" data-xp="s21"></span><button class="go" type="button" data-add="s21">加入購物車</button><button class="info" type="button" data-info="s21">看介紹</button></div></div>
+      <div class="xc-pic"><img src="img/oil/s21.jpg" alt="真元草本菟絲子精油 10ml 瓶身與外盒" loading="lazy"><b>收斂</b></div>
+    </div>
+<div class="xc-slide" role="group" aria-roledescription="slide" aria-label="3 / 4：何首烏精油">
+      <div class="xc-tx"><span class="xc-tag">小雪 ・ 冬季當令<em>節氣八折</em></span><h3>何首烏</h3><p>根莖深埋土裡，香氣也往下沉。<br>小雪期間八折，至 12/6 止。</p>
+        <div class="xc-act"><span class="pr" data-xp="s11"></span><button class="go" type="button" data-add="s11">加入購物車</button><button class="info" type="button" data-info="s11">看介紹</button></div></div>
+      <div class="xc-pic"><img src="img/oil/s11.jpg" alt="真元草本何首烏精油 10ml 瓶身與外盒" loading="lazy"><b>小雪</b></div>
+    </div>
+<div class="xc-slide" role="group" aria-roledescription="slide" aria-label="4 / 4：黃精精油">
+      <div class="xc-tx"><span class="xc-tag">小雪 ・ 冬季當令<em>節氣八折</em></span><h3>黃精</h3><p>帶著一點甘甜的根香，<br>適合冬夜裡慢慢聞。小雪期間八折。</p>
+        <div class="xc-act"><span class="pr" data-xp="s20"></span><button class="go" type="button" data-add="s20">加入購物車</button><button class="info" type="button" data-info="s20">看介紹</button></div></div>
+      <div class="xc-pic"><img src="img/oil/s20.jpg" alt="真元草本黃精精油 10ml 瓶身與外盒" loading="lazy"><b>閉藏</b></div>
+    </div>
+    </div></div>
+    <div class="xc-nav"><button class="ar" type="button" id="xcPrev" aria-label="上一張"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <div class="xc-dots" id="xcDots"></div><span class="xc-count" id="xcCount">01 / 04</span>
+      <button class="ar" type="button" id="xcNext" aria-label="下一張"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div>
+  </section>
   <section class="apo">
     <div class="wrap">
       <div class="head">
@@ -1381,4 +1495,26 @@ updN();
 route();
 </script>
 
+
+<script>
+/* 當令輪播 */
+(function(){
+  const tr=document.getElementById("xcTrack");if(!tr)return;
+  const sl=[...tr.children],n=sl.length,dots=document.getElementById("xcDots"),cnt=document.getElementById("xcCount"),box=document.getElementById("xc");
+  document.querySelectorAll("[data-xp]").forEach(el=>{const o=SINGLES.find(x=>x.id===el.dataset.xp);if(o&&o.price)el.innerHTML="NT$"+fmt(o.price)+(o.orig&&o.orig!==o.price?` <s>NT$${fmt(o.orig)}</s>`:"")});
+  dots.innerHTML=sl.map((_,i)=>`<button type="button" aria-label="第 ${i+1} 張"></button>`).join("");
+  let i=0,t=null;const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function go(k){i=(k+n)%n;tr.style.transform=`translateX(-${i*100}%)`;sl.forEach((s,j)=>{s.classList.toggle("on",j===i);s.inert=j!==i});[...dots.children].forEach((d,j)=>d.setAttribute("aria-current",j===i));cnt.textContent=`0${i+1} / 0${n}`}
+  function play(){stop();if(!reduce)t=setInterval(()=>go(i+1),5000)}
+  function stop(){clearInterval(t)}
+  document.getElementById("xcPrev").onclick=()=>{go(i-1);play()};
+  document.getElementById("xcNext").onclick=()=>{go(i+1);play()};
+  dots.onclick=e=>{const b=e.target.closest("button");if(!b)return;go([...dots.children].indexOf(b));play()};
+  box.addEventListener("mouseenter",stop);box.addEventListener("mouseleave",play);
+  box.addEventListener("focusin",stop);box.addEventListener("focusout",play);
+  let x0=null;tr.addEventListener("touchstart",e=>{x0=e.touches[0].clientX;stop()},{passive:true});
+  tr.addEventListener("touchend",e=>{if(x0==null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>40)go(i+(d<0?1:-1));x0=null;play()});
+  go(0);play();
+})();
+</script>
 </body></html>
